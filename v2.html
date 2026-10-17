@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>유승환 · 제품 개발에서 사업 전반까지</title>
+<meta name="description" content="제품 개발에서 사업 전반까지, 넓은 시야로 일하는 유승환의 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --bg:#EEEDE9; --paper:#FFFFFF; --ink:#151515; --sub:#6F6D68; --soft:#A9A69F; --hair:#CFCCC5;
+  --acc:#E24E1B; --dark:#0E0E0E; --dark2:#161616; --line-d:#2E2E2E; --dsub:#9A978F;
+  --pad:clamp(16px,4vw,56px); --w:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto}
+body{background:var(--dark);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;
+  font-size:16px;line-height:1.65;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 var(--pad)}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--acc);text-transform:uppercase}
+.title{font-size:clamp(34px,5.2vw,74px);font-weight:850;letter-spacing:-.035em;line-height:1.08;margin:14px 0 22px}
+.lead{font-size:clamp(17px,1.6vw,20px);line-height:1.75;max-width:620px}
+.sub{color:var(--sub)}
+.note{font-size:12.5px;color:var(--soft);margin-top:10px}
+
+.bar{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .4s,color .4s,border-color .4s;
+  background:rgba(14,14,14,.55);color:#F2F1EE;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.bar.light{background:rgba(238,237,233,.82);color:var(--ink);border-bottom-color:rgba(0,0,0,.07)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:54px;max-width:none}
+.bar .nm{font-weight:800}.bar .nm span{font-weight:300;opacity:.6;margin-left:8px}
+.bar .ch{font-size:13px;opacity:.8}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--acc);transform-origin:0 50%;transform:scaleX(0)}
+
+.rail{position:fixed;left:26px;top:50%;transform:translateY(-50%);z-index:55;display:none;opacity:0;transition:opacity .5s;pointer-events:none}
+.rail.on{opacity:1;pointer-events:auto}
+.rail .ln{position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:rgba(128,128,128,.35)}
+.rail .ln i{position:absolute;left:0;top:0;width:100%;height:100%;background:var(--acc);transform-origin:50% 0;transform:scaleY(0)}
+.rail a{position:relative;display:flex;align-items:center;gap:12px;height:56px;text-decoration:none;font-size:12px;font-weight:700;color:var(--soft)}
+.rail a b{width:12px;height:12px;border-radius:50%;background:var(--dark);border:2px solid rgba(128,128,128,.7);transition:all .3s;flex:none}
+.rail a span{opacity:0;transform:translateX(-6px);transition:all .3s;white-space:nowrap}
+.rail a.on b{background:var(--acc);border-color:var(--acc);transform:scale(1.25)}
+.rail a.on span{color:var(--acc)}
+.rail:hover a span{opacity:1;transform:none}
+@media(min-width:1180px){.rail{display:block}}
+
+.stack{position:relative}
+.card{position:relative;border-radius:34px 34px 0 0;overflow:clip;box-shadow:0 -30px 60px -30px rgba(0,0,0,.45)}
+.card .inner{position:relative;transform-origin:50% 0}
+.card .shade{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;z-index:5}
+.card.light{background:var(--bg);color:var(--ink)}
+.card.paper{background:#F6F4EF;color:var(--ink)}
+.card.dark{background:var(--dark2);color:#F2F1EE}
+.card.dark .sub{color:var(--dsub)}
+.card.first{border-radius:0;background:var(--dark);color:#F2F1EE;box-shadow:none}
+.js .card{position:sticky}
+.sect{padding:clamp(100px,12vw,160px) 0 clamp(80px,10vw,130px)}
+
+.kpis{display:flex;flex-wrap:wrap;gap:clamp(22px,3vw,44px);margin-top:32px;padding-top:22px;border-top:1px solid var(--hair)}
+.dark .kpis{border-top-color:var(--line-d)}
+.kpi b{display:block;font-size:clamp(30px,3.4vw,46px);font-weight:900;letter-spacing:-.04em;line-height:1.05}
+.kpi b small{font-size:.45em;font-weight:600;margin-left:3px;letter-spacing:0}
+.kpi b .cnt{font:inherit;color:inherit}
+.kpi > span{font-size:13px;color:var(--sub)}
+.dark .kpi > span{color:var(--dsub)}
+
+#opening .stage{position:relative;height:100vh;min-height:640px;overflow:hidden}
+.js #opening .track{height:400vh}
+.js #opening .stage{position:sticky;top:0}
+.field{position:absolute;inset:0;width:100%;height:100%;display:block}
+.glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx,68%) var(--my,30%),rgba(226,78,27,.2),transparent 62%)}
+.layer{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 var(--pad)}
+.o-hero{align-items:stretch}
+.o-left{width:100%;max-width:var(--w);margin:0 auto;padding:0 var(--pad);text-align:left}
+.me{position:absolute;bottom:0;right:max(0px,calc((100vw - var(--w))/2 - 90px));height:min(82vh,880px);width:auto;max-width:44vw;object-fit:contain;object-position:bottom;pointer-events:none;
+  filter:drop-shadow(0 0 60px rgba(226,78,27,.18));will-change:transform}
+.o-title{font-size:clamp(52px,7.2vw,124px);font-weight:900;line-height:.95;letter-spacing:-.05em;transform-origin:0 50%}
+@media(max-width:900px){.me{right:50%;transform:translateX(50%);height:56vh;max-width:none;opacity:.9}.o-hero{justify-content:flex-start;padding-top:110px}.o-title{font-size:clamp(46px,12vw,80px)}}
+.o-title i{font-style:normal;color:var(--acc)}
+.o-sub{margin-top:30px;text-shadow:0 2px 20px rgba(0,0,0,.6);font-size:clamp(16px,1.6vw,20px);color:#BDBAB2;letter-spacing:.02em}
+.o-intro{font-size:clamp(26px,3.6vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.3}
+.o-intro b{color:var(--acc);font-weight:800}
+.o-prob h2{font-size:clamp(28px,3.6vw,52px);font-weight:850;letter-spacing:-.035em;line-height:1.15;margin:12px 0 10px}
+.o-prob p{color:#9A978F;max-width:640px;margin:0 auto 26px}
+.o-prob svg{width:min(1000px,100%)}
+.hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;color:#8A877F}
+.hint::after{content:"";display:block;width:1px;height:36px;background:#8A877F;margin:10px auto 0;animation:hint 1.8s infinite}
+@keyframes hint{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.js .o-intro,.js .o-prob{opacity:0}
+html:not(.js) #opening .layer{position:relative;inset:auto;padding:90px var(--pad)}
+html:not(.js) #opening .stage{height:auto}
+
+svg.pipe{height:auto;overflow:visible;display:block;margin:0 auto}
+.pipe .base{stroke:#2C2C2C;stroke-width:3;fill:none}
+.pipe .flow{stroke:#F2F1EE;stroke-width:3;fill:none}
+.pipe .node circle{fill:var(--dark);stroke:#F2F1EE;stroke-width:3}
+.pipe .node text{fill:#F2F1EE;font-size:22px;font-weight:700;text-anchor:middle}
+.pipe .leak circle{fill:var(--acc)}
+.pipe .leak text{fill:#C9C6BF;font-size:16px;text-anchor:middle}
+.pipe .plug rect{fill:var(--acc)}
+.pipe .plug text{fill:#fff;font-size:16px;font-weight:700;text-anchor:middle}
+
+.d-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,5vw,80px)}
+.d-blk{min-height:78vh;display:flex;flex-direction:column;justify-content:center}
+.d-blk h3{font-size:clamp(26px,2.8vw,38px);font-weight:850;letter-spacing:-.03em;margin:10px 0 12px;line-height:1.2}
+.d-blk p{font-size:17px;color:var(--sub);max-width:520px}
+.d-blk .big{font-size:clamp(56px,6vw,88px);font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--ink);margin-top:10px}
+.d-media{position:sticky;top:12vh;height:76vh;perspective:1400px}
+.d-media .slot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .7s,transform .7s;transform:translateY(24px)}
+.d-media .slot.on{opacity:1;transform:none}
+.d-media .slot .frame{background:var(--paper);border-radius:24px;padding:clamp(16px,2vw,30px);box-shadow:0 50px 90px -50px rgba(0,0,0,.35);width:100%}
+.d-media .slot img{cursor:zoom-in;margin:0 auto;max-height:62vh;object-fit:contain}
+.d-media .slot.china .frame{background:var(--ink);color:#F2F1EE;height:62vh;display:flex;flex-direction:column;padding:0;overflow:hidden;
+  background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.2px);background-size:22px 22px}
+.cg{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.cs{padding:clamp(20px,2.4vw,34px);display:flex;flex-direction:column;justify-content:flex-end;border-right:1px solid #2E2E2E;border-bottom:1px solid #2E2E2E}
+.cs:nth-child(2n){border-right:0}.cs:nth-child(n+3){border-bottom:0}
+.cs b{font-size:clamp(44px,4.6vw,76px);font-weight:900;letter-spacing:-.05em;line-height:1}
+.cs b small{font-size:.38em;font-weight:700;margin-left:4px;letter-spacing:0}
+.cs span{color:#A9A69F;font-size:14px;margin-top:10px}
+.cs.hot{background:linear-gradient(160deg,rgba(226,78,27,.28),rgba(226,78,27,.05))}
+.cs.hot b{color:#FF7A45}
+.ctag{display:flex;align-items:center;gap:10px;padding:16px clamp(20px,2.4vw,34px);border-top:1px solid #2E2E2E;font-size:14px;color:#CFCCC5}
+.ctag i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 6px rgba(226,78,27,.18)}
+#ecFrame{transform-style:preserve-3d}
+.d-blk .mimg{display:none}
+@media(max-width:900px){.d-grid{grid-template-columns:1fr}.d-media{display:none}.d-blk{min-height:auto;padding:30px 0}.d-blk .mimg{display:block;margin-top:18px;background:#fff;border-radius:16px;padding:12px}}
+
+.h-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+@media(max-width:900px){.h-top{grid-template-columns:1fr}}
+.tilt{perspective:1200px}
+.tilt-in{transition:transform .25s ease-out;transform-style:preserve-3d;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 50px 90px -45px rgba(0,0,0,.35)}
+.partners{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.partners span{border:1px solid var(--ink);border-radius:999px;padding:5px 13px;font-size:13px}
+.h-wrap{margin-top:clamp(40px,6vw,80px)}
+.js .h-wrap{height:300vh;margin-top:0}
+.h-stage{display:flex;flex-direction:column;justify-content:center}
+.js .h-stage{position:sticky;top:0;height:100vh;overflow:hidden}
+.h-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}
+.h-head h3{font-size:clamp(22px,2.4vw,32px);font-weight:850;letter-spacing:-.02em}
+.h-bar{height:2px;background:var(--hair);margin-bottom:26px;position:relative}
+.h-bar i{position:absolute;inset:0;background:var(--acc);transform-origin:0 50%;transform:scaleX(0)}
+.h-track{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.js .h-track{display:flex;width:max-content;gap:26px}
+.h-panel{background:var(--paper);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.js .h-panel{width:min(44vw,560px)}
+.h-panel .ph{aspect-ratio:16/10;background:#fff;display:flex;align-items:center;justify-content:center;padding:12px}
+.h-panel .ph img{max-height:100%;object-fit:contain;cursor:zoom-in}
+.h-panel .ph.cover{padding:0}.h-panel .ph.cover.top img{object-position:top left}.h-panel .ph.cover img{width:100%;height:100%;max-height:none;object-fit:cover}
+.h-panel .ph{aspect-ratio:4/3}
+.h-panel .tx{padding:18px 22px 24px}
+.h-panel .no{font-size:13px;font-weight:800;color:var(--acc)}
+.h-panel h4{font-size:20px;margin:4px 0 6px}
+.h-panel p{font-size:14.5px;color:var(--sub)}
+.h-panel em{font-style:normal;color:var(--ink);font-weight:700}
+@media(max-width:900px){.h-track{grid-template-columns:1fr}.js .h-wrap{height:auto}.js .h-stage{position:relative;height:auto;padding:30px 0}.js .h-track{display:grid;width:auto}.js .h-panel{width:auto}}
+
+.causes{display:grid;gap:14px;margin-top:44px}
+.cause{border:1px solid var(--line-d);border-radius:18px;padding:22px 26px;display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:center;gap:8px;cursor:pointer;transition:border-color .3s,background .3s}
+.cause:hover,.cause.on{border-color:var(--acc);background:#1D1612}
+.cause .st small{display:block;font-size:12px;letter-spacing:.12em;color:#8A877F;margin-bottom:4px}
+.cause .st b{font-size:clamp(16px,1.6vw,20px);font-weight:700}
+.cause .st.fix b{color:var(--acc)}
+.cause .ar{height:2px;background:var(--acc);position:relative}
+.cause .ar::after{content:"";position:absolute;right:-1px;top:-4px;border-left:8px solid var(--acc);border-top:5px solid transparent;border-bottom:5px solid transparent}
+@media(max-width:760px){.cause{grid-template-columns:1fr;gap:6px}.cause .ar{width:2px;height:18px;margin:2px 0 2px 14px}.cause .ar::after{right:auto;left:-4px;top:auto;bottom:-6px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid var(--acc);border-bottom:0}}
+.docs4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.docs4 figure{background:#fff;border-radius:12px;padding:8px}
+.docs4 img{aspect-ratio:16/9;object-fit:contain;cursor:zoom-in}
+.docs4 figcaption{color:#151515;font-size:13px;padding:6px 4px 2px;font-weight:600}
+@media(max-width:900px){.docs4{grid-template-columns:1fr 1fr}}
+
+.sim{background:var(--paper);border-radius:24px;padding:clamp(20px,3vw,40px);margin-top:40px}
+.sim-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}
+.sim-top .st{display:flex;gap:28px;flex-wrap:wrap}
+.sim-top .st div b{display:block;font-size:30px;font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.sim-top .st div span{font-size:13px;color:var(--sub)}
+.toggle{display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:10px 18px 10px 10px;font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.toggle .sw{width:46px;height:26px;border-radius:99px;background:#555;position:relative;transition:background .3s}
+.toggle .sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .3s}
+.toggle.on .sw{background:var(--acc)}.toggle.on .sw::after{transform:translateX(20px)}
+.toggle:not(.on){animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(226,78,27,.5)}50%{box-shadow:0 0 0 10px rgba(226,78,27,0)}}
+.chart{position:relative;height:290px;display:grid;grid-template-columns:repeat(12,1fr);gap:8px;align-items:end;border-bottom:1px solid var(--hair)}
+.chart .col{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.chart .fill{position:relative;z-index:2;background:linear-gradient(180deg,#5B8DEF,#8FB3F5);border-radius:8px 8px 2px 2px;transition:height .9s cubic-bezier(.2,.8,.2,1);height:0;box-shadow:0 10px 20px -12px rgba(40,70,140,.6)}
+.chart .fill.low{background:linear-gradient(180deg,var(--acc),#F2946B);box-shadow:0 10px 20px -12px rgba(226,78,27,.7)}
+.chart .fill.over{background:linear-gradient(180deg,#151515,#555);box-shadow:0 10px 20px -12px rgba(0,0,0,.6)}
+.chart .ghost{position:absolute;left:10%;right:10%;bottom:0;z-index:1;border:2px dashed #7C5CD6;border-bottom:0;border-radius:8px 8px 0 0;opacity:0;transition:opacity .5s,height .9s}
+.chart.on .ghost{opacity:.55}
+.chart .col:hover .fill{filter:brightness(1.08)}
+.season{position:absolute;top:0;bottom:0;background:rgba(226,78,27,.07);border-radius:10px;z-index:0}
+.season span{position:absolute;top:6px;left:8px;font-size:11px;font-weight:800;letter-spacing:.08em;color:rgba(226,78,27,.75)}
+.dline{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible}
+.dline polyline{fill:none;stroke:#7C5CD6;stroke-width:2.5;stroke-dasharray:6 6;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .6s}
+.chart.on .dline polyline{opacity:1}
+.chart .m{position:absolute;bottom:-26px;left:0;right:0;text-align:center;font-size:12px;color:var(--sub)}
+.chart .v{position:absolute;left:0;right:0;text-align:center;font-size:12px;font-weight:700;transition:bottom .9s cubic-bezier(.2,.8,.2,1)}
+.hl{position:absolute;left:0;right:0;border-top:2px dashed;pointer-events:none}
+.hl span{position:absolute;right:0;top:-22px;font-size:12px;font-weight:700;background:var(--paper);padding:0 4px}
+.hl.bep{border-color:var(--acc);color:var(--acc)}.hl.cap{border-color:var(--ink);color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:40px;font-size:13px;color:var(--sub)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.z-wrap{margin-top:clamp(60px,8vw,110px)}
+.js .z-wrap{height:300vh;margin-top:clamp(30px,4vw,60px)}
+.z-stage{display:grid;grid-template-columns:.75fr 1.45fr;gap:clamp(30px,4vw,64px);align-items:center}
+.js .z-stage{position:sticky;top:0;height:100vh;overflow:hidden;padding-top:70px;padding-bottom:30px}
+.steps li{list-style:none;padding:15px 0;border-top:1px solid var(--hair);opacity:.35;transition:opacity .4s}
+.steps li.on{opacity:1}
+.steps li b{display:block;font-size:18px}
+.steps li span{font-size:14px;color:var(--sub)}
+.device{background:#1B1B1B;border-radius:18px;padding:12px 12px 16px;box-shadow:0 60px 100px -50px rgba(0,0,0,.45);transform-origin:28% 30%}
+.device .scr{position:relative;border-radius:8px;overflow:hidden;background:#fff;display:grid;gap:10px}
+.device .scr img{width:100%;cursor:zoom-in}
+.js .device .scr{display:block;aspect-ratio:3/2}
+.js .device .scr img{position:absolute;inset:0;height:100%;object-fit:cover;object-position:top;opacity:0}
+.js .device .scr img:first-child{opacity:1}
+@media(max-width:900px){.z-stage{grid-template-columns:1fr}.js .z-wrap{height:auto}.js .z-stage{position:relative;height:auto;padding:0 var(--pad)}.js .device .scr{display:grid;aspect-ratio:auto}.js .device .scr img{position:relative;opacity:1;height:auto}}
+
+.js .n-wrap{height:380vh}
+.n-stage{padding-top:40px;padding-bottom:40px}
+.js .n-stage{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:70px;padding-bottom:40px}
+.nums{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:36px}
+.num{border-top:2px solid var(--line-d);padding-top:16px}
+.num b{display:block;font-size:clamp(40px,5vw,64px);font-weight:900;letter-spacing:-.04em;line-height:1}
+.num span{font-size:14px;color:var(--dsub)}
+.num:last-child b{color:var(--acc)}
+.js .nums{display:block;position:relative;flex:1;max-height:52vh;margin-top:10px}
+.js .num{position:absolute;inset:0;border:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0}
+.js .num b{font-size:clamp(90px,16vw,240px)}
+.js .num span{font-size:clamp(16px,1.8vw,22px);margin-top:12px;color:#BDBAB2}
+.n-dots{display:none;justify-content:center;gap:8px;margin-top:8px}
+.js .n-dots{display:flex}
+.n-dots i{width:28px;height:3px;background:var(--line-d);border-radius:2px;transition:background .3s}
+.n-dots i.on{background:var(--acc)}
+@media(max-width:900px){.nums{grid-template-columns:1fr 1fr}.js .n-wrap{height:auto}.js .n-stage{position:relative;height:auto}.js .nums{display:grid;max-height:none}.js .num{position:relative;opacity:1;align-items:flex-start;text-align:left;border-top:2px solid var(--line-d);padding-top:14px}.js .num b{font-size:48px}.js .n-dots{display:none}}
+.doclist{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;margin-top:30px}
+.doclist div{display:grid;grid-template-columns:210px 1fr;gap:14px;padding:15px 0;border-top:1px solid var(--line-d);font-size:15px}
+.doclist b{font-weight:700}.doclist span{color:var(--dsub)}
+@media(max-width:760px){.doclist{grid-template-columns:1fr}.doclist div{grid-template-columns:1fr;gap:2px}}
+
+#finale .f-top{position:relative;height:100vh;min-height:640px;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.js #finale .f-track{height:220vh}
+.js #finale .f-top{position:sticky;top:0}
+#finale .f-top .wrap{position:relative;text-align:center;width:100%}
+#finale .f-top h2{font-size:clamp(28px,3.6vw,50px);font-weight:850;letter-spacing:-.03em;margin:12px 0 36px;color:#F2F1EE}
+.want{color:#F2F1EE;padding-top:40px;padding-bottom:30px}
+.want .statement{font-size:clamp(34px,5.4vw,82px);font-weight:900;line-height:1.1;letter-spacing:-.04em;text-align:center;max-width:1100px;margin:0 auto}
+.want .statement .l{display:block;overflow:hidden}
+.want .statement .l span{display:inline-block}
+.paths{max-width:1000px;margin:56px auto 0;border-top:1px solid var(--line-d)}
+.paths div{display:grid;grid-template-columns:220px 200px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line-d)}
+.paths b{font-size:17px}.paths em{font-style:normal;color:var(--acc)}.paths span{color:var(--dsub)}
+@media(max-width:760px){.paths div{grid-template-columns:1fr;gap:2px}}
+.motto{text-align:center;color:var(--dsub);margin-top:50px;font-size:16px}
+.contact{text-align:center;margin-top:40px}
+.contact a.mail{font-size:clamp(24px,3vw,38px);font-weight:800;text-decoration:none;border-bottom:3px solid var(--acc);padding-bottom:4px;color:#F2F1EE}
+.contact p{color:#8A877F;font-size:13px;margin-top:16px}
+footer{padding:50px 0;color:#77746D;font-size:13px;text-align:center}
+footer a{color:var(--dsub)}
+
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,10,10,.92);display:none;align-items:center;justify-content:center;padding:60px 70px}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:100%;border-radius:8px;background:#fff}
+.lb button{position:absolute;background:none;border:0;color:#fff;font-size:34px;cursor:pointer;padding:10px 16px;font-family:inherit}
+.lb .x{top:10px;right:14px}.lb .pv{left:10px;top:50%;transform:translateY(-50%)}.lb .nx{right:10px;top:50%;transform:translateY(-50%)}
+.lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#ccc;font-size:14px}
+</style>
+<script>
+(function(){var r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(!r)document.documentElement.classList.add('js');})();
+</script>
+</head>
+<body>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <div class="nm">유승환<span>Yu Seunghwan</span></div>
+    <div class="ch" id="chap">PORTFOLIO 2026</div>
+  </div>
+  <i class="progress" id="prog"></i>
+</header>
+
+<nav class="rail" id="rail" aria-label="장면 이동">
+  <div class="ln"><i id="railFill"></i></div>
+  <a href="#c1"><b></b><span>01 설계</span></a>
+  <a href="#c2"><b></b><span>02 창업</span></a>
+  <a href="#c3"><b></b><span>03 생산전환TF</span></a>
+  <a href="#c4"><b></b><span>04 업무 시스템</span></a>
+  <a href="#c5"><b></b><span>05 사업계획</span></a>
+</nav>
+
+<main class="stack" id="stack">
+
+<section class="card first" id="opening" data-ch="PORTFOLIO 2026" data-theme="dark">
+ <div class="inner"><div class="shade"></div>
+  <div class="track">
+   <div class="stage">
+    <canvas class="field"></canvas><div class="glow"></div>
+    <img class="me" id="me" src="assets/me_cut.png" alt="유승환">
+    <div class="layer o-hero">
+      <div class="o-left">
+        <div class="kicker">유승환 · Portfolio 2026</div>
+        <h1 class="o-title" style="margin-top:26px">제품 개발에서<br>사업 전반까지<i>.</i></h1>
+        <p class="o-sub">설계 15년 · 창업 3년 · 전략기획</p>
+      </div>
+    </div>
+    <div class="layer"><p class="o-intro">제품이 고객에게 닿기까지,<br>그 <b>전 과정</b>을 직접 다뤄 봤습니다</p></div>
+    <div class="layer o-prob">
+      <div class="kicker">The problem</div>
+      <h2>손이 바뀔 때마다<br>새는 시간과 비용</h2>
+      <p>제품은 기획에서 고객까지 여러 부서와 회사를 거칩니다. 일이 넘어가는 자리마다 정보가 끊기고, 그 자리에서 시간과 비용이 샙니다</p>
+      <svg class="pipe" id="pipe1" viewBox="0 0 1000 300" aria-label="기획, 설계, 양산, 판매, 고객으로 이어지는 흐름과 넘어가는 자리마다 새는 비용">
+        <path class="base" d="M80 110 H920"/><path class="flow" d="M80 110 H920"/>
+        <g class="node"><circle cx="80" cy="110" r="14"/><text x="80" y="66">기획</text></g>
+        <g class="node"><circle cx="290" cy="110" r="14"/><text x="290" y="66">설계</text></g>
+        <g class="node"><circle cx="500" cy="110" r="14"/><text x="500" y="66">양산</text></g>
+        <g class="node"><circle cx="710" cy="110" r="14"/><text x="710" y="66">판매</text></g>
+        <g class="node"><circle cx="920" cy="110" r="14"/><text x="920" y="66">고객</text></g>
+        <g class="leak"><circle cx="185" cy="110" r="8"/><text x="185" y="240">요구와 구조의 어긋남</text></g>
+        <g class="leak"><circle cx="395" cy="110" r="8"/><text x="395" y="240">양산 이관 불량·재작업</text></g>
+        <g class="leak"><circle cx="605" cy="110" r="8"/><text x="605" y="240">부서 간 수급 단절</text></g>
+        <g class="leak"><circle cx="815" cy="110" r="8"/><text x="815" y="240">고객 접점의 공백</text></g>
+      </svg>
+    </div>
+    <div class="hint">SCROLL</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="card light" id="c1" data-ch="01 설계 15년" data-theme="light" data-rail="0">
+ <div class="inner"><div class="shade"></div>
+  <div class="wrap sect">
+   <div class="d-grid">
+    <div>
+      <div class="d-blk" data-slot="0">
+        <div class="kicker">01 · 설계 15년 · 2010 ~ 2022</div>
+        <h2 class="title">하이테크를<br>양산 가능한 구조로</h2>
+        <p class="lead" style="color:var(--sub)">배터리를 넣은 전기변색 글래스를 34g으로 설계했습니다. 도면이 금형과 공정을 지나며 어디서 어긋나는지, 그 어긋남을 어떻게 미리 막는지를 이 시기에 배웠습니다.</p>
+        <div class="kpis">
+          <div class="kpi"><b><span class="cnt" data-to="34">34</span><small>g</small></b><span>배터리 포함 무게</span></div>
+          <div class="kpi"><b>46~10<small>%</small></b><span>투과율 가변</span></div>
+          <div class="kpi"><b>IPX4</b><span>방수 설계</span></div>
+          <div class="kpi"><b><span class="cnt" data-to="5900" data-comma="1">5,900</span><small>만원</small></b><span>와디즈 펀딩</span></div>
+        </div>
+        <div class="mimg"><img src="assets/ec_explode.jpg" alt="전기변색 글래스 분해도" data-zoom data-cap="전기변색 글래스 기구 설계" loading="lazy"></div>
+      </div>
+      <div class="d-blk" data-slot="1">
+        <div class="kicker">스마트글래스 · 2018 ~ 2019</div>
+        <h3>센서와 회로를<br>안경테 안으로</h3>
+        <p>UV 노출과 졸음운전을 감지하는 안경입니다. FPCB 인서트 사출, FPCB가 끊어지지 않는 힌지 구조를 설계했고 KC 인증을 받아 CES에 출품했습니다. 협력사와의 기술 소통 창구도 맡았습니다.</p>
+        <div class="mimg"><img src="assets/sg_render.jpg" alt="스마트글래스" data-zoom data-cap="스마트글래스" loading="lazy"></div>
+      </div>
+      <div class="d-blk" data-slot="2">
+        <div class="kicker">저온 내충격 소재 · 2013 ~ 2015</div>
+        <h3>규격 제정부터<br>상품화까지</h3>
+        <p>정부 기술혁신개발사업 2개년 실무를 맡아 영하 20℃에서도 경도 70C 이하를 유지하는 폼을 개발했습니다. 사내 규격을 제정하고 Red dot을 수상했습니다.</p>
+        <div class="mimg"><img src="assets/im_spine.jpg" alt="저온 내충격 프로텍터 설계" data-zoom data-cap="저온 내충격 프로텍터 설계" loading="lazy"></div>
+      </div>
+      <div class="d-blk" data-slot="3">
+        <div class="kicker">중국 주재 · 2010 ~ 2013</div>
+        <h3>말이 통하지 않던 곳에서<br>현지 개발팀장으로</h3>
+        <p>해외 바이어와의 회의에서 전문성과 언어가 모자라다고 느껴 중국 근무를 지원했습니다. 현지에서 중국어를 익히며 부임 1년 만에 개발팀장을 맡았고, 현지 협력업체와 함께 금형과 OEM 개발을 이끌었습니다.</p>
+      </div>
+    </div>
+    <div class="d-media" id="dMedia">
+      <div class="slot on"><div class="frame" id="ecFrame"><img src="assets/ec_explode.jpg" alt="전기변색 글래스 분해도" data-zoom data-cap="전기변색 글래스 기구 설계"></div></div>
+      <div class="slot"><div class="frame"><img src="assets/sg_render.jpg" alt="스마트글래스" data-zoom data-cap="스마트글래스" loading="lazy"></div></div>
+      <div class="slot"><div class="frame"><img src="assets/im_spine.jpg" alt="저온 내충격 프로텍터 설계" data-zoom data-cap="저온 내충격 프로텍터 설계" loading="lazy"></div></div>
+      <div class="slot china"><div class="frame">
+        <div class="cg">
+          <div class="cs hot"><b>1,500<small>벌</small></b><span>관리한 금형</span></div>
+          <div class="cs"><b>50<small>곳</small></b><span>OEM 개발 바이어</span></div>
+          <div class="cs"><b>1<small>년</small></b><span>부임 후 현지 개발팀장까지</span></div>
+          <div class="cs"><b>3<small>년</small></b><span>중국 주재 기간</span></div>
+        </div>
+        <div class="ctag"><i></i>중국어로 현지 협력업체와 직접 소통</div>
+      </div></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="card paper" id="c2" data-ch="02 창업" data-theme="light" data-rail="1">
+ <div class="inner"><div class="shade"></div>
+  <div class="wrap sect" style="padding-bottom:0">
+    <div class="h-top">
+      <div class="tilt" id="tilt1"><div class="tilt-in"><img src="assets/heek_package.jpg" alt="HEEK 렌즈가이드 패키지" data-zoom data-cap="HEEK 패키지"></div></div>
+      <div>
+        <div class="kicker">02 · 창업 3년 · 2022 ~ 2025</div>
+        <h2 class="title">아이디어에서<br>고객의 손까지</h2>
+        <p class="lead" style="color:var(--sub)">VR 헤드셋에 끼우는 조립식 도수 렌즈 프레임 HEEK를 만들었습니다. 금형 업체, 안경점, 물류 대행사, 판매 채널과 손발을 맞추며 기획부터 고객 응대까지 직접 이끌었습니다.</p>
+        <div class="partners"><span>금형 업체</span><span>안경점</span><span>3PL 물류 대행</span><span>스마트스토어·쿠팡</span><span>창업지원기관</span></div>
+        <div class="kpis">
+          <div class="kpi"><b>특허·디자인</b><span>VR 시력 보조용 글라스 등록</span></div>
+          <div class="kpi"><b>2024</b><span>네이버 강한 소상공인</span></div>
+          <div class="kpi"><b>4.92</b><span>스마트스토어 평점 · 리뷰 396건</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="h-wrap" id="hWrap">
+   <div class="h-stage">
+     <div class="wrap" style="width:100%">
+      <div class="h-head"><h3>브랜드 하나가 고객에게 닿기까지</h3><span class="sub" style="font-size:14px">사업 모델 → 고객 응대</span></div>
+      <div class="h-bar"><i id="hBar"></i></div>
+     </div>
+     <div class="h-track" id="hTrack">
+      <div class="h-panel"><div class="ph cover"><img src="assets/h3_bm.jpg" alt="제조사, 소비자, 안경점이 함께 이기는 사업 모델 도식" data-zoom data-cap="사업 모델: 제조사 · 소비자 · 안경점" loading="lazy"></div><div class="tx"><div class="no">01</div><h4>사업 모델</h4><p>렌즈가이드는 HEEK가, 도수렌즈는 동네 <em>안경점</em>이 맞추는 구조. 소비자는 선명한 VR, 안경점은 새 고객, 제조사는 재고 부담 없는 판매</p></div></div>
+      <div class="h-panel"><div class="ph cover"><img src="assets/h3_brand.jpg" alt="HEEK 브랜드 로고" data-zoom data-cap="브랜드: HEEK, upgrade your eyes" loading="lazy"></div><div class="tx"><div class="no">02</div><h4>브랜드</h4><p>이름, 로고, 노랑과 남색의 브랜드 색, "upgrade your eyes"까지 정체성 정립</p></div></div>
+      <div class="h-panel"><div class="ph cover"><img src="assets/h3_design.jpg" alt="검안용 시험테와 렌즈가이드" data-zoom data-cap="설계·품질: 시험테 기준으로 검증한 렌즈가이드" loading="lazy"></div><div class="tx"><div class="no">03</div><h4>설계·품질</h4><p>안경점 시험테 기준으로 도수렌즈가 정확히 앉도록 설계, <em>금형 업체</em>와 회전 조립식 구조 금형 제작</p></div></div>
+      <div class="h-panel"><div class="ph cover"><img src="assets/h3_product.jpg" alt="Quest 3와 HEEK 렌즈가이드, 안경" data-zoom data-cap="제품: Quest 3와 HEEK 렌즈가이드" loading="lazy"></div><div class="tx"><div class="no">04</div><h4>제품</h4><p>Quest 3·2, PS VR2, Pico 4 호환. 안경 없이 VR을 선명하게, 기기를 바꿔도 렌즈는 그대로</p></div></div>
+      <div class="h-panel"><div class="ph cover"><img src="assets/h3_content.jpg" alt="인스타그램 카드뉴스 표지 4장" data-zoom data-cap="콘텐츠: 인스타그램 카드뉴스" loading="lazy"></div><div class="tx"><div class="no">05</div><h4>콘텐츠</h4><p>캐릭터와 함께 VR 사용자의 고민을 풀어 주는 인스타그램 카드뉴스, 숏폼, 랜딩페이지 직접 기획</p></div></div>
+      <div class="h-panel"><div class="ph cover"><img src="assets/h3_sales.jpg" alt="HEEK 도수렌즈 3만원 프로모션 바우처" data-zoom data-cap="판매·홍보: 안경점 연계 도수렌즈 바우처" loading="lazy"></div><div class="tx"><div class="no">06</div><h4>판매·홍보</h4><p><em>안경점</em>에서 쓰는 도수렌즈 바우처로 구매를 이끌고, 스마트스토어·쿠팡 로켓그로스와 <em>3PL 물류 대행</em>으로 판매. 리뷰 396건, 평점 4.92</p></div></div>
+     </div>
+   </div>
+  </div>
+  <div style="height:clamp(40px,6vw,80px)"></div>
+ </div>
+</section>
+
+<section class="card dark" id="c3" data-ch="03 생산전환TF" data-theme="dark" data-rail="2">
+ <div class="inner"><div class="shade"></div>
+  <div class="wrap sect">
+    <div class="kicker">03 · 생산전환TF · 2025 ~ 2026 · TF 팀장</div>
+    <h2 class="title">드러난 곳이 아니라<br>시작된 곳</h2>
+    <p class="lead sub">개발에서 양산으로 넘어갈 때 생기는 리스크를 미리 없애려고 TF를 기획해 발족했습니다. 매주 개발·생산·품질 담당과 FMEA를 돌리며, 불량이 드러난 공정이 아니라 원인이 시작된 공정을 함께 찾았습니다.</p>
+    <div class="causes">
+      <div class="cause"><div class="st"><small>드러난 곳</small><b>손연마 작업 시간 과다</b></div><i class="ar"></i><div class="st"><small>시작된 곳</small><b>사출 게이트 위치</b></div><i class="ar"></i><div class="st fix"><small>조치</small><b>게이트 커팅 지그로 작업 제거</b></div></div>
+      <div class="cause"><div class="st"><small>드러난 곳</small><b>조립 나사 헛돎·폐기</b></div><i class="ar"></i><div class="st"><small>시작된 곳</small><b>태핑홀 지름 기준 없음</b></div><i class="ar"></i><div class="st fix"><small>조치</small><b>태핑홀 내부 기준 제정</b></div></div>
+      <div class="cause"><div class="st"><small>드러난 곳</small><b>렌즈 교체 시 탈막</b></div><i class="ar"></i><div class="st"><small>시작된 곳</small><b>편광층 부착력 부족</b></div><i class="ar"></i><div class="st fix"><small>조치</small><b>단차 가공으로 편광층 회피</b></div></div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b><span class="cnt" data-to="34">34</span><small>/40</small></b><span>SHRED AERIFY 실패모드 조치</span></div>
+      <div class="kpi"><b><span class="cnt" data-to="17">17</span><small>/18</small></b><span>SS-130 실패모드 조치</span></div>
+      <div class="kpi"><b>75→0<small>%</small></b><span>TR90 취성불량률</span></div>
+      <div class="kpi"><b>7.5→3.3<small>%</small></b><span>커팅 불량률</span></div>
+    </div>
+    <div class="docs4">
+      <figure class="rv"><img src="assets/tf_fmea.jpg" alt="FMEA 시트" data-zoom data-cap="FMEA 시트" loading="lazy"><figcaption>FMEA 시트</figcaption></figure>
+      <figure class="rv"><img src="assets/tf_process.jpg" alt="공정관리도" data-zoom data-cap="공정관리도" loading="lazy"><figcaption>공정관리도</figcaption></figure>
+      <figure class="rv"><img src="assets/tf_check.jpg" alt="전사표준검토항목" data-zoom data-cap="전사표준검토항목" loading="lazy"><figcaption>전사표준검토항목</figcaption></figure>
+      <figure class="rv"><img src="assets/tf_dash.jpg" alt="전사 리스크 대시보드" data-zoom data-cap="전사 리스크 대시보드" loading="lazy"><figcaption>전사 리스크 대시보드</figcaption></figure>
+    </div>
+  </div>
+ </div>
+</section>
+
+<section class="card light" id="c4" data-ch="04 업무 시스템" data-theme="light" data-rail="3">
+ <div class="inner"><div class="shade"></div>
+  <div class="wrap sect" style="padding-bottom:0">
+    <div class="kicker">04 · 사내 업무 시스템 · 2026 ~</div>
+    <h2 class="title">9개월 앞을 보는 수급</h2>
+    <p class="lead" style="color:var(--sub)">성수기와 비수기의 물량 차이가 커서 고정비를 채우지 못하는 달이 자주 생겼습니다. 비수기에 앞당겨 만들 물량을 미리 알기 위해, 영업·생산·구매가 9개월 앞 수급을 한 화면에서 함께 보고 조율하는 시스템을 만들기 시작했습니다.</p>
+    <div class="sim" id="sim">
+      <div class="sim-top">
+        <div class="st">
+          <div><b id="sLow">6개월</b><span>손익분기 물량 미달</span></div>
+          <div><b id="sOver">2개월</b><span>생산 능력 초과</span></div>
+          <div><b id="sGap">11</b><span>월 생산량 최대·최소 차이</span></div>
+        </div>
+        <button class="toggle" id="simBtn" type="button" aria-pressed="false"><span class="sw"></span><span id="simLbl">선행 생산 켜기</span></button>
+      </div>
+      <div class="chart" id="chart">
+        <div class="season" style="left:25%;width:25%"><span>성수기</span></div>
+        <div class="season" style="left:83.33%;width:16.67%"><span>성수기</span></div>
+        <div class="hl cap" style="bottom:80%"><span>생산 능력</span></div>
+        <div class="hl bep" style="bottom:60%"><span>손익분기 물량</span></div>
+        <svg class="dline" id="dline" viewBox="0 0 1200 100" preserveAspectRatio="none"><polyline id="dpoly" points=""/></svg>
+      </div>
+      <div class="legend"><span><i style="background:linear-gradient(#5B8DEF,#8FB3F5)"></i>정상 생산</span><span><i style="background:linear-gradient(var(--acc),#F2946B)"></i>손익분기 미달</span><span><i style="background:linear-gradient(#151515,#555)"></i>생산 능력 초과</span><span><i style="background:transparent;border:2px dashed #7C5CD6;width:14px;height:10px"></i>수요(선행 생산 시)</span><span><i style="background:rgba(226,78,27,.12)"></i>성수기</span></div>
+    </div>
+  </div>
+  <div class="z-wrap" id="zWrap">
+   <div class="z-stage wrap" id="zStage">
+    <div id="zSide">
+      <h3 style="font-size:clamp(24px,2.6vw,34px);font-weight:850;letter-spacing:-.02em;margin-bottom:10px;line-height:1.2">수급에서 시작해<br>회사 전체로</h3>
+      <p style="color:var(--sub);margin-bottom:18px">업무 흐름과 화면 기획, 데이터 검증, 운영은 직접 맡고 코드는 AI 코딩 도구로 작성했습니다. 영업·생산·구매·개발이 같은 화면에 입력합니다</p>
+      <ul class="steps" id="steps">
+        <li class="on"><b>허브</b><span>계획·관리와 실적·현황을 한눈에</span></li>
+        <li><b>월별 수급계획</b><span>수요·생산 투입·구매를 한 표에</span></li>
+        <li><b>개발 일정</b><span>샘플·Pilot·양산 단계를 간트로</span></li>
+        <li><b>생산실적</b><span>공정별 생산량과 계획 달성률</span></li>
+      </ul>
+      <div class="kpis" style="margin-top:20px">
+        <div class="kpi"><b>07.28</b><span>2026 전 임직원 오픈</span></div>
+        <div class="kpi"><b><span class="cnt" data-to="93">93</span><small>개</small></b><span>계정</span></div>
+        <div class="kpi"><b>$200<small>/월</small></b><span>AI 도구 구독료</span></div>
+      </div>
+    </div>
+    <div class="device" id="device"><div class="scr">
+      <img src="assets/sys_hub.jpg" alt="업무 시스템 허브" data-zoom data-cap="허브">
+      <img src="assets/sys_plan.jpg" alt="월별 수급계획" data-zoom data-cap="월별 수급계획" loading="lazy">
+      <img src="assets/sys_dev.jpg" alt="개발 일정" data-zoom data-cap="개발 일정" loading="lazy">
+      <img src="assets/sys_prod.jpg" alt="생산실적" data-zoom data-cap="생산실적" loading="lazy">
+    </div></div>
+   </div>
+  </div>
+  <div class="wrap"><p class="note" style="margin:0;padding-bottom:80px">고객사명, 담당자 이름, 금액은 흐리게 처리했습니다</p></div>
+ </div>
+</section>
+
+<section class="card dark" id="c5" data-ch="05 사업계획과 손익" data-theme="dark" data-rail="4">
+ <div class="inner"><div class="shade"></div>
+  <div class="n-wrap" id="nWrap">
+   <div class="n-stage wrap" id="nStage">
+    <div class="kicker">05 · 사업계획과 손익 · 2026 ~</div>
+    <h2 class="title" style="margin-bottom:14px">사업을 숫자로 나누는 기준</h2>
+    <p class="sub" style="max-width:720px">전략기획팀장 겸 FP&amp;A 기획파트장으로 4개 사업부문의 손익을 같은 기준으로 보는 틀을 만들고 있습니다. 판관비 배부 기준은 재무팀과 협의하며 이렇게 정립했습니다.</p>
+    <div class="nums" id="nums">
+      <div class="num"><b>6,557</b><span>1~7월 판관비 전표를 전부 열어</span></div>
+      <div class="num"><b>52</b><span>성격이 같은 배부 항목으로 묶고</span></div>
+      <div class="num"><b>1:1</b><span>항목마다 배부 기준을 하나씩 연결해</span></div>
+      <div class="num"><b>4</b><span>사업부문별 영업이익을 다시 계산하고</span></div>
+      <div class="num"><b>5년</b><span>기준이 바뀌면 5개년 계획이 함께 바뀌도록</span></div>
+    </div>
+    <div class="n-dots" id="nDots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+   </div>
+  </div>
+  <div class="wrap" style="padding-bottom:110px">
+    <div class="doclist">
+      <div class="rv"><b>중장기 손익 통합모델</b><span>4개 사업부문 × 5개년(2027~2031)</span></div>
+      <div class="rv"><b>비용계획 통합본</b><span>15개 파트 회신 통합, 행별 산정 기준 명시</span></div>
+      <div class="rv"><b>판관비 배부 시뮬레이터</b><span>배부안별 부문 손익 비교</span></div>
+      <div class="rv"><b>공헌이익·손익분기점</b><span>매출 변화를 물량·비율·고정비 효과로 분해</span></div>
+      <div class="rv"><b>GP 변동 요인 분해</b><span>수량·판매가·단위원가로 나눠 적자 원인 규명</span></div>
+      <div class="rv"><b>연도별 부문 분리 손익</b><span>회계 원장을 부문 기준으로 재구성</span></div>
+    </div>
+    <p class="note" style="color:#77746D">금액은 대외비라 싣지 않았습니다</p>
+  </div>
+ </div>
+</section>
+
+<section class="card first" id="finale" data-ch="제품 개발에서 사업 전반까지" data-theme="dark" style="border-radius:34px 34px 0 0">
+ <div class="inner">
+  <div class="f-track">
+   <div class="f-top">
+    <canvas class="field"></canvas><div class="glow"></div>
+    <div class="wrap">
+      <div class="kicker">Connecting</div>
+      <h2>끊긴 자리마다 이어 온 일</h2>
+      <svg class="pipe" id="pipe2" viewBox="0 0 1000 260" style="width:min(1000px,100%)" aria-label="지나온 경력이 끊긴 자리를 하나씩 이은 흐름">
+        <path class="base" d="M80 110 H920"/><path class="flow" d="M80 110 H920" style="stroke:var(--acc)"/>
+        <g class="node"><circle cx="80" cy="110" r="14"/><text x="80" y="66">기획</text></g>
+        <g class="node"><circle cx="290" cy="110" r="14"/><text x="290" y="66">설계</text></g>
+        <g class="node"><circle cx="500" cy="110" r="14"/><text x="500" y="66">양산</text></g>
+        <g class="node"><circle cx="710" cy="110" r="14"/><text x="710" y="66">판매</text></g>
+        <g class="node"><circle cx="920" cy="110" r="14"/><text x="920" y="66">고객</text></g>
+        <g class="plug"><rect x="120" y="160" width="130" height="38" rx="19"/><text x="185" y="185">설계 15년</text></g>
+        <g class="plug"><rect x="330" y="160" width="130" height="38" rx="19"/><text x="395" y="185">생산전환TF</text></g>
+        <g class="plug"><rect x="540" y="160" width="130" height="38" rx="19"/><text x="605" y="185">수급 시스템</text></g>
+        <g class="plug"><rect x="750" y="160" width="130" height="38" rx="19"/><text x="815" y="185">HEEK 창업</text></g>
+      </svg>
+    </div>
+   </div>
+  </div>
+  <div class="want wrap">
+    <div class="kicker" style="text-align:center">What I want to do</div>
+    <h2 class="statement" id="statement" style="margin-top:18px">
+      <span class="l"><span>기획에서 양산, 판매로</span></span>
+      <span class="l"><span>넘어가는 사이의</span></span>
+      <span class="l"><span>비효율을 줄이는 일<b style="color:var(--acc)">.</b></span></span>
+    </h2>
+    <div class="paths">
+      <div><b>개발과 생산 사이</b><em>생산전환TF</em><span>개발·생산·품질이 함께 양산 이관 리스크를 미리 제거</span></div>
+      <div><b>부서와 부서 사이</b><em>사내 업무 시스템</em><span>따로 관리하던 수급 정보를 하나의 화면과 데이터로</span></div>
+      <div><b>기획과 판매 사이</b><em>HEEK 창업</em><span>파트너들과 기획부터 고객 응대까지 직접 운영</span></div>
+    </div>
+    <p class="motto">누군가 할 일이라면 내가 하고, 언젠가 할 일이라면 오늘 하고, 어차피 할 일이라면 확실히 한다</p>
+    <div class="contact">
+      <a class="mail" href="mailto:simonism@naver.com">simonism@naver.com</a>
+      <p>이력서와 포트폴리오 PDF는 요청하시면 보내드립니다</p>
+    </div>
+  </div>
+  <footer>© 2026 유승환 · <a href="classic.html">한 페이지 요약 보기</a></footer>
+ </div>
+</section>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="이미지 크게 보기">
+  <button class="x" type="button" aria-label="닫기">×</button>
+  <button class="pv" type="button" aria-label="이전">‹</button>
+  <img alt="">
+  <button class="nx" type="button" aria-label="다음">›</button>
+  <div class="cap"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+const motion=document.documentElement.classList.contains('js');
+const fine=window.matchMedia('(pointer:fine)').matches;
+
+function dotField(host){
+  const cv=host.querySelector('canvas.field'); if(!cv) return;
+  const ctx=cv.getContext('2d'), glow=host.querySelector('.glow');
+  let w,h,mx=-999,my=-999,tx=-999,ty=-999,run=false;
+  function size(){ const d=Math.min(2,devicePixelRatio||1); w=host.clientWidth; h=host.clientHeight; cv.width=w*d; cv.height=h*d; ctx.setTransform(d,0,0,d,0,0); }
+  size(); addEventListener('resize',size);
+  host.addEventListener('pointermove',e=>{ const r=host.getBoundingClientRect(); tx=e.clientX-r.left; ty=e.clientY-r.top;
+    if(glow){ glow.style.setProperty('--mx',tx+'px'); glow.style.setProperty('--my',ty+'px'); } });
+  host.addEventListener('pointerleave',()=>{ tx=-999; ty=-999; });
+  const S=30;
+  function paint(){ ctx.clearRect(0,0,w,h);
+    for(let y=S/2;y<h;y+=S) for(let x=S/2;x<w;x+=S){ const k=Math.max(0,1-Math.hypot(x-mx,y-my)/190);
+      ctx.fillStyle=k>0?`rgba(${120+106*k|0},${120-42*k|0},${120-93*k|0},${.32+.6*k})`:'rgba(120,120,120,.26)';
+      ctx.beginPath(); ctx.arc(x,y,1+k*2.6,0,6.283); ctx.fill(); } }
+  function draw(){ if(!run) return; mx+=(tx-mx)*.12; my+=(ty-my)*.12; paint(); requestAnimationFrame(draw); }
+  if(!motion){ paint(); return; }
+  new IntersectionObserver(es=>es.forEach(en=>{ const was=run; run=en.isIntersecting; if(run&&!was) requestAnimationFrame(draw); })).observe(host);
+}
+document.querySelectorAll('#opening .stage,#finale .f-top').forEach(dotField);
+
+const MONTHS=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+const DEMAND=[9,8,11,15,18,17,12,8,7,9,13,16], LEVEL=[12,12,12,14,15,15,12,12,12,12,13,12];
+const BEP=12, CAP=16, MAX=20, chart=document.getElementById('chart');
+const cols=MONTHS.map((m,i)=>{ const c=document.createElement('div'); c.className='col'; c.innerHTML=`<div class="ghost" style="height:${DEMAND[i]/MAX*100}%"></div><div class="v"></div><div class="fill"></div><div class="m">${m}</div>`; chart.appendChild(c); return c; });
+document.getElementById('dpoly').setAttribute('points',DEMAND.map((v,i)=>`${(i+.5)*100},${100-v/MAX*100}`).join(' '));
+let simOn=false;
+function renderSim(){ const arr=simOn?LEVEL:DEMAND; let low=0,over=0;
+  arr.forEach((v,i)=>{ const f=cols[i].querySelector('.fill'), t=cols[i].querySelector('.v');
+    f.style.height=(v/MAX*100)+'%'; t.style.bottom=(v/MAX*100)+'%'; t.textContent=v;
+    cols[i].title=`${MONTHS[i]} · 수요 ${DEMAND[i]} · 생산 ${v}`;
+    f.classList.toggle('low',v<BEP); f.classList.toggle('over',v>CAP); if(v<BEP)low++; if(v>CAP)over++; });
+  chart.classList.toggle('on',simOn);
+  document.getElementById('sLow').textContent=low+'개월'; document.getElementById('sOver').textContent=over+'개월';
+  document.getElementById('sGap').textContent=Math.max(...arr)-Math.min(...arr);
+  const b=document.getElementById('simBtn'); b.classList.toggle('on',simOn); b.setAttribute('aria-pressed',simOn);
+  document.getElementById('simLbl').textContent=simOn?'선행 생산 끄기':'선행 생산 켜기'; }
+document.getElementById('simBtn').addEventListener('click',()=>{ simOn=!simOn; renderSim(); });
+requestAnimationFrame(renderSim);
+
+document.querySelectorAll('.cause').forEach(c=>c.addEventListener('click',()=>{ const on=!c.classList.contains('on'); document.querySelectorAll('.cause').forEach(x=>x.classList.remove('on')); if(on)c.classList.add('on'); }));
+function tilt(el,inner,max){ if(!fine||!motion) return;
+  el.addEventListener('pointermove',e=>{ const r=el.getBoundingClientRect(), px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5; inner.style.transform=`rotateY(${px*max}deg) rotateX(${-py*max}deg)`; });
+  el.addEventListener('pointerleave',()=>inner.style.transform=''); }
+tilt(document.getElementById('tilt1'),document.querySelector('#tilt1 .tilt-in'),14);
+const zs=[...document.querySelectorAll('img[data-zoom]')], lb=document.getElementById('lb'), lbi=lb.querySelector('img'), lbc=lb.querySelector('.cap'); let zi=0;
+function openZ(i){ zi=(i+zs.length)%zs.length; lbi.src=zs[zi].currentSrc||zs[zi].src; lbi.alt=zs[zi].alt; lbc.textContent=zs[zi].dataset.cap||zs[zi].alt; lb.classList.add('on'); }
+zs.forEach((im,i)=>im.addEventListener('click',e=>{ e.stopPropagation(); openZ(i); }));
+lb.querySelector('.x').onclick=()=>lb.classList.remove('on');
+lb.querySelector('.pv').onclick=e=>{ e.stopPropagation(); openZ(zi-1); };
+lb.querySelector('.nx').onclick=e=>{ e.stopPropagation(); openZ(zi+1); };
+lb.addEventListener('click',e=>{ if(e.target===lb) lb.classList.remove('on'); });
+addEventListener('keydown',e=>{ if(!lb.classList.contains('on')) return; if(e.key==='Escape')lb.classList.remove('on'); if(e.key==='ArrowLeft')openZ(zi-1); if(e.key==='ArrowRight')openZ(zi+1); });
+
+const bar=document.getElementById('bar'), chap=document.getElementById('chap'), rail=document.getElementById('rail'), rl=[...rail.querySelectorAll('a')];
+const cards=[...document.querySelectorAll('.card')];
+function current(){ const mid=innerHeight*0.5; let cur=cards[0];
+  cards.forEach(c=>{ const r=c.getBoundingClientRect(); if(r.top<=mid) cur=c; }); return cur; }
+function onScroll(){ const max=document.documentElement.scrollHeight-innerHeight, y=scrollY;
+  document.getElementById('prog').style.transform=`scaleX(${Math.min(1,Math.max(0,y/max))})`;
+  const s=current(); chap.textContent=s.dataset.ch; bar.classList.toggle('light',s.dataset.theme==='light');
+  const ri=s.dataset.rail; rail.classList.toggle('on',ri!==undefined); rl.forEach((a,i)=>a.classList.toggle('on',String(i)===ri));
+  const a=cards[1].offsetTop, b=document.getElementById('finale').offsetTop;
+  document.getElementById('railFill').style.transform=`scaleY(${Math.min(1,Math.max(0,(y-a)/(b-a)))})`; }
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+const slots=[...document.querySelectorAll('#dMedia .slot')];
+const sio=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ const k=+en.target.dataset.slot; slots.forEach((s,i)=>s.classList.toggle('on',i===k)); } }),{rootMargin:'-48% 0px -48% 0px'});
+document.querySelectorAll('.d-blk').forEach(b=>sio.observe(b));
+
+if(!motion||!window.gsap||!window.ScrollTrigger){ document.documentElement.classList.remove('js'); return; }
+gsap.registerPlugin(ScrollTrigger);
+
+let lenis=null;
+if(window.Lenis&&fine){
+  lenis=new Lenis({lerp:.1,smoothWheel:true});
+  lenis.on('scroll',()=>{ ScrollTrigger.update(); onScroll(); });
+  gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+}
+rl.forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); const y=t.offsetTop+ (parseFloat(t.style.top)<0?0:0);
+  if(lenis) lenis.scrollTo(y); else scrollTo({top:y,behavior:'smooth'}); }));
+
+function stickTops(){ cards.forEach(c=>{ c.style.top=Math.min(0,innerHeight-c.offsetHeight)+'px'; }); }
+stickTops(); addEventListener('resize',stickTops); ScrollTrigger.addEventListener('refresh',stickTops);
+cards.forEach((c,i)=>{ const next=cards[i+1]; if(!next) return;
+  gsap.timeline({scrollTrigger:{trigger:next,start:'top bottom',end:'top top',scrub:true}})
+    .to(c.querySelector('.inner'),{scale:.94,ease:'none'},0)
+    .to(c.querySelector('.shade'),{opacity:.55,ease:'none'},0); });
+
+document.querySelectorAll('.cnt').forEach(el=>{ const to=+el.dataset.to, comma=el.dataset.comma, o={v:0};
+  gsap.to(o,{v:to,duration:1.6,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',once:true},onUpdate:()=>{ const n=Math.round(o.v); el.textContent=comma?n.toLocaleString('ko-KR'):n; }}); });
+gsap.utils.toArray('.rv').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}}));
+
+function pipeDraw(svg,tl,t0){ const flow=svg.querySelector('.flow'), L=flow.getTotalLength();
+  gsap.set(flow,{strokeDasharray:L,strokeDashoffset:L});
+  const nodes=svg.querySelectorAll('.node'); gsap.set(nodes,{opacity:0,scale:.4,transformOrigin:'center',transformBox:'fill-box'});
+  tl.to(flow,{strokeDashoffset:0,ease:'none',duration:4},t0); nodes.forEach((n,i)=>tl.to(n,{opacity:1,scale:1,duration:.5},t0+i*.95)); }
+
+const p1=document.getElementById('pipe1');
+const t0=gsap.timeline({scrollTrigger:{trigger:'#opening .track',start:'top top',end:()=>'+='+(document.querySelector('#opening .track').offsetHeight-innerHeight*1.6),scrub:.6}});
+t0.to('#me',{yPercent:10,scale:.94,opacity:0,ease:'power1.in',duration:3},.3)
+  .to('.o-hero .o-title',{scale:.62,yPercent:-30,opacity:0,ease:'power1.in',duration:3},0)
+  .to('.o-hero .kicker,.o-hero .o-sub,.hint',{opacity:0,y:-30,duration:2},0)
+  .fromTo('.o-intro',{opacity:0,scale:.86,y:40},{opacity:1,scale:1,y:0,duration:2.4},2)
+  .to('.o-intro',{opacity:0,scale:1.08,y:-70,filter:'blur(6px)',duration:2.2},6)
+  .fromTo('.o-prob',{opacity:0,y:60},{opacity:1,y:0,duration:2},7);
+pipeDraw(p1,t0,8.4);
+p1.querySelectorAll('.leak').forEach((g,i)=>{ const c=g.querySelector('circle'), tx=g.querySelector('text');
+  gsap.set(c,{opacity:0}); gsap.set(tx,{opacity:0,y:18}); const at=9.6+i*.95;
+  t0.to(c,{opacity:1,duration:.2},at).to(c,{attr:{cy:195},duration:.7,ease:'power1.in'},at+.15).to(tx,{opacity:1,y:0,duration:.5},at+.5); });
+t0.to({},{duration:1.5});
+
+const mm=gsap.matchMedia();
+mm.add('(min-width: 901px)',()=>{
+  /* 사진이 마우스 반대 방향으로 살짝 움직임 */
+  if(fine){ const stg=document.querySelector('#opening .stage'), qx=gsap.quickTo('#me','x',{duration:.8,ease:'power3'}), qy=gsap.quickTo('#me','y',{duration:.8,ease:'power3'});
+    stg.addEventListener('pointermove',e=>{ qx((e.clientX/innerWidth-.5)*-26); qy((e.clientY/innerHeight-.5)*-14); }); }
+  gsap.fromTo('#ecFrame',{rotateY:-36,rotateX:16,scale:.7},{rotateY:0,rotateX:0,scale:1,ease:'none',scrollTrigger:{trigger:'#c1',start:'top 85%',end:'top top',scrub:.6}});
+  const tr=document.getElementById('hTrack'), lead=()=>Math.max(16,(innerWidth-1240)/2+56);
+  const dist=()=>Math.max(0,tr.scrollWidth-innerWidth+lead()*2);
+  gsap.set(tr,{x:()=>lead()});
+  gsap.timeline({scrollTrigger:{trigger:'#hWrap',start:'top top',end:'bottom bottom',scrub:.6,invalidateOnRefresh:true}})
+    .fromTo(tr,{x:()=>lead()},{x:()=>lead()-dist(),ease:'none'},0).to('#hBar',{scaleX:1,ease:'none'},0);
+  const imgs=document.querySelectorAll('#device .scr img'), lis=document.querySelectorAll('#steps li');
+  const tz=gsap.timeline({scrollTrigger:{trigger:'#zWrap',start:'top top',end:'bottom bottom',scrub:.5,
+    onUpdate:s=>{ const p=s.progress, k=p<.4?0:Math.min(3,1+Math.floor((p-.4)/.18)); lis.forEach((l,i)=>l.classList.toggle('on',i===k)); }}});
+  tz.fromTo('#device',{scale:2.5,x:'-22%',y:'10%'},{scale:1,x:0,y:0,ease:'power2.inOut',duration:3},0)
+    .fromTo('#zSide',{opacity:0,x:-40},{opacity:1,x:0,duration:1.4},1.8);
+  for(let i=1;i<imgs.length;i++){ tz.to(imgs[i],{opacity:1,duration:.9},3+i*1.5).to(imgs[i-1],{opacity:0,duration:.9},3+i*1.5); }
+  tz.to({},{duration:1});
+  const nums=document.querySelectorAll('#nums .num'), dots=document.querySelectorAll('#nDots i');
+  const tn=gsap.timeline({scrollTrigger:{trigger:'#nWrap',start:'top top',end:'bottom bottom',scrub:.5,
+    onUpdate:s=>{ const k=Math.min(4,Math.floor(s.progress*5.2)); dots.forEach((d,i)=>d.classList.toggle('on',i<=k)); }}});
+  nums.forEach((n,i)=>{ tn.fromTo(n,{opacity:0,scale:1.3,filter:'blur(8px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:1},i*2);
+    if(i<nums.length-1) tn.to(n,{opacity:0,scale:.75,duration:.6},i*2+1.4); });
+  tn.to({},{duration:.8});
+});
+mm.add('(max-width: 900px)',()=>{
+  gsap.utils.toArray('.h-panel,.num,.d-blk').forEach(el=>gsap.from(el,{y:40,opacity:0,duration:.8,scrollTrigger:{trigger:el,start:'top 90%'}}));
+});
+
+document.querySelectorAll('.cause').forEach(c=>{ const st=c.querySelectorAll('.st'), ar=c.querySelectorAll('.ar');
+  gsap.timeline({scrollTrigger:{trigger:c,start:'top 85%'}}).from(st[0],{x:-30,opacity:0,duration:.5}).from(ar[0],{opacity:0,duration:.3})
+    .from(st[1],{x:-30,opacity:0,duration:.5}).from(ar[1],{opacity:0,duration:.3}).from(st[2],{x:-30,opacity:0,duration:.5}); });
+
+const p2=document.getElementById('pipe2');
+const t7=gsap.timeline({scrollTrigger:{trigger:'#finale .f-track',start:'top 30%',end:'bottom bottom',scrub:.6}});
+pipeDraw(p2,t7,0); p2.querySelectorAll('.plug').forEach((g,i)=>{ gsap.set(g,{opacity:0,y:24}); t7.to(g,{opacity:1,y:0,duration:.6},1+i*.9); });
+gsap.from('#statement .l span',{yPercent:110,duration:1.1,ease:'power4.out',stagger:.14,scrollTrigger:{trigger:'#statement',start:'top 82%'}});
+
+addEventListener('load',()=>{ stickTops(); ScrollTrigger.refresh(); onScroll(); });
+})();
+</script>
+</body>
+</html>
