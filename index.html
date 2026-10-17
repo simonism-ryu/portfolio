@@ -72,9 +72,14 @@ a{color:inherit}
 .field{position:absolute;inset:0;width:100%;height:100%;display:block}
 .glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx,68%) var(--my,30%),rgba(226,78,27,.2),transparent 62%)}
 .layer{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 var(--pad)}
-.o-title{font-size:clamp(60px,10.5vw,176px);font-weight:900;line-height:.95;letter-spacing:-.05em}
+.o-hero{align-items:stretch}
+.o-left{width:100%;max-width:var(--w);margin:0 auto;padding:0 var(--pad);text-align:left}
+.me{position:absolute;bottom:0;right:max(0px,calc((100vw - var(--w))/2 - 90px));height:min(82vh,880px);width:auto;max-width:44vw;object-fit:contain;object-position:bottom;pointer-events:none;
+  filter:drop-shadow(0 0 60px rgba(226,78,27,.18));will-change:transform}
+.o-title{font-size:clamp(52px,7.2vw,124px);font-weight:900;line-height:.95;letter-spacing:-.05em;transform-origin:0 50%}
+@media(max-width:900px){.me{right:50%;transform:translateX(50%);height:56vh;max-width:none;opacity:.9}.o-hero{justify-content:flex-start;padding-top:110px}.o-title{font-size:clamp(46px,12vw,80px)}}
 .o-title i{font-style:normal;color:var(--acc)}
-.o-sub{margin-top:30px;font-size:clamp(16px,1.6vw,20px);color:#BDBAB2;letter-spacing:.02em}
+.o-sub{margin-top:30px;text-shadow:0 2px 20px rgba(0,0,0,.6);font-size:clamp(16px,1.6vw,20px);color:#BDBAB2;letter-spacing:.02em}
 .o-intro{font-size:clamp(26px,3.6vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.3}
 .o-intro b{color:var(--acc);font-weight:800}
 .o-prob h2{font-size:clamp(28px,3.6vw,52px);font-weight:850;letter-spacing:-.035em;line-height:1.15;margin:12px 0 10px}
@@ -107,9 +112,18 @@ svg.pipe{height:auto;overflow:visible;display:block;margin:0 auto}
 .d-media .slot.on{opacity:1;transform:none}
 .d-media .slot .frame{background:var(--paper);border-radius:24px;padding:clamp(16px,2vw,30px);box-shadow:0 50px 90px -50px rgba(0,0,0,.35);width:100%}
 .d-media .slot img{cursor:zoom-in;margin:0 auto;max-height:62vh;object-fit:contain}
-.d-media .slot.china .frame{background:var(--ink);color:#F2F1EE;height:62vh;display:flex;flex-direction:column;justify-content:flex-end;padding:40px}
-.d-media .slot.china b{font-size:clamp(70px,8vw,130px);font-weight:900;letter-spacing:-.05em;line-height:1}
-.d-media .slot.china span{color:#A9A69F;font-size:16px;margin-top:12px}
+.d-media .slot.china .frame{background:var(--ink);color:#F2F1EE;height:62vh;display:flex;flex-direction:column;padding:0;overflow:hidden;
+  background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.2px);background-size:22px 22px}
+.cg{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.cs{padding:clamp(20px,2.4vw,34px);display:flex;flex-direction:column;justify-content:flex-end;border-right:1px solid #2E2E2E;border-bottom:1px solid #2E2E2E}
+.cs:nth-child(2n){border-right:0}.cs:nth-child(n+3){border-bottom:0}
+.cs b{font-size:clamp(44px,4.6vw,76px);font-weight:900;letter-spacing:-.05em;line-height:1}
+.cs b small{font-size:.38em;font-weight:700;margin-left:4px;letter-spacing:0}
+.cs span{color:#A9A69F;font-size:14px;margin-top:10px}
+.cs.hot{background:linear-gradient(160deg,rgba(226,78,27,.28),rgba(226,78,27,.05))}
+.cs.hot b{color:#FF7A45}
+.ctag{display:flex;align-items:center;gap:10px;padding:16px clamp(20px,2.4vw,34px);border-top:1px solid #2E2E2E;font-size:14px;color:#CFCCC5}
+.ctag i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 6px rgba(226,78,27,.18)}
 #ecFrame{transform-style:preserve-3d}
 .d-blk .mimg{display:none}
 @media(max-width:900px){.d-grid{grid-template-columns:1fr}.d-media{display:none}.d-blk{min-height:auto;padding:30px 0}.d-blk .mimg{display:block;margin-top:18px;background:#fff;border-radius:16px;padding:12px}}
@@ -134,6 +148,8 @@ svg.pipe{height:auto;overflow:visible;display:block;margin:0 auto}
 .js .h-panel{width:min(44vw,560px)}
 .h-panel .ph{aspect-ratio:16/10;background:#fff;display:flex;align-items:center;justify-content:center;padding:12px}
 .h-panel .ph img{max-height:100%;object-fit:contain;cursor:zoom-in}
+.h-panel .ph.cover{padding:0}.h-panel .ph.cover img{width:100%;height:100%;max-height:none;object-fit:cover}
+.h-panel .ph{aspect-ratio:4/3}
 .h-panel .tx{padding:18px 22px 24px}
 .h-panel .no{font-size:13px;font-weight:800;color:var(--acc)}
 .h-panel h4{font-size:20px;margin:4px 0 6px}
@@ -169,8 +185,17 @@ svg.pipe{height:auto;overflow:visible;display:block;margin:0 auto}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(226,78,27,.5)}50%{box-shadow:0 0 0 10px rgba(226,78,27,0)}}
 .chart{position:relative;height:290px;display:grid;grid-template-columns:repeat(12,1fr);gap:8px;align-items:end;border-bottom:1px solid var(--hair)}
 .chart .col{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end}
-.chart .fill{background:#CFCCC5;border-radius:6px 6px 0 0;transition:height .9s cubic-bezier(.2,.8,.2,1),background .5s;height:0}
-.chart .fill.low{background:var(--acc)}.chart .fill.over{background:var(--ink)}
+.chart .fill{position:relative;z-index:2;background:linear-gradient(180deg,#5B8DEF,#8FB3F5);border-radius:8px 8px 2px 2px;transition:height .9s cubic-bezier(.2,.8,.2,1);height:0;box-shadow:0 10px 20px -12px rgba(40,70,140,.6)}
+.chart .fill.low{background:linear-gradient(180deg,var(--acc),#F2946B);box-shadow:0 10px 20px -12px rgba(226,78,27,.7)}
+.chart .fill.over{background:linear-gradient(180deg,#151515,#555);box-shadow:0 10px 20px -12px rgba(0,0,0,.6)}
+.chart .ghost{position:absolute;left:10%;right:10%;bottom:0;z-index:1;border:2px dashed #7C5CD6;border-bottom:0;border-radius:8px 8px 0 0;opacity:0;transition:opacity .5s,height .9s}
+.chart.on .ghost{opacity:.55}
+.chart .col:hover .fill{filter:brightness(1.08)}
+.season{position:absolute;top:0;bottom:0;background:rgba(226,78,27,.07);border-radius:10px;z-index:0}
+.season span{position:absolute;top:6px;left:8px;font-size:11px;font-weight:800;letter-spacing:.08em;color:rgba(226,78,27,.75)}
+.dline{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible}
+.dline polyline{fill:none;stroke:#7C5CD6;stroke-width:2.5;stroke-dasharray:6 6;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .6s}
+.chart.on .dline polyline{opacity:1}
 .chart .m{position:absolute;bottom:-26px;left:0;right:0;text-align:center;font-size:12px;color:var(--sub)}
 .chart .v{position:absolute;left:0;right:0;text-align:center;font-size:12px;font-weight:700;transition:bottom .9s cubic-bezier(.2,.8,.2,1)}
 .hl{position:absolute;left:0;right:0;border-top:2px dashed;pointer-events:none}
@@ -273,10 +298,13 @@ footer a{color:var(--dsub)}
   <div class="track">
    <div class="stage">
     <canvas class="field"></canvas><div class="glow"></div>
+    <img class="me" id="me" src="assets/me_cut.png" alt="유승환">
     <div class="layer o-hero">
-      <div class="kicker">유승환 · Portfolio 2026</div>
-      <h1 class="o-title" style="margin-top:26px">제품 개발에서<br>사업 전반까지<i>.</i></h1>
-      <p class="o-sub">설계 15년 · 창업 3년 · 전략기획</p>
+      <div class="o-left">
+        <div class="kicker">유승환 · Portfolio 2026</div>
+        <h1 class="o-title" style="margin-top:26px">제품 개발에서<br>사업 전반까지<i>.</i></h1>
+        <p class="o-sub">설계 15년 · 창업 3년 · 전략기획</p>
+      </div>
     </div>
     <div class="layer"><p class="o-intro">제품이 고객에게 닿기까지,<br>그 <b>전 과정</b>을 직접 다뤄 봤습니다</p></div>
     <div class="layer o-prob">
@@ -329,19 +357,27 @@ footer a{color:var(--dsub)}
         <div class="kicker">저온 내충격 소재 · 2013 ~ 2015</div>
         <h3>규격 제정부터<br>상품화까지</h3>
         <p>정부 기술혁신개발사업 2개년 실무를 맡아 영하 20℃에서도 경도 70C 이하를 유지하는 폼을 개발했습니다. 사내 규격을 제정하고 Red dot을 수상했습니다.</p>
-        <div class="mimg"><img src="assets/im_proto.jpg" alt="내충격 소재 시제품" data-zoom data-cap="저온 내충격 소재 시제품" loading="lazy"></div>
+        <div class="mimg"><img src="assets/im_spine.jpg" alt="저온 내충격 프로텍터 설계" data-zoom data-cap="저온 내충격 프로텍터 설계" loading="lazy"></div>
       </div>
       <div class="d-blk" data-slot="3">
         <div class="kicker">중국 주재 · 2010 ~ 2013</div>
-        <div class="big">1,500<small style="font-size:.35em">벌</small></div>
-        <p style="margin-top:14px">중국 근무를 지원해 현지에서 중국어를 익히며 부임 1년 만에 개발팀장을 맡았습니다. 금형 약 1,500벌과 바이어 약 50곳의 OEM 개발을 현지 협력업체와 함께 진행했습니다.</p>
+        <h3>말이 통하지 않던 곳에서<br>현지 개발팀장으로</h3>
+        <p>해외 바이어와의 회의에서 전문성과 언어가 모자라다고 느껴 중국 근무를 지원했습니다. 현지에서 중국어를 익히며 부임 1년 만에 개발팀장을 맡았고, 현지 협력업체와 함께 금형과 OEM 개발을 이끌었습니다.</p>
       </div>
     </div>
     <div class="d-media" id="dMedia">
       <div class="slot on"><div class="frame" id="ecFrame"><img src="assets/ec_explode.jpg" alt="전기변색 글래스 분해도" data-zoom data-cap="전기변색 글래스 기구 설계"></div></div>
       <div class="slot"><div class="frame"><img src="assets/sg_render.jpg" alt="스마트글래스" data-zoom data-cap="스마트글래스" loading="lazy"></div></div>
-      <div class="slot"><div class="frame"><img src="assets/im_proto.jpg" alt="내충격 소재 시제품" data-zoom data-cap="저온 내충격 소재 시제품" loading="lazy"></div></div>
-      <div class="slot china"><div class="frame"><b>50<small style="font-size:.35em">곳</small></b><span>바이어 OEM 개발, 현지 개발팀장</span></div></div>
+      <div class="slot"><div class="frame"><img src="assets/im_spine.jpg" alt="저온 내충격 프로텍터 설계" data-zoom data-cap="저온 내충격 프로텍터 설계" loading="lazy"></div></div>
+      <div class="slot china"><div class="frame">
+        <div class="cg">
+          <div class="cs hot"><b>1,500<small>벌</small></b><span>관리한 금형</span></div>
+          <div class="cs"><b>50<small>곳</small></b><span>OEM 개발 바이어</span></div>
+          <div class="cs"><b>1<small>년</small></b><span>부임 후 현지 개발팀장까지</span></div>
+          <div class="cs"><b>3<small>년</small></b><span>중국 주재 기간</span></div>
+        </div>
+        <div class="ctag"><i></i>중국어로 현지 협력업체와 직접 소통</div>
+      </div></div>
     </div>
    </div>
   </div>
@@ -355,7 +391,7 @@ footer a{color:var(--dsub)}
       <div class="tilt" id="tilt1"><div class="tilt-in"><img src="assets/heek_package.jpg" alt="HEEK 렌즈가이드 패키지" data-zoom data-cap="HEEK 패키지"></div></div>
       <div>
         <div class="kicker">02 · 창업 3년 · 2022 ~ 2025</div>
-        <h2 class="title">직접 끝까지,<br>파트너와 함께</h2>
+        <h2 class="title">아이디어에서<br>고객의 손까지</h2>
         <p class="lead" style="color:var(--sub)">VR 헤드셋에 끼우는 조립식 도수 렌즈 프레임 HEEK를 만들었습니다. 금형 업체, 안경점, 물류 대행사, 판매 채널과 손발을 맞추며 기획부터 고객 응대까지 직접 이끌었습니다.</p>
         <div class="partners"><span>금형 업체</span><span>안경점</span><span>3PL 물류 대행</span><span>스마트스토어·쿠팡</span><span>창업지원기관</span></div>
         <div class="kpis">
@@ -373,12 +409,12 @@ footer a{color:var(--dsub)}
       <div class="h-bar"><i id="hBar"></i></div>
      </div>
      <div class="h-track" id="hTrack">
-      <div class="h-panel"><div class="ph"><img src="assets/heek_bm.jpg" alt="사업 모델" data-zoom data-cap="사업 모델" loading="lazy"></div><div class="tx"><div class="no">01</div><h4>사업 모델</h4><p>소비자·<em>안경점</em>·제조사가 함께 이익을 얻는 구조, 안경점 도수렌즈와 연계</p></div></div>
-      <div class="h-panel"><div class="ph"><img src="assets/heek_brand.jpg" alt="브랜드" data-zoom data-cap="브랜드 정체성과 제품 기획" loading="lazy"></div><div class="tx"><div class="no">02</div><h4>브랜드</h4><p>정체성과 소구점 정립, 제품 기획</p></div></div>
-      <div class="h-panel"><div class="ph"><img src="assets/heek_mold.jpg" alt="설계와 금형" data-zoom data-cap="기구 설계와 금형 제작" loading="lazy"></div><div class="tx"><div class="no">03</div><h4>설계·금형</h4><p>기구 설계와 필드테스트, <em>금형 업체</em>와 회전 조립식 구조 금형 제작</p></div></div>
-      <div class="h-panel"><div class="ph"><img src="assets/heek_frame.jpg" alt="제품" data-zoom data-cap="조립식 도수 렌즈 프레임" loading="lazy"></div><div class="tx"><div class="no">04</div><h4>제품</h4><p>Quest 3·2, PS VR2, Pico 4 호환 렌즈 프레임</p></div></div>
-      <div class="h-panel"><div class="ph"><img src="assets/heek_package.jpg" alt="패키지" data-zoom data-cap="게임 콘셉트 패키지" loading="lazy"></div><div class="tx"><div class="no">05</div><h4>패키지</h4><p>게임 콘셉트 패키지 기획·디자인</p></div></div>
-      <div class="h-panel"><div class="ph"><img src="assets/heek_landing.jpg" alt="판매와 고객 응대" data-zoom data-cap="랜딩페이지·영상 기획" loading="lazy"></div><div class="tx"><div class="no">06</div><h4>판매·고객</h4><p>랜딩페이지·숏폼, 스마트스토어·쿠팡 로켓그로스, <em>3PL 물류 대행</em>, 고객 응대</p></div></div>
+      <div class="h-panel"><div class="ph" style="background:#122849"><img src="assets/heek2_bm.jpg" alt="렌즈가이드와 도수렌즈, 안경점 가공을 묶은 구조" data-zoom data-cap="사업 모델: 렌즈가이드 + 도수렌즈 + 안경점 가공" loading="lazy"></div><div class="tx"><div class="no">01</div><h4>사업 모델</h4><p>렌즈가이드에 도수렌즈와 <em>안경점</em> 가공을 묶어, 고객은 동네 안경점에서 맞추는 구조</p></div></div>
+      <div class="h-panel"><div class="ph" style="background:#0E1A3C"><img src="assets/heek2_brand.jpg" alt="HEEK 브랜드 메인 비주얼" data-zoom data-cap="브랜드: upgrade your eyes" loading="lazy"></div><div class="tx"><div class="no">02</div><h4>브랜드</h4><p>"upgrade your eyes", 이름과 로고, 메인 비주얼까지 브랜드 정체성 정립</p></div></div>
+      <div class="h-panel"><div class="ph"><img src="assets/heek2_render.jpg" alt="렌즈가이드 3D 렌더링" data-zoom data-cap="설계: 3D 모델링과 렌더링" loading="lazy"></div><div class="tx"><div class="no">03</div><h4>설계·금형</h4><p>기종별 3D 설계와 필드테스트, <em>금형 업체</em>와 회전 조립식 구조 금형 제작</p></div></div>
+      <div class="h-panel"><div class="ph cover"><img src="assets/heek2_product.jpg" alt="HEEK 렌즈가이드 제품 사진" data-zoom data-cap="제품: 렌즈가이드" loading="lazy"></div><div class="tx"><div class="no">04</div><h4>제품</h4><p>Quest 3·2, PS VR2, Pico 4 호환. 기기를 바꿔도 렌즈는 옮겨 씀</p></div></div>
+      <div class="h-panel"><div class="ph" style="background:#122849"><img src="assets/heek2_content.jpg" alt="카드뉴스: 기기를 바꿔도 렌즈는 평생 그대로" data-zoom data-cap="콘텐츠: 카드뉴스" loading="lazy"></div><div class="tx"><div class="no">05</div><h4>콘텐츠</h4><p>카드뉴스, 숏폼, 랜딩페이지로 "왜 필요한지"를 고객 언어로 설명</p></div></div>
+      <div class="h-panel"><div class="ph"><img src="assets/heek2_cs.jpg" alt="안경점 해피콜 서비스 안내" data-zoom data-cap="고객 응대: 해피콜 서비스" loading="lazy"></div><div class="tx"><div class="no">06</div><h4>판매·고객</h4><p>스마트스토어·쿠팡 로켓그로스, <em>3PL 물류 대행</em>, 구매 후 해피콜까지</p></div></div>
      </div>
    </div>
   </div>
@@ -424,16 +460,18 @@ footer a{color:var(--dsub)}
         <div class="st">
           <div><b id="sLow">6개월</b><span>손익분기 물량 미달</span></div>
           <div><b id="sOver">2개월</b><span>생산 능력 초과</span></div>
-          <div><b id="sInv">0</b><span>연말 재고(다음 해 성수기 대비)</span></div>
+          <div><b id="sGap">11</b><span>월 생산량 최대·최소 차이</span></div>
         </div>
         <button class="toggle" id="simBtn" type="button" aria-pressed="false"><span class="sw"></span><span id="simLbl">선행 생산 켜기</span></button>
       </div>
       <div class="chart" id="chart">
+        <div class="season" style="left:25%;width:25%"><span>성수기</span></div>
+        <div class="season" style="left:83.33%;width:16.67%"><span>성수기</span></div>
         <div class="hl cap" style="bottom:80%"><span>생산 능력</span></div>
         <div class="hl bep" style="bottom:60%"><span>손익분기 물량</span></div>
+        <svg class="dline" id="dline" viewBox="0 0 1200 100" preserveAspectRatio="none"><polyline id="dpoly" points=""/></svg>
       </div>
-      <div class="legend"><span><i style="background:#CFCCC5"></i>정상</span><span><i style="background:var(--acc)"></i>손익분기 미달</span><span><i style="background:var(--ink)"></i>생산 능력 초과</span></div>
-      <p class="note">예시 수치입니다. 실제 물량과 손익분기 값은 싣지 않았습니다</p>
+      <div class="legend"><span><i style="background:linear-gradient(#5B8DEF,#8FB3F5)"></i>정상 생산</span><span><i style="background:linear-gradient(var(--acc),#F2946B)"></i>손익분기 미달</span><span><i style="background:linear-gradient(#151515,#555)"></i>생산 능력 초과</span><span><i style="background:transparent;border:2px dashed #7C5CD6;width:14px;height:10px"></i>수요(선행 생산 시)</span><span><i style="background:rgba(226,78,27,.12)"></i>성수기</span></div>
     </div>
   </div>
   <div class="z-wrap" id="zWrap">
@@ -581,14 +619,17 @@ document.querySelectorAll('#opening .stage,#finale .f-top').forEach(dotField);
 const MONTHS=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
 const DEMAND=[9,8,11,15,18,17,12,8,7,9,13,16], LEVEL=[12,12,12,14,15,15,12,12,12,12,13,12];
 const BEP=12, CAP=16, MAX=20, chart=document.getElementById('chart');
-const cols=MONTHS.map(m=>{ const c=document.createElement('div'); c.className='col'; c.innerHTML=`<div class="v"></div><div class="fill"></div><div class="m">${m}</div>`; chart.appendChild(c); return c; });
+const cols=MONTHS.map((m,i)=>{ const c=document.createElement('div'); c.className='col'; c.innerHTML=`<div class="ghost" style="height:${DEMAND[i]/MAX*100}%"></div><div class="v"></div><div class="fill"></div><div class="m">${m}</div>`; chart.appendChild(c); return c; });
+document.getElementById('dpoly').setAttribute('points',DEMAND.map((v,i)=>`${(i+.5)*100},${100-v/MAX*100}`).join(' '));
 let simOn=false;
 function renderSim(){ const arr=simOn?LEVEL:DEMAND; let low=0,over=0;
   arr.forEach((v,i)=>{ const f=cols[i].querySelector('.fill'), t=cols[i].querySelector('.v');
     f.style.height=(v/MAX*100)+'%'; t.style.bottom=(v/MAX*100)+'%'; t.textContent=v;
+    cols[i].title=`${MONTHS[i]} · 수요 ${DEMAND[i]} · 생산 ${v}`;
     f.classList.toggle('low',v<BEP); f.classList.toggle('over',v>CAP); if(v<BEP)low++; if(v>CAP)over++; });
+  chart.classList.toggle('on',simOn);
   document.getElementById('sLow').textContent=low+'개월'; document.getElementById('sOver').textContent=over+'개월';
-  document.getElementById('sInv').textContent=simOn?(LEVEL.reduce((a,b)=>a+b)-DEMAND.reduce((a,b)=>a+b)):0;
+  document.getElementById('sGap').textContent=Math.max(...arr)-Math.min(...arr);
   const b=document.getElementById('simBtn'); b.classList.toggle('on',simOn); b.setAttribute('aria-pressed',simOn);
   document.getElementById('simLbl').textContent=simOn?'선행 생산 끄기':'선행 생산 켜기'; }
 document.getElementById('simBtn').addEventListener('click',()=>{ simOn=!simOn; renderSim(); });
@@ -654,7 +695,8 @@ function pipeDraw(svg,tl,t0){ const flow=svg.querySelector('.flow'), L=flow.getT
 
 const p1=document.getElementById('pipe1');
 const t0=gsap.timeline({scrollTrigger:{trigger:'#opening .track',start:'top top',end:()=>'+='+(document.querySelector('#opening .track').offsetHeight-innerHeight*1.6),scrub:.6}});
-t0.to('.o-hero .o-title',{scale:.62,yPercent:-30,opacity:0,ease:'power1.in',duration:3},0)
+t0.to('#me',{yPercent:10,scale:.94,opacity:0,ease:'power1.in',duration:3},.3)
+  .to('.o-hero .o-title',{scale:.62,yPercent:-30,opacity:0,ease:'power1.in',duration:3},0)
   .to('.o-hero .kicker,.o-hero .o-sub,.hint',{opacity:0,y:-30,duration:2},0)
   .fromTo('.o-intro',{opacity:0,scale:.86,y:40},{opacity:1,scale:1,y:0,duration:2.4},2)
   .to('.o-intro',{opacity:0,scale:1.08,y:-70,filter:'blur(6px)',duration:2.2},6)
@@ -667,6 +709,9 @@ t0.to({},{duration:1.5});
 
 const mm=gsap.matchMedia();
 mm.add('(min-width: 901px)',()=>{
+  /* 사진이 마우스 반대 방향으로 살짝 움직임 */
+  if(fine){ const stg=document.querySelector('#opening .stage'), qx=gsap.quickTo('#me','x',{duration:.8,ease:'power3'}), qy=gsap.quickTo('#me','y',{duration:.8,ease:'power3'});
+    stg.addEventListener('pointermove',e=>{ qx((e.clientX/innerWidth-.5)*-26); qy((e.clientY/innerHeight-.5)*-14); }); }
   gsap.fromTo('#ecFrame',{rotateY:-36,rotateX:16,scale:.7},{rotateY:0,rotateX:0,scale:1,ease:'none',scrollTrigger:{trigger:'#c1',start:'top 85%',end:'top top',scrub:.6}});
   const tr=document.getElementById('hTrack'), lead=()=>Math.max(16,(innerWidth-1240)/2+56);
   const dist=()=>Math.max(0,tr.scrollWidth-innerWidth+lead()*2);
