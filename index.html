@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>유승환 · Portfolio</title>
+<meta name="description" content="제품 개발에서 사업 전반까지, 넓은 시야로 일하는 유승환의 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --bg:#EEEDE9; --paper:#FFFFFF; --ink:#171717; --sub:#6F6D68; --soft:#A9A69F; --hair:#C9C6BF;
+  --acc:#E24E1B; --dark:#1C1C1C;
+  --w:1200px; --pad:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;
+  font-size:16px;line-height:1.65;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 var(--pad)}
+.top{position:sticky;top:0;z-index:10;background:rgba(238,237,233,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.top .name{font-weight:800;letter-spacing:-.01em}
+.top .name span{font-weight:300;color:var(--sub);margin-left:8px}
+.top nav{display:flex;gap:22px;font-size:14px}
+.top nav a{text-decoration:none;color:var(--sub)}
+.top nav a:hover{color:var(--ink)}
+@media (max-width:760px){.top nav{display:none}}
+
+.hero{padding:clamp(56px,9vw,120px) 0 clamp(40px,6vw,72px);border-bottom:1px solid var(--ink)}
+.hero .meta{display:flex;justify-content:space-between;font-size:13px;color:var(--sub);letter-spacing:.04em;margin-bottom:28px}
+.hero h1{font-weight:900;font-size:clamp(64px,15vw,200px);line-height:.85;letter-spacing:-.04em}
+.hero h1 i{font-style:normal;color:var(--acc)}
+.hero .row{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;margin-top:44px;align-items:end}
+.hero .lead{font-size:clamp(22px,2.6vw,32px);font-weight:700;line-height:1.35;letter-spacing:-.02em}
+.hero .tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.tag{border:1px solid var(--ink);border-radius:999px;padding:6px 14px;font-size:13px;white-space:nowrap}
+@media (max-width:760px){.hero .row{grid-template-columns:1fr}.hero .tags{justify-content:flex-start}}
+
+section{padding:clamp(56px,8vw,104px) 0;border-bottom:1px solid var(--hair)}
+.sec-head{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline;margin-bottom:40px}
+.sec-head .no{font-weight:200;font-size:56px;line-height:1;color:var(--acc)}
+.sec-head h2{font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;line-height:1.2}
+.sec-head p{color:var(--sub);margin-top:8px;font-size:15px}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr;gap:6px}.sec-head .no{font-size:40px}}
+
+.about{display:grid;grid-template-columns:120px 1fr;gap:24px}
+.about p{font-size:clamp(17px,1.6vw,20px);line-height:1.8;max-width:860px}
+.about p + p{margin-top:14px}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.timeline > div{padding:22px 20px 26px 0;border-right:1px solid var(--hair);margin-right:20px}
+.timeline > div:last-child{border-right:0;margin-right:0}
+.timeline .yr{font-size:13px;color:var(--acc);font-weight:700;letter-spacing:.04em}
+.timeline h3{font-size:19px;margin:6px 0 2px}
+.timeline .role{color:var(--sub);font-size:14px}
+.timeline ul{list-style:none;margin-top:12px;font-size:14.5px}
+.timeline li{padding:3px 0}
+.timeline li::before{content:"· ";color:var(--soft)}
+@media (max-width:900px){.timeline{grid-template-columns:1fr 1fr}.timeline > div:nth-child(2){border-right:0}}
+@media (max-width:560px){.timeline{grid-template-columns:1fr}.timeline > div{border-right:0;border-bottom:1px solid var(--hair);margin-right:0}}
+
+.work{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:40px 0;border-top:1px solid var(--ink)}
+.work:first-of-type{border-top:0;padding-top:0}
+.work .lab{font-weight:800;font-size:15px;color:var(--acc)}
+.work .lab small{display:block;color:var(--sub);font-weight:400;font-size:13px;margin-top:4px}
+.work h3{font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+.work .desc{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:18px 0 28px}
+.work .desc h4{font-size:12px;letter-spacing:.12em;color:var(--acc);margin-bottom:6px}
+.work .desc p{font-size:15px}
+.kpis{display:flex;flex-wrap:wrap;gap:32px;margin:6px 0 28px;padding-top:18px;border-top:1px solid var(--hair)}
+.kpi b{display:block;font-size:clamp(28px,3.4vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.kpi span{font-size:13px;color:var(--sub)}
+.gal{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.big{grid-column:span 2}
+figure{background:var(--paper);padding:10px}
+figure a{display:block}
+figure img{width:100%;aspect-ratio:var(--ar,16/10);object-fit:contain;background:var(--paper)}
+figcaption{font-size:13px;padding:8px 2px 0;color:var(--sub)}
+figcaption b{color:var(--ink);margin-right:6px}
+@media (max-width:900px){.work{grid-template-columns:1fr}.work .desc{grid-template-columns:1fr}.g3,.g4{grid-template-columns:1fr 1fr}.big{grid-column:span 2}}
+@media (max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}.big{grid-column:auto}}
+
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:8px 0 26px}
+.flow div{background:var(--paper);padding:18px 16px}
+.flow div:last-child{background:var(--acc);color:#fff}
+.flow b{display:block;font-size:30px;font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.flow span{font-size:13.5px}
+@media (max-width:900px){.flow{grid-template-columns:1fr 1fr}}
+.docs{display:grid;grid-template-columns:1fr 1fr;column-gap:32px}
+.docs div{padding:14px 0;border-top:1px solid var(--hair);display:grid;grid-template-columns:200px 1fr;gap:12px;font-size:14.5px}
+.docs b{font-weight:700}
+.docs span{color:var(--sub)}
+@media (max-width:760px){.docs{grid-template-columns:1fr}.docs div{grid-template-columns:1fr;gap:2px}}
+.note{font-size:13px;color:var(--sub);margin-top:14px}
+
+.next{background:var(--dark);color:#fff;border-bottom:0}
+.next .sec-head .no{color:var(--acc)}
+.next .sec-head p{color:var(--soft)}
+.next .statement{font-size:clamp(28px,4.2vw,52px);font-weight:800;line-height:1.2;letter-spacing:-.03em;margin:0 0 40px}
+.paths{border-top:1px solid #444}
+.paths div{display:grid;grid-template-columns:220px 200px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid #444}
+.paths b{font-size:17px}
+.paths em{font-style:normal;color:var(--acc)}
+.paths span{color:var(--soft)}
+@media (max-width:760px){.paths div{grid-template-columns:1fr;gap:2px}}
+.contact{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;margin-top:48px;align-items:end}
+.contact .mail{font-size:clamp(22px,3vw,34px);font-weight:800;text-decoration:none;border-bottom:2px solid var(--acc)}
+.contact .motto{color:var(--soft);font-size:15px;max-width:420px}
+footer{background:var(--dark);color:var(--soft);font-size:13px;padding:24px 0 40px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="name">유승환<span>Yu Seunghwan</span></div>
+    <nav>
+      <a href="#about">소개</a><a href="#career">경력</a><a href="#work">산출물</a><a href="#next">하고 싶은 일</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="hero">
+    <div class="meta"><span>PORTFOLIO 2026</span><span>설계·양산 15년 · 1인 창업 3년 · 원가와 전략기획</span></div>
+    <h1>PORT<br>FOLIO<i>.</i></h1>
+    <div class="row">
+      <p class="lead">제품 개발에서 사업 전반까지,<br>넓은 시야로 일합니다</p>
+      <div class="tags">
+        <span class="tag">기구설계</span><span class="tag">제품 개발</span><span class="tag">생산전환TF</span>
+        <span class="tag">사업계획·손익</span><span class="tag">AI 업무 시스템</span><span class="tag">HEEK 창업</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="sec-head" style="display:block;margin:0"><div class="no">01</div></div>
+    <div>
+      <p>기구설계 엔지니어로 15년 동안 아이웨어와 보호장비를 개발했고, 3년간 VR 시력 보조 렌즈가이드 브랜드 HEEK를 창업해 기획부터 금형, 판매, 고객 응대까지 직접 운영했습니다.</p>
+      <p>2025년 한국오지케이에 복귀해 생산전환TF를 기획하고 TF 팀장으로 운영하며 개발에서 양산으로 넘어가는 단계의 리스크를 FMEA로 줄였습니다. 2026년 7월부터는 전략기획팀장 겸 FP&amp;A 기획파트장으로 중장기 사업계획과 부문 손익 분석, 판관비 배부 기준 정립을 맡고 있습니다.</p>
+      <p>성수기와 비수기의 수급 격차에 대응하기 위해 AI 도구로 9개월 앞의 수급을 보는 사내 업무 시스템도 직접 기획해 운영하고 있습니다.</p>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">02</div><div><h2>20년의 흐름</h2><p>각 단계에서 넓힌 시야가 다음 단계의 출발점이 됐습니다</p></div></div>
+    <div class="timeline">
+      <div><div class="yr">2006 ~ 2010</div><h3>모듈트레이테크놀로지</h3><div class="role">개발부 · 기구 설계</div>
+        <ul><li>메모리 Module Tray·테스트 키트 설계</li><li>시장 점유율 50% 달성 기여</li><li>ISO 14001 인증 실무</li></ul></div>
+      <div><div class="yr">2010 ~ 2022</div><h3>한국오지케이 연구소</h3><div class="role">개발팀 · 제품·소재 개발</div>
+        <ul><li>중국 주재 현지 개발팀장 3년</li><li>전기변색·스마트글래스 기구 설계</li><li>저온 내충격 소재 정부과제</li></ul></div>
+      <div><div class="yr">2022 ~ 2025</div><h3>모어메타글래스</h3><div class="role">대표 · HEEK 창업</div>
+        <ul><li>기획·금형·양산·판매 1인 운영</li><li>특허·디자인 등록</li><li>네이버 2024 강한 소상공인</li></ul></div>
+      <div><div class="yr">2025 ~ 현재</div><h3>한국오지케이</h3><div class="role">전략기획팀장 겸 FP&amp;A 기획파트장</div>
+        <ul><li>생산전환TF 기획·운영(TF 팀장)</li><li>중장기 사업계획·손익 분석</li><li>사내 업무 시스템 구축</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">03</div><div><h2>산출물</h2><p>실제 화면, 문서, 제품으로 정리했습니다. 이미지를 누르면 크게 볼 수 있습니다</p></div></div>
+
+    <article class="work">
+      <div class="lab">A<small>2026 ~</small></div>
+      <div>
+        <h3>9개월 앞을 보는 수급 시스템</h3>
+        <div class="desc">
+          <div><h4>WHY</h4><p>성수기와 비수기의 물량 차이가 커서 고정비를 감당할 손익분기 물량에 못 미치는 달이 자주 생겼습니다. 비수기에 앞당겨 생산할 물량을 미리 알기 위해 시작했습니다.</p></div>
+          <div><h4>ROLE</h4><p>업무 흐름과 화면 기획, 데이터 검증, 배포 후 운영을 맡고, 코드는 AI 코딩 도구로 작성했습니다.</p></div>
+          <div><h4>NOW</h4><p>수급계획에서 시작해 개발 일정, 금형, 판매, 생산, 품질, 재고 화면으로 넓혔고, ERP 데이터는 매주 자동 반영됩니다.</p></div>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>2026.07.28</b><span>전 임직원 오픈</span></div>
+          <div class="kpi"><b>93개</b><span>계정</span></div>
+          <div class="kpi"><b>0원</b><span>외부 개발비</span></div>
+        </div>
+        <div class="gal g2">
+          <figure class="big" style="--ar:16/10"><a href="assets/sys_hub.jpg" target="_blank"><img src="assets/sys_hub.jpg" alt="업무 시스템 허브 화면" loading="lazy"></a><figcaption><b>허브</b>계획·관리와 실적·현황을 카드로 한눈에</figcaption></figure>
+          <figure style="--ar:3/2"><a href="assets/sys_plan.jpg" target="_blank"><img src="assets/sys_plan.jpg" alt="월별 수급계획 화면" loading="lazy"></a><figcaption><b>월별 수급계획</b>수요·생산 투입·구매를 한 표에, 수요와 생산 능력의 균형은 그래프로</figcaption></figure>
+          <figure style="--ar:3/2"><a href="assets/sys_dev.jpg" target="_blank"><img src="assets/sys_dev.jpg" alt="개발 일정 화면" loading="lazy"></a><figcaption><b>개발 일정</b>과제별 샘플·Pilot·양산 단계를 간트로</figcaption></figure>
+          <figure class="big" style="--ar:3/2"><a href="assets/sys_prod.jpg" target="_blank"><img src="assets/sys_prod.jpg" alt="생산실적 화면" loading="lazy"></a><figcaption><b>생산실적</b>공정별 생산량과 전년 대비, 계획 달성률</figcaption></figure>
+        </div>
+        <p class="note">고객사명, 담당자 이름, 금액은 흐리게 처리했습니다.</p>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="lab">B<small>2025 ~ 2026</small></div>
+      <div>
+        <h3>생산전환TF</h3>
+        <div class="desc">
+          <div><h4>WHY</h4><p>납기에 쫓겨 개발이 끝나기 전에 양산을 병행했고, 불량 기준이 모호해 부서 간 책임이 오가며 후가공과 재작업이 쌓였습니다.</p></div>
+          <div><h4>ROLE</h4><p>기획안을 작성해 TF를 발족하고 TF 팀장으로 운영했습니다. 매주 개발·생산·품질 담당과 DFM·FMEA·공정관리도를 돌렸습니다.</p></div>
+          <div><h4>RESULT</h4><p>손연마 작업 시간의 원인이 사출 게이트 위치임을 찾아 게이트 커팅 지그로 작업을 없앴고, TF 종료 뒤에도 쓰는 기준 문서를 배포했습니다.</p></div>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>34/40</b><span>SHRED AERIFY 실패모드 조치</span></div>
+          <div class="kpi"><b>17/18</b><span>SS-130 실패모드 조치</span></div>
+          <div class="kpi"><b>75→0%</b><span>TR90 취성불량률</span></div>
+        </div>
+        <div class="gal g4">
+          <figure style="--ar:16/9"><a href="assets/tf_plan_reality.jpg" target="_blank"><img src="assets/tf_plan_reality.jpg" alt="운영 현실 진단" loading="lazy"></a><figcaption><b>A</b>운영 현실 진단</figcaption></figure>
+          <figure style="--ar:16/9"><a href="assets/tf_forms.jpg" target="_blank"><img src="assets/tf_forms.jpg" alt="운영 양식" loading="lazy"></a><figcaption><b>B</b>DFM·체크리스트·대시보드 양식</figcaption></figure>
+          <figure style="--ar:16/9"><a href="assets/tf_fmea.jpg" target="_blank"><img src="assets/tf_fmea.jpg" alt="FMEA 시트" loading="lazy"></a><figcaption><b>C</b>FMEA 시트</figcaption></figure>
+          <figure style="--ar:16/9"><a href="assets/tf_process.jpg" target="_blank"><img src="assets/tf_process.jpg" alt="공정관리도" loading="lazy"></a><figcaption><b>D</b>공정관리도</figcaption></figure>
+          <figure style="--ar:16/9"><a href="assets/tf_check.jpg" target="_blank"><img src="assets/tf_check.jpg" alt="전사표준검토항목" loading="lazy"></a><figcaption><b>E</b>전사표준검토항목</figcaption></figure>
+          <figure style="--ar:16/9"><a href="assets/tf_dash.jpg" target="_blank"><img src="assets/tf_dash.jpg" alt="전사 리스크 대시보드" loading="lazy"></a><figcaption><b>F</b>전사 리스크 대시보드</figcaption></figure>
+          <figure style="--ar:16/9"><a href="assets/tf_scope.jpg" target="_blank"><img src="assets/tf_scope.jpg" alt="TF 역할과 수행 범위" loading="lazy"></a><figcaption><b>G</b>TF 역할과 수행 범위</figcaption></figure>
+          <figure style="--ar:16/9"><a href="assets/tf_roadmap.jpg" target="_blank"><img src="assets/tf_roadmap.jpg" alt="4단계 로드맵" loading="lazy"></a><figcaption><b>H</b>4단계 실행 로드맵</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="lab">C<small>2026 ~</small></div>
+      <div>
+        <h3>판관비 배부 기준과 부문 손익</h3>
+        <p style="color:var(--sub);margin-bottom:18px">전략기획팀장 겸 FP&amp;A 기획파트장으로 맡고 있는 일입니다. 수치는 대외비라 싣지 않았습니다.</p>
+        <div class="flow">
+          <div><b>6,557</b><span>판관비 전표 전수</span></div>
+          <div><b>52</b><span>배부 항목으로 판정</span></div>
+          <div><b>1:1</b><span>항목마다 배부 기준 연결</span></div>
+          <div><b>4</b><span>사업부문별 영업이익</span></div>
+          <div><b>5년</b><span>사업계획 모델에 바로 반영</span></div>
+        </div>
+        <div class="docs">
+          <div><b>중장기 손익 통합모델</b><span>4개 사업부문 × 5개년, 부문 범위를 바꿔 보는 구조</span></div>
+          <div><b>비용계획 통합본</b><span>15개 파트 회신 통합, 행별 산정 기준과 전제 명시</span></div>
+          <div><b>판관비 배부 시뮬레이터</b><span>배부안별 부문 손익 비교</span></div>
+          <div><b>공헌이익·손익분기점</b><span>매출 변화를 물량·비율·고정비 효과로 분해</span></div>
+          <div><b>GP 변동 요인 분해</b><span>수량·판매가·단위원가로 나눠 적자 원인 규명</span></div>
+          <div><b>연도별 부문 분리 손익</b><span>회계 원장을 다시 받아 부문 기준으로 재구성</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="lab">D<small>2022 ~ 2025</small></div>
+      <div>
+        <h3>HEEK 렌즈가이드</h3>
+        <p style="font-size:17px;max-width:820px">VR 헤드셋 렌즈부에 끼우는 조립식 도수 렌즈 프레임입니다. 안경 없이 VR을 선명하게 볼 수 있고, 기기를 바꿔도 렌즈는 옮겨 씁니다. 브랜드 기획부터 금형, 패키지, 판매, 고객 응대까지 혼자 운영했습니다.</p>
+        <div class="kpis">
+          <div class="kpi"><b>특허·디자인</b><span>VR 시력 보조용 글라스 등록</span></div>
+          <div class="kpi"><b>2024</b><span>네이버 강한 소상공인 선정</span></div>
+          <div class="kpi"><b>4.8+</b><span>고객 리뷰 평점</span></div>
+          <div class="kpi"><b>4종</b><span>Quest 3·2, PS VR2, Pico 4 호환</span></div>
+        </div>
+        <div class="gal g3">
+          <figure class="big" style="--ar:4/3"><a href="assets/heek_package.jpg" target="_blank"><img src="assets/heek_package.jpg" alt="HEEK 패키지" loading="lazy"></a><figcaption><b>패키지</b>게임 콘셉트 패키지 기획·디자인</figcaption></figure>
+          <figure style="--ar:1/1"><a href="assets/heek_bm.jpg" target="_blank"><img src="assets/heek_bm.jpg" alt="비즈니스 모델" loading="lazy"></a><figcaption><b>사업 모델</b>소비자·안경점·제조사</figcaption></figure>
+          <figure style="--ar:16/10"><a href="assets/heek_frame.jpg" target="_blank"><img src="assets/heek_frame.jpg" alt="렌즈 프레임" loading="lazy"></a><figcaption><b>제품</b>회전 조립식 도수 렌즈 프레임</figcaption></figure>
+          <figure style="--ar:16/10"><a href="assets/heek_mold.jpg" target="_blank"><img src="assets/heek_mold.jpg" alt="금형" loading="lazy"></a><figcaption><b>금형</b>기구 설계와 금형 제작</figcaption></figure>
+          <figure style="--ar:16/10"><a href="assets/heek_landing.jpg" target="_blank"><img src="assets/heek_landing.jpg" alt="랜딩페이지와 영상" loading="lazy"></a><figcaption><b>판매</b>랜딩페이지·영상 기획</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="lab">E<small>2010 ~ 2022</small></div>
+      <div>
+        <h3>제품 개발 15년</h3>
+        <div class="desc">
+          <div><h4>전기변색 글래스</h4><p>배터리 포함 34g, 투과율 46~10% 가변, IPX4 방수, 특허 등록, 와디즈 펀딩 5,900만원</p></div>
+          <div><h4>스마트글래스</h4><p>UV 노출·졸음운전 감지, FPCB 인서트 사출과 힌지 구조 설계, KC 인증, CES 출품</p></div>
+          <div><h4>저온 내충격 소재</h4><p>정부 기술혁신개발사업, 영하 20℃에서 경도 70C 이하 폼 개발, Red dot 수상</p></div>
+        </div>
+        <div class="gal g4">
+          <figure class="big" style="--ar:16/10"><a href="assets/ec_explode.jpg" target="_blank"><img src="assets/ec_explode.jpg" alt="전기변색 글래스 분해도" loading="lazy"></a><figcaption><b>전기변색 글래스</b>기구 설계</figcaption></figure>
+          <figure class="big" style="--ar:16/10"><a href="assets/sg_render.jpg" target="_blank"><img src="assets/sg_render.jpg" alt="스마트글래스" loading="lazy"></a><figcaption><b>스마트글래스</b>기구 설계</figcaption></figure>
+          <figure style="--ar:4/3"><a href="assets/ec_clip.jpg" target="_blank"><img src="assets/ec_clip.jpg" alt="도수 클립 설계" loading="lazy"></a><figcaption><b>도수 클립</b>평판을 쓴 저가 구조</figcaption></figure>
+          <figure style="--ar:4/3"><a href="assets/ec_guide.jpg" target="_blank"><img src="assets/ec_guide.jpg" alt="작업지도서" loading="lazy"></a><figcaption><b>양산 이관</b>작업지도서</figcaption></figure>
+          <figure style="--ar:4/3"><a href="assets/sg_ir.jpg" target="_blank"><img src="assets/sg_ir.jpg" alt="IR 센싱 개선" loading="lazy"></a><figcaption><b>IR 센싱</b>센서 각도 개선</figcaption></figure>
+          <figure style="--ar:4/3"><a href="assets/sg_plan.jpg" target="_blank"><img src="assets/sg_plan.jpg" alt="마스터 플랜" loading="lazy"></a><figcaption><b>마스터 플랜</b>개발 일정 관리</figcaption></figure>
+          <figure style="--ar:4/3"><a href="assets/im_proto.jpg" target="_blank"><img src="assets/im_proto.jpg" alt="내충격 시제품" loading="lazy"></a><figcaption><b>내충격 소재</b>시제품</figcaption></figure>
+          <figure style="--ar:4/3"><a href="assets/im_std.jpg" target="_blank"><img src="assets/im_std.jpg" alt="사내 규격" loading="lazy"></a><figcaption><b>규격</b>사내 규격 제정</figcaption></figure>
+          <figure style="--ar:4/3"><a href="assets/im_field.jpg" target="_blank"><img src="assets/im_field.jpg" alt="필드 테스트" loading="lazy"></a><figcaption><b>필드 테스트</b>피드백 개선</figcaption></figure>
+          <figure style="--ar:4/3"><a href="assets/im_product.jpg" target="_blank"><img src="assets/im_product.jpg" alt="상품화" loading="lazy"></a><figcaption><b>상품화</b>보호장비 라인업</figcaption></figure>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="next" class="next">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">04</div><div><h2 style="color:#fff">하고 싶은 일</h2><p>길목마다 시간과 비용이 새는 것을 직접 봤고, 그 일부를 직접 메워 봤습니다</p></div></div>
+    <p class="statement">기획에서 양산, 판매로<br>넘어가는 길목의 비효율을 줄이는 일</p>
+    <div class="paths">
+      <div><b>개발과 생산 사이</b><em>생산전환TF</em><span>FMEA와 공정관리도로 양산 이관 리스크를 미리 제거</span></div>
+      <div><b>부서와 부서 사이</b><em>사내 업무 시스템</em><span>따로 관리하던 수급 정보를 하나의 화면과 데이터로</span></div>
+      <div><b>기획과 판매 사이</b><em>HEEK 창업</em><span>기획, 금형, 판매, 고객 응대를 혼자 끝까지 운영</span></div>
+    </div>
+    <div class="contact">
+      <div><div style="color:var(--soft);font-size:13px;margin-bottom:8px">CONTACT · 이력서와 포트폴리오 PDF는 요청하시면 보내드립니다</div>
+        <a class="mail" href="mailto:simonism@naver.com">simonism@naver.com</a></div>
+      <p class="motto">누군가 할 일이라면 내가 하고, 언젠가 할 일이라면 오늘 하고, 어차피 할 일이라면 확실히 한다.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 유승환</div></footer>
+</body>
+</html>
