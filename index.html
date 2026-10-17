@@ -7,14 +7,14 @@
 <title>유승환 Ryu Seunghwan · 제품 개발에서 사업 전반까지</title>
 <meta name="description" content="제품 개발에서 사업 전반까지, 넓은 시야로 일하는 유승환의 포트폴리오">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream:#F2F0E8; --cream2:#E9E6DB; --ink:#23271C; --ink2:#3A4030; --sub:#6B6F60; --hair:#CFCBBE;
   --lime:#D4FF3A; --lime2:#B8E600; --limeD:#5E7A00; --warn:#FF6A3D; --night:#0C0D0A;
   --pad:clamp(16px,4vw,56px); --w:1280px;
   --sans:"IBM Plex Sans KR","Malgun Gothic",sans-serif;
-  --cond:"IBM Plex Sans Condensed","IBM Plex Sans KR",sans-serif; --serif:"IBM Plex Sans KR",sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --cond:"IBM Plex Sans KR","Malgun Gothic",sans-serif; --serif:"IBM Plex Sans KR","Malgun Gothic",sans-serif; --mono:"IBM Plex Sans KR","Malgun Gothic",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-variant-numeric:tabular-nums}
@@ -45,7 +45,7 @@ a{color:inherit}
 .i-tags .tag{color:#8D9180}
 .i-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
 .i-script{font-family:var(--mono);font-size:clamp(14px,1.4vw,18px);font-weight:500;line-height:1;color:var(--lime);letter-spacing:.2em;margin-bottom:22px}
-.i-big{font-family:var(--cond);font-weight:700;font-size:clamp(68px,12vw,200px);line-height:.86;color:var(--lime);text-transform:uppercase;letter-spacing:-.01em}
+.i-big{font-family:var(--cond);font-weight:700;font-size:clamp(60px,10.4vw,176px);line-height:.9;color:var(--lime);text-transform:uppercase;letter-spacing:-.01em}
 .i-big .r{display:block;transform:translateX(9%)}
 .i-dim{display:flex;align-items:center;gap:10px;margin:18px auto 0;max-width:min(860px,80vw);font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--lime)}
 .i-dim i{flex:1;height:1px;background:var(--lime);position:relative}
@@ -64,7 +64,7 @@ a{color:inherit}
 .j-track{position:absolute;top:0;left:0;height:100%;display:flex;align-items:stretch;will-change:transform}
 .panel{position:relative;flex:none;width:min(78vw,1100px);height:100%;padding:110px 4vw 70px}
 .panel.lead{width:min(66vw,900px)}
-.panel .bigword{position:absolute;left:3vw;bottom:5vh;font-family:var(--cond);font-weight:700;text-transform:uppercase;font-size:clamp(110px,17vw,270px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(35,39,28,.28);white-space:nowrap;pointer-events:none;letter-spacing:-.01em}
+.panel .bigword{position:absolute;left:3vw;bottom:5vh;font-family:var(--cond);font-weight:700;text-transform:uppercase;font-size:clamp(90px,13.5vw,220px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(35,39,28,.28);white-space:nowrap;pointer-events:none;letter-spacing:-.01em}
 .panel .yr{font-family:var(--mono);font-weight:600;font-size:clamp(40px,4.4vw,68px);line-height:1;color:var(--ink);letter-spacing:-.04em}
 .panel h3{font-size:clamp(22px,2.2vw,30px);font-weight:800;letter-spacing:-.025em;line-height:1.25;margin:10px 0 10px}
 .panel p{font-size:15.5px;color:var(--ink2);max-width:420px}
@@ -97,6 +97,26 @@ a{color:inherit}
 .numgrid span{font-size:13px;color:#A4A896;margin-top:8px}
 .numgrid .hot{background:var(--lime);color:var(--ink)}.numgrid .hot span{color:var(--ink2)}
 .circle{position:absolute;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+.gauge{position:absolute}.gauge svg{width:100%;height:100%;display:block}
+.g-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.g-in b{font-weight:700;font-size:clamp(54px,6vw,96px);line-height:1;letter-spacing:-.04em}
+.g-in span{font-size:13px;font-weight:600;color:var(--ink2);margin-top:8px;line-height:1.4}
+/* 도면 판(누끼 이미지 + 표제) */
+.card.plate{display:flex;flex-direction:column;align-items:stretch;justify-content:stretch;background-color:#fff;background-image:linear-gradient(rgba(35,39,28,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(35,39,28,.06) 1px,transparent 1px);background-size:24px 24px;background-position:-1px -1px}
+.pl-h,.pl-f{display:flex;justify-content:space-between;gap:10px;padding:10px 16px;font-size:11px;letter-spacing:.1em;color:var(--sub);background:#fff;text-transform:uppercase}
+.pl-h{border-bottom:1px solid var(--ink)}.pl-h b{color:var(--ink);font-weight:600}
+.pl-f{border-top:1px solid var(--ink);display:grid;grid-template-columns:repeat(4,1fr);padding:0;gap:0}
+.pl-f span{padding:9px 14px;border-right:1px solid var(--hair);text-transform:none;letter-spacing:.02em;color:var(--ink2)}
+.pl-f span:last-child{border-right:0}
+.pl-f small{display:block;font-size:9.5px;letter-spacing:.12em;color:var(--sub);text-transform:uppercase}
+.pl-f b{font-size:13px;font-weight:600;color:var(--ink)}
+.pl-body{position:relative;flex:1;min-height:0}
+.media .card.plate .pl-body img{position:absolute;inset:6% 6%;width:88%;height:88%;object-fit:contain;padding:0;filter:drop-shadow(0 18px 18px rgba(35,39,28,.18))}
+.media .card.plate .pl-body img.inset{inset:auto 3% 4% auto;width:38%;height:44%;filter:drop-shadow(0 10px 12px rgba(35,39,28,.25))}
+.pl-body .mk{position:absolute;width:14px;height:14px;border-color:var(--ink);border-style:solid;opacity:.6}
+.pl-body .mk.a{left:10px;top:10px;border-width:1px 0 0 1px}.pl-body .mk.b{right:10px;top:10px;border-width:1px 1px 0 0}
+.pl-body .mk.c{left:10px;bottom:10px;border-width:0 0 1px 1px}.pl-body .mk.d{right:10px;bottom:10px;border-width:0 1px 1px 0}
+.pl-body .lbl{position:absolute;right:4%;bottom:49%;font-size:11px;font-weight:600;background:var(--ink);color:var(--lime);padding:3px 8px;border-radius:3px}
 .lead .ld-script{font-family:var(--cond);font-weight:700;text-transform:uppercase;font-size:clamp(52px,6.4vw,100px);line-height:.92;letter-spacing:-.01em}
 .lead .ld-kr{font-size:clamp(20px,2vw,28px);font-weight:800;letter-spacing:-.03em;margin-top:22px;max-width:520px;line-height:1.4}
 .j-path{position:absolute;top:0;left:0;height:100%;pointer-events:none;z-index:1;overflow:visible}
@@ -125,8 +145,10 @@ a{color:inherit}
 .fan-wrap{position:relative;height:clamp(380px,48vw,600px);margin-top:40px}
 .fan{position:absolute;left:50%;bottom:0;width:0;height:0}
 .fcard{position:absolute;left:0;bottom:40px;width:clamp(180px,20vw,300px);aspect-ratio:3/4;margin-left:calc(clamp(180px,20vw,300px) / -2);border-radius:18px;overflow:hidden;background:#fff;transform-origin:50% 140%;box-shadow:0 30px 50px -30px rgba(0,0,0,.5);cursor:zoom-in;transition:box-shadow .3s}
-.fcard img{width:100%;height:100%;object-fit:cover}
-.fcard .lb{position:absolute;left:10px;top:10px;font-family:var(--mono);font-size:11px;background:var(--ink);color:var(--lime);padding:3px 7px;border-radius:4px}
+.fcard{padding:10px 10px 36px;border-radius:6px}
+.fcard img{width:100%;height:100%;object-fit:cover;border-radius:2px;background:#F2F0E8}
+.fcard .flb{position:absolute;left:12px;right:12px;bottom:9px;font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--ink);display:flex;justify-content:space-between}
+.fcard .flb::after{content:"HEEK / 2022-2025";font-weight:400;color:var(--sub);letter-spacing:.06em}
 .fcard:hover{box-shadow:0 40px 70px -30px rgba(0,0,0,.65)}
 .steps6{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:110px;border-top:1px solid var(--hair)}
 .steps6 div{padding:18px 18px 22px 0;border-bottom:1px solid var(--hair);transition:background .3s}
@@ -202,6 +224,56 @@ a{color:inherit}
 .js .device .scr img:first-child{opacity:1}
 @media(max-width:900px){.z-stage{grid-template-columns:1fr}.js .z-wrap{height:auto}.js .z-stage{position:relative;height:auto;padding-top:0}.js .device .scr{display:grid;aspect-ratio:auto}.js .device .scr img{position:relative;opacity:1;height:auto}}
 
+/* 5 중장기 손익 모델 */
+#num{background:var(--night);color:#EDEBE3}
+.js .n-wrap{height:440vh}
+.n-stage{position:relative;padding:110px 0 40px}
+.js .n-stage{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:80px 0 28px}
+.n-body{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,64px);margin-top:22px;align-items:center}
+.js .n-body{flex:1;min-height:0}
+.nums{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.num .st{display:block;font-size:11px;letter-spacing:.14em;color:#8D9180;text-transform:uppercase;margin-bottom:6px}
+.num b{display:block;font-weight:700;letter-spacing:-.05em;font-size:48px;line-height:1;color:var(--lime)}
+.num span{display:block;font-size:14px;color:#A4A896;margin-top:8px}
+.js .nums{display:block;position:relative;height:100%;min-height:300px}
+.js .num{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.js .num b{font-size:clamp(96px,12.5vw,200px);transform-origin:0% 60%;will-change:transform,filter}
+.js .num b.w{font-size:clamp(72px,8.4vw,136px)}
+.js .num span{font-size:clamp(16px,1.5vw,20px);color:#D9DCCB;max-width:420px;margin-top:12px}
+.n-model{border:1px solid #3A4030;border-radius:4px;padding:16px;background:rgba(12,13,10,.7)}
+.m-top{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.m-box{border:1px solid #3A4030;padding:10px 12px;border-radius:3px;opacity:.3;transition:opacity .4s,border-color .4s}
+.m-box.on{opacity:1;border-color:var(--lime)}
+.m-box small{display:block;font-size:10px;letter-spacing:.14em;color:#8D9180;margin-bottom:8px;text-transform:uppercase}
+.parts{display:grid;grid-template-columns:repeat(15,1fr);gap:3px}
+.parts i{aspect-ratio:1/1.6;border:1px solid #4A5040;transition:background .25s,border-color .25s;transition-delay:calc(var(--i)*45ms)}
+.m-box.on .parts i{background:var(--lime);border-color:var(--lime)}
+.drv{display:flex;gap:6px;flex-wrap:wrap}
+.drv span{border:1px solid #4A5040;border-radius:999px;padding:3px 11px;font-size:12.5px;color:#D9DCCB;cursor:pointer;transition:all .25s;user-select:none}
+.m-box.on .drv span{border-color:var(--lime)}
+.drv span:hover,.drv span.hot{background:var(--lime);color:var(--night)}
+.m-arrow{text-align:center;color:#4A5040;font-size:11px;line-height:22px;transition:color .4s}
+.m-grid.y ~ .m-arrow,.m-box.on ~ .m-arrow{color:var(--lime)}
+.m-grid{display:grid;grid-template-columns:60px repeat(5,1fr);gap:5px}
+.m-grid .yh{font-size:11px;font-weight:600;color:#8D9180;text-align:center;letter-spacing:.06em;opacity:.3;transition:opacity .4s,color .4s}
+.m-grid.y .yh{opacity:1;color:var(--lime)}
+.m-grid .rh{font-size:12px;font-weight:500;color:#D9DCCB;display:flex;align-items:center;opacity:.3;transition:opacity .4s}
+.m-grid.r .rh{opacity:1}
+.cell{position:relative;height:clamp(34px,5.4vh,58px);border:1px dashed #3A4030;border-radius:3px;opacity:.3;transition:opacity .4s,border-color .4s}
+.m-grid.r .cell{opacity:.7}
+.m-grid.y .cell{opacity:1;border-style:solid;border-color:#3A4030}
+.cell i{position:absolute;width:5px;transform:scaleY(0);transition:transform .55s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--c)*110ms + var(--r)*45ms)}
+.cell i:nth-child(1){left:calc(50% - 15px);bottom:6px;height:calc(100% - 12px);background:#D9DCCB;transform-origin:bottom}
+.cell i:nth-child(2){left:calc(50% - 7px);top:6px;height:calc((100% - 12px)*.5);background:#6B6F60;transform-origin:top}
+.cell i:nth-child(3){left:calc(50% + 1px);top:calc(6px + (100% - 12px)*.5);height:calc((100% - 12px)*.22);background:#8D9180;transform-origin:top}
+.cell i:nth-child(4){left:calc(50% + 9px);bottom:6px;height:calc((100% - 12px)*.28);background:var(--lime);transform-origin:bottom}
+.m-grid.y .cell i{transform:scaleY(1)}
+.m-grid.rip .cell{animation:rip 1.1s ease both;animation-delay:calc(var(--c)*120ms + var(--r)*60ms)}
+@keyframes rip{0%{background:transparent}30%{background:rgba(212,255,58,.2);border-color:var(--lime)}100%{background:transparent}}
+.m-out{margin-top:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid #3A4030;padding-top:10px;color:#8D9180;font-size:11px;letter-spacing:.04em}
+.m-out .lg i{display:inline-block;width:8px;height:8px;margin:0 5px 0 10px;vertical-align:middle}
+.m-out .lg i:first-child{margin-left:0}
+@media(max-width:900px){.n-body{grid-template-columns:1fr}.js .n-wrap{height:auto}.js .n-stage{position:relative;height:auto}.js .nums{display:grid;height:auto;min-height:0}.js .num{position:relative;opacity:1}.js .num b{font-size:46px}.js .num span{font-size:14px}.m-grid{grid-template-columns:48px repeat(5,1fr)}}
 /* 5 숫자 */
 #num{background:var(--night);color:#EDEBE3}
 .js .n-wrap{height:360vh}
@@ -275,9 +347,14 @@ a{color:inherit}
   .panel .bigword{font-size:36vw;bottom:auto;top:30px;left:auto;right:-4vw}
   .j-path,.me-marker,.j-hint{display:none}
   .ride{border-radius:30px 30px 0 0;margin-top:-30px}
-  .i-big{font-size:15vw}.i-big .r{transform:none}
+  .i-big{font-size:13.4vw}.i-big .r{transform:none}
   .i-tags{top:70px}.i-tags .tag:last-child{display:none}
   .tblock{grid-template-columns:1fr 1fr}
+  .panel .media:has(.gauge){height:auto}
+  .gauge{position:relative!important;width:68vw!important;height:68vw!important;right:auto!important;top:auto!important;margin:0 auto}
+  .g-in b{font-size:15vw}
+  .fcard .flb::after{display:none}
+  .pl-f span{padding:7px 9px}
 }
 </style>
 <script>(function(){if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js');})();</script>
@@ -319,11 +396,22 @@ a{color:inherit}
    </div>
 
    <div class="panel" data-pt="0.72">
-     <div class="bigword">Tray</div>
+     <div class="bigword">Start</div>
      <div class="txt"><div class="tag">[2006_06] [MODULE_TRAY_TECH]</div><div class="yr">2006</div>
        <h3>첫 직장, 메모리 트레이를 설계하다</h3>
        <p>메모리 Module Tray와 테스트 키트를 설계했습니다. 하이닉스 SSD 초기 개발에 참여했고 ISO 14001 인증 실무를 맡았습니다.</p></div>
-     <div class="media"><div class="circle" style="width:min(30vw,380px);height:min(30vw,380px);right:6%;top:4%"><b style="font-family:var(--cond);font-weight:400;font-size:clamp(70px,8vw,130px);line-height:1">50%</b><span style="font-size:14px;font-weight:700">Module Tray 시장 점유율<br>달성에 기여</span></div></div>
+     <div class="media"><div class="gauge" style="width:min(30vw,380px);height:min(30vw,380px);right:6%;top:2%">
+       <svg viewBox="0 0 400 400" aria-hidden="true">
+         <g stroke="#23271C" stroke-width="1" stroke-dasharray="12 5 2 5" opacity=".4"><line x1="200" y1="6" x2="200" y2="394"/><line x1="6" y1="200" x2="394" y2="200"/></g>
+         <circle cx="200" cy="200" r="182" fill="none" stroke="#23271C" stroke-width="1"/>
+         <g id="gTicks"></g>
+         <circle cx="200" cy="200" r="150" fill="#fff" stroke="#E3E0D4" stroke-width="30"/>
+         <circle class="g-arc" cx="200" cy="200" r="150" fill="none" stroke="#D4FF3A" stroke-width="30" stroke-dasharray="471.2 942.5" transform="rotate(-90 200 200)"/>
+         <circle cx="200" cy="200" r="165" fill="none" stroke="#23271C" stroke-width="1.5"/><circle cx="200" cy="200" r="135" fill="none" stroke="#23271C" stroke-width="1.5"/>
+         <text x="214" y="34" font-size="12" letter-spacing="2" fill="#6B6F60">0</text><text x="214" y="380" font-size="12" letter-spacing="2" fill="#6B6F60">50</text>
+       </svg>
+       <div class="g-in"><b>50%</b><span>Module Tray<br>시장 점유율 달성에 기여</span></div>
+     </div></div>
    </div>
 
    <div class="panel" data-pt="0.3">
@@ -343,31 +431,43 @@ a{color:inherit}
    </div>
 
    <div class="panel" data-pt="0.7">
-     <div class="bigword">Foam</div>
+     <div class="bigword">Material</div>
      <div class="txt"><div class="tag">[2013_12] [GOV_RND]</div><div class="yr">2013</div>
        <h3>영하 20℃에서도 부드러운 내충격 소재</h3>
        <p>정부 기술혁신개발사업 2개년 실무를 맡아 경도 70C 이하를 유지하는 폼을 개발하고, 사내 규격 제정과 Red dot 수상까지 이어 갔습니다.</p></div>
-     <div class="media"><div class="card"><img src="assets/im_spine.jpg" alt="저온 내충격 프로텍터" data-zoom data-cap="저온 내충격 프로텍터 설계" loading="lazy"></div><div class="cap tag">[RED_DOT] [PATENT_PENDING]</div></div>
+     <div class="media"><div class="card plate">
+       <div class="pl-h"><b>Material</b><span>Low-temp impact protector</span></div>
+       <div class="pl-body"><i class="mk a"></i><i class="mk b"></i><i class="mk c"></i><i class="mk d"></i>
+         <img src="assets/im_spine_cut.png" alt="저온 내충격 프로텍터" data-zoom data-cap="저온 내충격 프로텍터 설계" loading="lazy"></div>
+       <div class="pl-f"><span><small>Temp</small><b>-20℃</b></span><span><small>Hardness</small><b>70C 이하</b></span><span><small>Project</small><b>정부 과제 2년</b></span><span><small>Award</small><b>Red Dot</b></span></div>
+     </div><div class="cap tag">[RED_DOT] [PATENT_PENDING]</div></div>
    </div>
 
    <div class="panel" data-pt="0.28">
-     <div class="bigword">34g</div>
+     <div class="bigword" style="font-size:clamp(80px,11vw,180px)">Smart glass</div>
      <div class="txt"><div class="tag">[2018_06] [EC_GLASS] [SMART_GLASS]</div><div class="yr">2018</div>
        <h3>하이테크를 양산 가능한 구조로</h3>
        <p>배터리를 넣은 전기변색 글래스를 34g으로 설계해 와디즈에서 5,900만원 펀딩을 받았습니다. UV·졸음운전을 감지하는 스마트글래스로 KC 인증과 CES 출품까지 했습니다.</p></div>
-     <div class="media"><div class="card"><img src="assets/ec_explode.jpg" alt="전기변색 글래스 분해도" data-zoom data-cap="전기변색 글래스 기구 설계" loading="lazy"></div><div class="cap tag">[34G] [IPX4] [5,900만원]</div></div>
+     <div class="media"><div class="card plate">
+       <div class="pl-h"><b>Smart glass</b><span>Exploded view</span></div>
+       <div class="pl-body"><i class="mk a"></i><i class="mk b"></i><i class="mk c"></i><i class="mk d"></i>
+         <img src="assets/ec_explode_cut.png" alt="전기변색 글래스 분해도" data-zoom data-cap="전기변색 글래스 기구 설계" loading="lazy" style="inset:4% 8% 18% 2%;width:90%;height:78%">
+         <img class="inset" src="assets/sg_render_cut.png" alt="UV·졸음운전 감지 스마트글래스" data-zoom data-cap="UV·졸음운전 감지 스마트글래스" loading="lazy">
+         <span class="lbl">UV · 졸음운전 감지</span></div>
+       <div class="pl-f"><span><small>Weight</small><b>34 g</b></span><span><small>Water</small><b>IPX4</b></span><span><small>Cert.</small><b>KC · CES</b></span><span><small>Funding</small><b>5,900만원</b></span></div>
+     </div><div class="cap tag">[EC_GLASS] [SMART_GLASS]</div></div>
    </div>
 
    <div class="panel" data-pt="0.7">
-     <div class="bigword">Heek</div>
+     <div class="bigword">Venture</div>
      <div class="txt"><div class="tag">[2022_06] [FOUNDER]</div><div class="yr">2022</div>
-       <h3>창업, 아이디어에서 고객의 손까지</h3>
+       <h3>창업, 제품을 사업으로 만들다</h3>
        <p>VR 헤드셋에 끼우는 도수 렌즈 프레임 HEEK를 만들었습니다. 기획, 금형, 브랜드, 판매, 고객 응대까지 직접 이끌었습니다.</p></div>
      <div class="media"><div class="card cover"><img src="assets/heek_package.jpg" alt="HEEK 패키지" data-zoom data-cap="HEEK 렌즈가이드" loading="lazy"></div><div class="cap tag">[PATENT] [4.92★] [396_REVIEWS]</div></div>
    </div>
 
    <div class="panel" data-pt="0.3">
-     <div class="bigword">TF</div>
+     <div class="bigword">De-risk</div>
      <div class="txt"><div class="tag">[2025_11] [TF_LEADER]</div><div class="yr">2025</div>
        <h3>생산전환TF, 드러난 곳이 아니라 시작된 곳</h3>
        <p>개발에서 양산으로 넘어가는 리스크를 미리 없애려고 TF를 기획하고 팀장을 맡았습니다.</p></div>
@@ -390,16 +490,16 @@ a{color:inherit}
 <section id="heek" class="ride contour">
  <div class="wrap sect">
   <div class="tag">[02] [HEEK] [2022 — 2025]</div>
-  <h2 class="h2" style="margin-top:16px">아이디어에서<br><span class="serif">고객의 손까지.</span></h2>
+  <h2 class="h2" style="margin-top:16px">제품을<br><span class="serif">사업으로 만든 3년.</span></h2>
   <p class="lead-p">VR 헤드셋에 끼우는 조립식 도수 렌즈 프레임입니다. 안경 없이 VR을 선명하게 볼 수 있고, 기기를 바꿔도 렌즈는 옮겨 씁니다.</p>
   <div class="kp"><div><b>특허·디자인</b><span>VR 시력 보조용 글라스 등록</span></div><div><b>4.92</b><span>스마트스토어 평점 · 리뷰 396건</span></div><div><b>2024</b><span>네이버 강한 소상공인 선정</span></div></div>
   <div class="fan-wrap"><div class="fan" id="fan">
-    <div class="fcard" data-i="0"><img src="assets/h3_bm.jpg" alt="사업 모델 도식" data-zoom data-cap="사업 모델: 제조사 · 소비자 · 안경점"><span class="lb">01 BUSINESS</span></div>
-    <div class="fcard" data-i="1"><img src="assets/h3_brand.jpg" alt="HEEK 브랜드" data-zoom data-cap="브랜드: HEEK, upgrade your eyes"><span class="lb">02 BRAND</span></div>
-    <div class="fcard" data-i="2"><img src="assets/h3_design.jpg" alt="시험테와 렌즈가이드" data-zoom data-cap="설계·품질: 시험테 기준 검증"><span class="lb">03 DESIGN</span></div>
-    <div class="fcard" data-i="3"><img src="assets/h3_product.jpg" alt="제품 사진" data-zoom data-cap="제품: Quest 3와 HEEK 렌즈가이드"><span class="lb">04 PRODUCT</span></div>
-    <div class="fcard" data-i="4"><img src="assets/h3_content.jpg" alt="카드뉴스" data-zoom data-cap="콘텐츠: 인스타그램 카드뉴스"><span class="lb">05 CONTENT</span></div>
-    <div class="fcard" data-i="5"><img src="assets/h3_sales.jpg" alt="도수렌즈 바우처" data-zoom data-cap="판매·홍보: 안경점 연계 도수렌즈 바우처"><span class="lb">06 SALES</span></div>
+    <div class="fcard" data-i="0"><img src="assets/h3_bm.jpg" alt="사업 모델 도식" data-zoom data-cap="사업 모델: 제조사 · 소비자 · 안경점"><span class="flb">01 BUSINESS</span></div>
+    <div class="fcard" data-i="1"><img src="assets/h3_brand.jpg" alt="HEEK 브랜드" data-zoom data-cap="브랜드: HEEK, upgrade your eyes"><span class="flb">02 BRAND</span></div>
+    <div class="fcard" data-i="2"><img src="assets/h3_design.jpg" alt="시험테와 렌즈가이드" data-zoom data-cap="설계·품질: 시험테 기준 검증"><span class="flb">03 DESIGN</span></div>
+    <div class="fcard" data-i="3"><img src="assets/h3_product.jpg" alt="제품 사진" data-zoom data-cap="제품: Quest 3와 HEEK 렌즈가이드"><span class="flb">04 PRODUCT</span></div>
+    <div class="fcard" data-i="4"><img src="assets/h3_content.jpg" alt="카드뉴스" data-zoom data-cap="콘텐츠: 인스타그램 카드뉴스"><span class="flb">05 CONTENT</span></div>
+    <div class="fcard" data-i="5"><img src="assets/h3_sales.jpg" alt="도수렌즈 바우처" data-zoom data-cap="판매·홍보: 안경점 연계 도수렌즈 바우처"><span class="flb">06 SALES</span></div>
   </div></div>
   <div class="steps6" id="steps6">
     <div data-i="0"><span class="tag">[01] Business</span><h4>사업 모델</h4><p>렌즈가이드는 HEEK가, 도수렌즈는 동네 안경점이 맞추는 구조. 소비자·안경점·제조사가 함께 이익을 얻음</p></div>
@@ -473,34 +573,43 @@ a{color:inherit}
  <div class="wrap"><p class="tag" style="padding-bottom:90px">[NOTE] 고객사명, 담당자 이름, 금액은 흐리게 처리</p></div>
 </section>
 
-<!-- 5 숫자 -->
+<!-- 5 중장기 손익 -->
 <section id="num" class="ride" data-dark="1">
  <div class="contour-d"></div>
  <div class="n-wrap" id="nWrap">
   <div class="n-stage wrap">
-   <div class="tag" style="color:#8D9180">[05] [STRATEGY_FPA] PROCESS: SG&amp;A ALLOCATION</div>
-   <h2 class="h2" style="margin-top:14px;font-size:clamp(32px,4.2vw,60px)">전표 한 장에서<br><span class="serif" style="color:var(--lime)">5개년 계획까지.</span></h2>
-   <p style="color:#A4A896;max-width:720px;margin-top:12px">판관비가 어느 사업에서 쓰였는지 전표를 한 장씩 따라가, 4개 사업부문의 손익을 같은 기준으로 다시 세웠습니다. 재무팀과 협의하며 진행한 전략기획팀장 겸 FP&amp;A 기획파트장의 일입니다.</p>
-   <div class="nums" id="nums">
-     <div class="num"><small class="st">STEP 01 · INPUT</small><b>6,557</b><span>건의 1~7월 판관비 전표를 전부 열고</span></div>
-     <div class="num"><small class="st">STEP 02 · GROUP</small><b>52</b><span>개의 배부 항목으로 성격을 묶고</span></div>
-     <div class="num"><small class="st">STEP 03 · MAP</small><b>1:1</b><span>항목마다 배부 기준을 하나씩 정해</span></div>
-     <div class="num"><small class="st">STEP 04 · CALC</small><b>4</b><span>개 사업부문의 영업이익을 다시 계산하고</span></div>
-     <div class="num"><small class="st">STEP 05 · LINK</small><b>5Y</b><span>기준이 바뀌면 5개년 계획이 함께 바뀌도록 연결</span></div>
-   </div>
-   <div class="flow5" id="flow5"><span>INPUT</span><i></i><span>GROUP</span><i></i><span>MAP</span><i></i><span>CALC</span><i></i><span>LINK</span></div>
+   <div class="tag" style="color:#8D9180">[05] [STRATEGY_FPA] MID-TERM P&amp;L MODEL</div>
+   <h2 class="h2" style="margin-top:14px;font-size:clamp(32px,4vw,58px)">5년 뒤 손익을<br><span class="serif" style="color:var(--lime)">지금 계산하는 모델.</span></h2>
+   <p style="color:#A4A896;max-width:760px;margin-top:12px">실적을 사업부문별로 다시 나누고, 각 파트의 비용계획과 물량·판매가·단위원가 가정을 하나의 모델로 묶어 2027~2031년 부문 손익을 추정했습니다. 가정 하나를 바꾸면 5년 손익이 함께 다시 계산됩니다.</p>
+   <div class="n-body">
+    <div class="nums" id="nums">
+     <div class="num"><small class="st">Step 01 · Split</small><b>4</b><span>개 사업부문으로 실적을 다시 나누고</span></div>
+     <div class="num"><small class="st">Step 02 · Collect</small><b>15</b><span>개 파트의 비용계획 회신을 한 표로 모아</span></div>
+     <div class="num"><small class="st">Step 03 · Drive</small><b>3</b><span>가지 변동 요인, 물량·판매가·단위원가를 가정으로 두고</span></div>
+     <div class="num"><small class="st">Step 04 · Project</small><b>5</b><span>개년(2027~2031) 부문 손익을 추정</span></div>
+     <div class="num"><small class="st">Step 05 · Link</small><b class="w">1→20</b><span>가정 하나를 바꾸면 20개 손익 칸이 함께 다시 계산</span></div>
+    </div>
+    <div class="n-model" id="nModel">
+     <div class="m-top">
+      <div class="m-box" id="mParts"><small>Cost plan · 15 parts</small><div class="parts"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i></div></div>
+      <div class="m-box" id="mDrv"><small>Drivers · 가정</small><div class="drv"><span>물량</span><span>판매가</span><span>단위원가</span></div></div>
      </div>
+     <div class="m-arrow">▼</div>
+     <div class="m-grid" id="mGrid"><b></b><b class="yh">2027</b><b class="yh">2028</b><b class="yh">2029</b><b class="yh">2030</b><b class="yh">2031</b><b class="rh">부문 A</b><div class="cell" style="--r:0;--c:0"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:0;--c:1"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:0;--c:2"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:0;--c:3"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:0;--c:4"><i></i><i></i><i></i><i></i></div><b class="rh">부문 B</b><div class="cell" style="--r:1;--c:0"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:1;--c:1"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:1;--c:2"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:1;--c:3"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:1;--c:4"><i></i><i></i><i></i><i></i></div><b class="rh">부문 C</b><div class="cell" style="--r:2;--c:0"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:2;--c:1"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:2;--c:2"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:2;--c:3"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:2;--c:4"><i></i><i></i><i></i><i></i></div><b class="rh">부문 D</b><div class="cell" style="--r:3;--c:0"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:3;--c:1"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:3;--c:2"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:3;--c:3"><i></i><i></i><i></i><i></i></div><div class="cell" style="--r:3;--c:4"><i></i><i></i><i></i><i></i></div></div>
+     <div class="m-out" id="mOut"><span class="lg"><i style="background:#D9DCCB"></i>매출<i style="background:#6B6F60"></i>원가<i style="background:#8D9180"></i>판관비<i style="background:var(--lime)"></i>영업이익</span><span>구조만 표시 · 금액은 대외비</span></div>
+    </div>
+   </div>
+  </div>
  </div>
  <div class="wrap" style="padding-bottom:120px;position:relative">
   <div class="doclist">
    <div><b>중장기 손익 통합모델</b><span>4개 사업부문 × 5개년(2027~2031)</span></div>
    <div><b>비용계획 통합본</b><span>15개 파트 회신 통합, 행별 산정 기준 명시</span></div>
-   <div><b>판관비 배부 시뮬레이터</b><span>배부안별 부문 손익 비교</span></div>
-   <div><b>공헌이익·손익분기점</b><span>매출 변화를 물량·비율·고정비 효과로 분해</span></div>
    <div><b>GP 변동 요인 분해</b><span>수량·판매가·단위원가로 나눠 적자 원인 규명</span></div>
+   <div><b>공헌이익·손익분기점</b><span>매출 변화를 물량·비율·고정비 효과로 분해</span></div>
    <div><b>연도별 부문 분리 손익</b><span>회계 원장을 부문 기준으로 재구성</span></div>
+   <div><b>판관비 배부 시뮬레이터</b><span>배부안별 부문 손익 비교</span></div>
   </div>
-  <p class="tag" style="margin-top:16px;color:#6B6F60">[NOTE] 금액은 대외비라 싣지 않음</p>
  </div>
 </section>
 
@@ -549,37 +658,65 @@ const motion=document.documentElement.classList.contains('js');
 const fine=matchMedia('(pointer:fine)').matches;
 const desk=()=>matchMedia('(min-width: 901px)').matches;
 
-/* ---------- 인트로: 사진을 점으로(하프톤), 마우스에 반응 ---------- */
+/* ---------- 인트로: 사진을 글자로, 마우스에 반응 ---------- */
 (function(){
   const cv=document.getElementById('halftone'), ctx=cv.getContext('2d'), host=document.getElementById('intro');
   const img=new Image(); img.src='assets/me_cut.png';
-  let W,H,dpr,pts=[],mx=-9999,my=-9999,tx=-9999,ty=-9999,run=true;
+  const TXT='RYUSEUNGHWAN2006PRODUCTBUSINESS';
+  let W,H,dpr,S,pts=[],base=null,mx=-9999,my=-9999,tx=-9999,ty=-9999,run=true,ready=false;
+  const FONT=s=>`600 ${s}px "IBM Plex Sans KR",sans-serif`;
   function build(){
     dpr=Math.min(2,devicePixelRatio||1); W=host.clientWidth; H=host.clientHeight;
     cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-    if(!img.complete) return;
-    const S=desk()?8:6, ih=H*0.96, iw=ih*img.width/img.height;
+    if(!img.complete||!img.naturalWidth) return;
+    S=desk()?11:8; const ih=H*0.96, iw=ih*img.width/img.height;
     const ox=desk()?W*0.62-iw/2:W/2-iw/2, oy=H-ih;
     const off=document.createElement('canvas'); off.width=Math.ceil(iw/S); off.height=Math.ceil(ih/S);
     const o=off.getContext('2d'); o.drawImage(img,0,0,off.width,off.height);
-    const d=o.getImageData(0,0,off.width,off.height).data; pts=[];
-    for(let y=0;y<off.height;y++) for(let x=0;x<off.width;x++){ const i=(y*off.width+x)*4, a=d[i+3]/255; if(a<.1) continue;
-      const lum=(d[i]*.3+d[i+1]*.59+d[i+2]*.11)/255; pts.push([ox+x*S+S/2, oy+y*S+S/2, a*(0.25+lum*0.95)*S*0.52]); }
+    const d=o.getImageData(0,0,off.width,off.height).data; pts=[]; let n=0;
+    for(let y=0;y<off.height;y++) for(let x=0;x<off.width;x++){ const i=(y*off.width+x)*4, a=d[i+3]/255; if(a<.12) continue;
+      const lum=(d[i]*.3+d[i+1]*.59+d[i+2]*.11)/255; pts.push([ox+x*S+S/2, oy+y*S+S/2, a*(0.16+lum*0.84), TXT[n++%TXT.length]]); }
+    base=document.createElement('canvas'); base.width=W*dpr; base.height=H*dpr; const b=base.getContext('2d'); b.setTransform(dpr,0,0,dpr,0,0);
+    b.font=FONT(S*1.08); b.textAlign='center'; b.textBaseline='middle'; b.fillStyle='#D4FF3A';
+    for(const p of pts){ b.globalAlpha=p[2]*.8; b.fillText(p[3],p[0],p[1]); }
+    ready=true;
   }
   function draw(){
     if(!run) return; mx+=(tx-mx)*.12; my+=(ty-my)*.12;
     ctx.clearRect(0,0,W,H);
-    for(const p of pts){ const dd=Math.hypot(p[0]-mx,p[1]-my), k=Math.max(0,1-dd/170);
-      const r=p[2]*(1+k*1.1); ctx.fillStyle=k>0?`rgba(212,255,58,${.55+.45*k})`:'rgba(212,255,58,.55)';
-      ctx.beginPath(); ctx.arc(p[0]+ (k? (p[0]-mx)*k*.06:0), p[1]+(k?(p[1]-my)*k*.06:0), r,0,6.283); ctx.fill(); }
+    if(ready){ ctx.drawImage(base,0,0,W,H);
+      if(mx>-999){ ctx.font=FONT(S*1.08); ctx.textAlign='center'; ctx.textBaseline='middle';
+        for(const p of pts){ const dx=p[0]-mx, dy=p[1]-my; if(Math.abs(dx)>150||Math.abs(dy)>150) continue;
+          const k=Math.max(0,1-Math.hypot(dx,dy)/150); if(!k) continue;
+          ctx.globalAlpha=1; ctx.fillStyle='#0C0D0A'; ctx.fillRect(p[0]-S/2,p[1]-S/2,S,S);
+          ctx.globalAlpha=Math.min(1,p[2]*.8+k); ctx.fillStyle=k>.55?'#F4FFD0':'#D4FF3A';
+          ctx.fillText(p[3],p[0]+dx*k*.12,p[1]+dy*k*.12); }
+        ctx.globalAlpha=1; } }
     if(motion) requestAnimationFrame(draw);
   }
-  img.onload=()=>{ build(); draw(); };
+  const go=()=>{ build(); draw(); };
+  img.onload=()=>{ (document.fonts?document.fonts.load(FONT(12)).catch(()=>{}):Promise.resolve()).then(go); };
   addEventListener('resize',()=>{ build(); if(!motion) draw(); });
   host.addEventListener('pointermove',e=>{ const r=host.getBoundingClientRect(); tx=e.clientX-r.left; ty=e.clientY-r.top; });
-  host.addEventListener('pointerleave',()=>{ tx=-9999; ty=-9999; });
+  host.addEventListener('pointerleave',()=>{ tx=-9999; ty=-9999; mx=-9999; my=-9999; });
   if(motion) new IntersectionObserver(es=>es.forEach(en=>{ const was=run; run=en.isIntersecting; if(run&&!was) requestAnimationFrame(draw); })).observe(host);
 })();
+
+/* 2006 게이지 눈금 */
+(function(){ const g=document.getElementById('gTicks'); if(!g) return; let h='';
+  for(let k=0;k<100;k+=2){ const a=k/100*Math.PI*2-Math.PI/2, r1=k%10?175:170, r2=182;
+    h+=`<line x1="${200+r1*Math.cos(a)}" y1="${200+r1*Math.sin(a)}" x2="${200+r2*Math.cos(a)}" y2="${200+r2*Math.sin(a)}" stroke="#23271C" stroke-width="${k%10?.8:1.4}"/>`; }
+  g.innerHTML=h; })();
+
+/* 중장기 손익 모델: 단계 상태 */
+const mGrid=document.getElementById('mGrid'), mParts=document.getElementById('mParts'), mDrv=document.getElementById('mDrv'), mOut=document.getElementById('mOut');
+let lastK=-2;
+function ripple(){ mGrid.classList.remove('rip'); void mGrid.offsetWidth; mGrid.classList.add('rip'); }
+function setK(k){ if(k===lastK) return;
+  mGrid.classList.toggle('r',k>=0); mParts.classList.toggle('on',k>=1); mDrv.classList.toggle('on',k>=2); mGrid.classList.toggle('y',k>=3); mOut.classList.toggle('on',k>=4);
+  if(k>=4&&lastK<4) ripple(); lastK=k; }
+document.querySelectorAll('.drv span').forEach(sp=>sp.addEventListener('pointerenter',()=>{ document.querySelectorAll('.drv span').forEach(x=>x.classList.remove('hot')); sp.classList.add('hot'); if(mGrid.classList.contains('y')) ripple(); }));
+setK(4);
 
 /* ---------- 상단 눈금(진행) ---------- */
 const ticks=document.getElementById('ticks'); for(let i=0;i<34;i++){ const t=document.createElement('i'); ticks.appendChild(t); }
@@ -661,15 +798,18 @@ mm.add('(min-width: 901px)',()=>{
   const dist=()=>tr.scrollWidth-innerWidth;
   let cur=0;
   function place(tx){
-    const target=innerWidth*0.38-tx; let s=samples[samples.length-1];
+    const target=innerWidth*(0.38+0.46*tail)-tx; let s=samples[samples.length-1];
     for(const q of samples){ if(q[0]>=target){ s=q; break; } }
     cur+= (s[2]-cur)*.35;
     const pt=solid.getPointAtLength(Math.max(0,cur));
     me.style.transform=`translate(${pt.x-39}px,${pt.y-39}px)`;
     solid.style.strokeDashoffset=L-cur;
   }
-  const st=gsap.to(tr,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:pin,start:'top top',end:()=>'+='+dist(),pin:true,scrub:.6,invalidateOnRefresh:true,
-    onRefresh:()=>buildPath(), onUpdate:()=>{}}});
+  /* 마지막(2026) 패널에서 표식이 경로 끝까지 가도록 머무는 구간 */
+  const extra=()=>Math.round(innerHeight*1.2); let tail=0;
+  ScrollTrigger.create({trigger:pin,start:'top top',end:()=>'+='+(dist()+extra()),pin:true,invalidateOnRefresh:true,onRefresh:()=>buildPath(),
+    onUpdate:s=>{ const D=dist(),E=extra(); tail=Math.min(1,Math.max(0,(s.progress*(D+E)-D)/E)); }});
+  const st=gsap.to(tr,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:pin,start:'top top',end:()=>'+='+dist(),scrub:.6,invalidateOnRefresh:true}});
   gsap.ticker.add(()=>{ const tx=gsap.getProperty(tr,'x'); place(tx); });
   /* 패널 글자: 들어올 때 살짝 올라옴 */
   panels.forEach(p=>{ gsap.from(p.querySelectorAll('.txt > *, .media'),{y:40,opacity:0,stagger:.06,duration:.8,ease:'power3.out',
@@ -693,14 +833,20 @@ mm.add('(min-width: 901px)',()=>{
   for(let i=1;i<imgs.length;i++){ tz.to(imgs[i],{opacity:1,duration:.9},3+i*1.5).to(imgs[i-1],{opacity:0,duration:.9},3+i*1.5); }
   tz.to({},{duration:1});
 
-  /* 숫자 */
-  const nums=document.querySelectorAll('#nums .num'), fl=document.querySelectorAll('#flow5 span');
-  const tn=gsap.timeline({scrollTrigger:{trigger:'#nWrap',start:'top top',end:'bottom bottom',scrub:.5,onUpdate:s=>{ const k=Math.min(4,Math.floor(s.progress*5.1)); fl.forEach((d,i)=>{ d.classList.toggle('on',i===k); d.classList.toggle('done',i<k); }); }}});
+  /* 중장기 손익: 숫자는 흐릿하게 크게 → 선명하게 내려앉음, 오른쪽 모델이 단계별로 채워짐 */
+  setK(-1);
+  const nums=document.querySelectorAll('#nums .num');
+  const tn=gsap.timeline({scrollTrigger:{trigger:'#nWrap',start:'top top',end:'bottom bottom',scrub:.5,
+    onUpdate:s=>setK(Math.min(4,Math.floor(s.progress*5.15)))}});
   nums.forEach((nn,i)=>{ const b=nn.querySelector('b'), rest=nn.querySelectorAll('.st,span');
-    tn.set(nn,{opacity:1},i*2).fromTo(b,{scale:.12},{scale:1,ease:'power2.out',duration:1.5},i*2).fromTo(rest,{opacity:0,y:14},{opacity:1,y:0,duration:.5},i*2+.9);
-    if(i<nums.length-1) tn.to(nn,{opacity:0,duration:.35},i*2+1.75); });
+    tn.set(nn,{opacity:1},i*2).fromTo(b,{scale:1.75,filter:'blur(22px)',opacity:0},{scale:1,filter:'blur(0px)',opacity:1,ease:'power3.out',duration:1.1},i*2)
+      .fromTo(rest,{opacity:0,y:12},{opacity:1,y:0,duration:.5},i*2+.55);
+    if(i<nums.length-1) tn.to(nn,{opacity:0,filter:'blur(8px)',duration:.4},i*2+1.65); });
   tn.to({},{duration:.8});
+  return ()=>setK(4);
 
+});
+mm.add('(min-width: 901px)',()=>{
   /* 곡선 경계 섹션: 올라탈 때 모서리가 펴짐 */
   document.querySelectorAll('.ride').forEach(r=>gsap.fromTo(r,{borderTopLeftRadius:120,borderTopRightRadius:120},{borderTopLeftRadius:48,borderTopRightRadius:48,ease:'none',scrollTrigger:{trigger:r,start:'top bottom',end:'top 40%',scrub:true}}));
 });
