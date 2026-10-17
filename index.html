@@ -4,60 +4,90 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>유승환 · 길목을 잇는 사람</title>
+<title>유승환 · 제품 개발에서 사업 전반까지</title>
 <meta name="description" content="제품 개발에서 사업 전반까지, 넓은 시야로 일하는 유승환의 포트폴리오">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
   --bg:#EEEDE9; --paper:#FFFFFF; --ink:#151515; --sub:#6F6D68; --soft:#A9A69F; --hair:#CFCCC5;
-  --acc:#E24E1B; --dark:#0F0F0F; --dark2:#181818; --line-d:#2E2E2E;
+  --acc:#E24E1B; --dark:#0E0E0E; --dark2:#161616; --line-d:#2E2E2E; --dsub:#9A978F;
   --pad:clamp(16px,4vw,56px); --w:1240px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:auto}
-body{background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;
+body{background:var(--dark);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;
   font-size:16px;line-height:1.65;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 .wrap{max-width:var(--w);margin:0 auto;padding:0 var(--pad)}
-.dark{background:var(--dark);color:#F2F1EE}
-.dark .sub{color:#9A978F}
 .kicker{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--acc);text-transform:uppercase}
+.title{font-size:clamp(34px,5.2vw,74px);font-weight:850;letter-spacing:-.035em;line-height:1.08;margin:14px 0 22px}
+.lead{font-size:clamp(17px,1.6vw,20px);line-height:1.75;max-width:620px}
 .sub{color:var(--sub)}
-h2.title{font-size:clamp(34px,5.4vw,76px);font-weight:850;letter-spacing:-.035em;line-height:1.08;margin:14px 0 22px}
-.lead{font-size:clamp(17px,1.7vw,21px);line-height:1.75;max-width:640px}
+.note{font-size:12.5px;color:var(--soft);margin-top:10px}
 
-/* 상단 바 */
-.bar{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,color .4s,border-color .4s;
-  background:rgba(15,15,15,.55);color:#F2F1EE;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.bar{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .4s,color .4s,border-color .4s;
+  background:rgba(14,14,14,.55);color:#F2F1EE;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
 .bar.light{background:rgba(238,237,233,.82);color:var(--ink);border-bottom-color:rgba(0,0,0,.07)}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:54px}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:54px;max-width:none}
 .bar .nm{font-weight:800}.bar .nm span{font-weight:300;opacity:.6;margin-left:8px}
-.bar .ch{font-size:13px;opacity:.75;letter-spacing:.02em}
+.bar .ch{font-size:13px;opacity:.8}
 .progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--acc);transform-origin:0 50%;transform:scaleX(0)}
 
-/* 0 오프닝 */
-#hero{position:relative;height:100vh;min-height:620px;overflow:hidden}
-.field{position:absolute;inset:0;width:100%;height:100%;display:block}
-.glow{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(520px circle at var(--mx,70%) var(--my,30%),rgba(226,78,27,.22),transparent 62%)}
-.hero-in{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 var(--pad)}
-.hero-kicker{margin-bottom:28px}
-.hero-title{font-size:clamp(68px,12.5vw,210px);font-weight:900;line-height:.9;letter-spacing:-.05em;transform-origin:50% 50%}
-.hero-title i{font-style:normal;color:var(--acc)}
-.hero-sub{margin-top:34px;font-size:clamp(17px,1.8vw,22px);color:#BDBAB2}
-.hero-intro{position:absolute;left:0;right:0;bottom:16vh;text-align:center;padding:0 var(--pad);
-  font-size:clamp(22px,3vw,40px);font-weight:750;letter-spacing:-.025em;line-height:1.35;opacity:0}
-.hero-intro b{color:var(--acc);font-weight:750}
-.hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;color:#8A877F}
-.hint::after{content:"";display:block;width:1px;height:38px;background:#8A877F;margin:10px auto 0;animation:hint 1.8s infinite}
-@keyframes hint{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.rail{position:fixed;left:26px;top:50%;transform:translateY(-50%);z-index:55;display:none;opacity:0;transition:opacity .5s;pointer-events:none}
+.rail.on{opacity:1;pointer-events:auto}
+.rail .ln{position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:rgba(128,128,128,.35)}
+.rail .ln i{position:absolute;left:0;top:0;width:100%;height:100%;background:var(--acc);transform-origin:50% 0;transform:scaleY(0)}
+.rail a{position:relative;display:flex;align-items:center;gap:12px;height:56px;text-decoration:none;font-size:12px;font-weight:700;color:var(--soft)}
+.rail a b{width:12px;height:12px;border-radius:50%;background:var(--dark);border:2px solid rgba(128,128,128,.7);transition:all .3s;flex:none}
+.rail a span{opacity:0;transform:translateX(-6px);transition:all .3s;white-space:nowrap}
+.rail a.on b{background:var(--acc);border-color:var(--acc);transform:scale(1.25)}
+.rail a.on span{color:var(--acc)}
+.rail:hover a span{opacity:1;transform:none}
+@media(min-width:1180px){.rail{display:block}}
 
-/* 1·7 길목 그림 */
-.pipe-sec{min-height:100vh;display:flex;align-items:center;padding:110px 0}
-.pipe-head{text-align:center;margin-bottom:40px}
-.pipe-head h2.title{margin:12px auto 10px;max-width:900px}
-svg.pipe{width:100%;height:auto;overflow:visible;display:block}
+.stack{position:relative}
+.card{position:relative;border-radius:34px 34px 0 0;overflow:clip;box-shadow:0 -30px 60px -30px rgba(0,0,0,.45)}
+.card .inner{position:relative;transform-origin:50% 0}
+.card .shade{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;z-index:5}
+.card.light{background:var(--bg);color:var(--ink)}
+.card.paper{background:#F6F4EF;color:var(--ink)}
+.card.dark{background:var(--dark2);color:#F2F1EE}
+.card.dark .sub{color:var(--dsub)}
+.card.first{border-radius:0;background:var(--dark);color:#F2F1EE;box-shadow:none}
+.js .card{position:sticky}
+.sect{padding:clamp(100px,12vw,160px) 0 clamp(80px,10vw,130px)}
+
+.kpis{display:flex;flex-wrap:wrap;gap:clamp(22px,3vw,44px);margin-top:32px;padding-top:22px;border-top:1px solid var(--hair)}
+.dark .kpis{border-top-color:var(--line-d)}
+.kpi b{display:block;font-size:clamp(30px,3.4vw,46px);font-weight:900;letter-spacing:-.04em;line-height:1.05}
+.kpi b small{font-size:.45em;font-weight:600;margin-left:3px;letter-spacing:0}
+.kpi b .cnt{font:inherit;color:inherit}
+.kpi > span{font-size:13px;color:var(--sub)}
+.dark .kpi > span{color:var(--dsub)}
+
+#opening .stage{position:relative;height:100vh;min-height:640px;overflow:hidden}
+.js #opening .track{height:400vh}
+.js #opening .stage{position:sticky;top:0}
+.field{position:absolute;inset:0;width:100%;height:100%;display:block}
+.glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx,68%) var(--my,30%),rgba(226,78,27,.2),transparent 62%)}
+.layer{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 var(--pad)}
+.o-title{font-size:clamp(60px,10.5vw,176px);font-weight:900;line-height:.95;letter-spacing:-.05em}
+.o-title i{font-style:normal;color:var(--acc)}
+.o-sub{margin-top:30px;font-size:clamp(16px,1.6vw,20px);color:#BDBAB2;letter-spacing:.02em}
+.o-intro{font-size:clamp(26px,3.6vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.3}
+.o-intro b{color:var(--acc);font-weight:800}
+.o-prob h2{font-size:clamp(28px,3.6vw,52px);font-weight:850;letter-spacing:-.035em;line-height:1.15;margin:12px 0 10px}
+.o-prob p{color:#9A978F;max-width:640px;margin:0 auto 26px}
+.o-prob svg{width:min(1000px,100%)}
+.hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;color:#8A877F}
+.hint::after{content:"";display:block;width:1px;height:36px;background:#8A877F;margin:10px auto 0;animation:hint 1.8s infinite}
+@keyframes hint{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.js .o-intro,.js .o-prob{opacity:0}
+html:not(.js) #opening .layer{position:relative;inset:auto;padding:90px var(--pad)}
+html:not(.js) #opening .stage{height:auto}
+
+svg.pipe{height:auto;overflow:visible;display:block;margin:0 auto}
 .pipe .base{stroke:#2C2C2C;stroke-width:3;fill:none}
 .pipe .flow{stroke:#F2F1EE;stroke-width:3;fill:none}
 .pipe .node circle{fill:var(--dark);stroke:#F2F1EE;stroke-width:3}
@@ -67,64 +97,57 @@ svg.pipe{width:100%;height:auto;overflow:visible;display:block}
 .pipe .plug rect{fill:var(--acc)}
 .pipe .plug text{fill:#fff;font-size:16px;font-weight:700;text-anchor:middle}
 
-/* 공통 장면 */
-.scene{position:relative;padding:clamp(90px,12vw,170px) 0}
-.split{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center}
-@media(max-width:900px){.split{grid-template-columns:1fr}}
-.kpis{display:flex;flex-wrap:wrap;gap:clamp(22px,3vw,44px);margin-top:34px;padding-top:24px;border-top:1px solid var(--hair)}
-.dark .kpis{border-top-color:var(--line-d)}
-.kpi b{display:block;font-size:clamp(30px,3.6vw,48px);font-weight:900;letter-spacing:-.04em;line-height:1.05}
-.kpi b small{font-size:.45em;font-weight:600;margin-left:3px;letter-spacing:0}
-.kpi > span{font-size:13px;color:var(--sub)}
-.kpi b .cnt{font:inherit;color:inherit}
-.dark .kpi > span{color:#9A978F}
+.d-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,5vw,80px)}
+.d-blk{min-height:78vh;display:flex;flex-direction:column;justify-content:center}
+.d-blk h3{font-size:clamp(26px,2.8vw,38px);font-weight:850;letter-spacing:-.03em;margin:10px 0 12px;line-height:1.2}
+.d-blk p{font-size:17px;color:var(--sub);max-width:520px}
+.d-blk .big{font-size:clamp(56px,6vw,88px);font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--ink);margin-top:10px}
+.d-media{position:sticky;top:12vh;height:76vh;perspective:1400px}
+.d-media .slot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .7s,transform .7s;transform:translateY(24px)}
+.d-media .slot.on{opacity:1;transform:none}
+.d-media .slot .frame{background:var(--paper);border-radius:24px;padding:clamp(16px,2vw,30px);box-shadow:0 50px 90px -50px rgba(0,0,0,.35);width:100%}
+.d-media .slot img{cursor:zoom-in;margin:0 auto;max-height:62vh;object-fit:contain}
+.d-media .slot.china .frame{background:var(--ink);color:#F2F1EE;height:62vh;display:flex;flex-direction:column;justify-content:flex-end;padding:40px}
+.d-media .slot.china b{font-size:clamp(70px,8vw,130px);font-weight:900;letter-spacing:-.05em;line-height:1}
+.d-media .slot.china span{color:#A9A69F;font-size:16px;margin-top:12px}
+#ecFrame{transform-style:preserve-3d}
+.d-blk .mimg{display:none}
+@media(max-width:900px){.d-grid{grid-template-columns:1fr}.d-media{display:none}.d-blk{min-height:auto;padding:30px 0}.d-blk .mimg{display:block;margin-top:18px;background:#fff;border-radius:16px;padding:12px}}
 
-/* 2 설계 */
-.ec-stage{perspective:1400px}
-.ec-card{background:var(--paper);border-radius:22px;padding:clamp(16px,2.4vw,34px);box-shadow:0 40px 80px -40px rgba(0,0,0,.25);transform-style:preserve-3d}
-.more{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:clamp(70px,9vw,120px)}
-.more .card{background:var(--paper);border-radius:18px;overflow:hidden}
-.more .card .ph{aspect-ratio:4/3;background:#fff;display:flex;align-items:center;justify-content:center;padding:14px}
-.more .card .ph img{max-height:100%;object-fit:contain;cursor:zoom-in}
-.more .card .tx{padding:18px 22px 24px}
-.more .card h3{font-size:19px;margin-bottom:6px}
-.more .card p{font-size:14.5px;color:var(--sub)}
-.more .card.textonly{background:var(--ink);color:#F2F1EE;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;min-height:320px}
-.more .card.textonly b{font-size:clamp(40px,4.4vw,60px);font-weight:900;letter-spacing:-.04em;line-height:1}
-.more .card.textonly p{color:#A9A69F}
-@media(max-width:900px){.more{grid-template-columns:1fr}}
-
-/* 3 HEEK */
-.heek-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
-@media(max-width:900px){.heek-top{grid-template-columns:1fr}}
+.h-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+@media(max-width:900px){.h-top{grid-template-columns:1fr}}
 .tilt{perspective:1200px}
-.tilt-in{transition:transform .25s ease-out;transform-style:preserve-3d;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 50px 90px -45px rgba(0,0,0,.35)}
-.tilt-in img{width:100%}
-.hwrap{position:relative;margin-top:clamp(70px,9vw,120px)}
-.hhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}
-.hhead h3{font-size:clamp(22px,2.4vw,30px);font-weight:800;letter-spacing:-.02em}
-.hbar{height:2px;background:var(--hair);margin-bottom:26px;position:relative}
-.hbar i{position:absolute;inset:0;background:var(--acc);transform-origin:0 50%;transform:scaleX(0)}
-.htrack{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.hpanel{background:var(--paper);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-.hpanel .ph{aspect-ratio:16/10;background:#fff;display:flex;align-items:center;justify-content:center;padding:12px}
-.hpanel .ph img{max-height:100%;object-fit:contain;cursor:zoom-in}
-.hpanel .tx{padding:18px 22px 24px}
-.hpanel .no{font-size:13px;font-weight:800;color:var(--acc)}
-.hpanel h4{font-size:20px;margin:4px 0 6px}
-.hpanel p{font-size:14.5px;color:var(--sub)}
-.js-h .htrack{display:flex;gap:26px;width:max-content}
-.js-h .hpanel{width:min(46vw,560px)}
-@media(max-width:900px){.htrack{grid-template-columns:1fr}}
+.tilt-in{transition:transform .25s ease-out;transform-style:preserve-3d;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 50px 90px -45px rgba(0,0,0,.35)}
+.partners{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.partners span{border:1px solid var(--ink);border-radius:999px;padding:5px 13px;font-size:13px}
+.h-wrap{margin-top:clamp(40px,6vw,80px)}
+.js .h-wrap{height:300vh;margin-top:0}
+.h-stage{display:flex;flex-direction:column;justify-content:center}
+.js .h-stage{position:sticky;top:0;height:100vh;overflow:hidden}
+.h-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}
+.h-head h3{font-size:clamp(22px,2.4vw,32px);font-weight:850;letter-spacing:-.02em}
+.h-bar{height:2px;background:var(--hair);margin-bottom:26px;position:relative}
+.h-bar i{position:absolute;inset:0;background:var(--acc);transform-origin:0 50%;transform:scaleX(0)}
+.h-track{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.js .h-track{display:flex;width:max-content;gap:26px}
+.h-panel{background:var(--paper);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.js .h-panel{width:min(44vw,560px)}
+.h-panel .ph{aspect-ratio:16/10;background:#fff;display:flex;align-items:center;justify-content:center;padding:12px}
+.h-panel .ph img{max-height:100%;object-fit:contain;cursor:zoom-in}
+.h-panel .tx{padding:18px 22px 24px}
+.h-panel .no{font-size:13px;font-weight:800;color:var(--acc)}
+.h-panel h4{font-size:20px;margin:4px 0 6px}
+.h-panel p{font-size:14.5px;color:var(--sub)}
+.h-panel em{font-style:normal;color:var(--ink);font-weight:700}
+@media(max-width:900px){.h-track{grid-template-columns:1fr}.js .h-wrap{height:auto}.js .h-stage{position:relative;height:auto;padding:30px 0}.js .h-track{display:grid;width:auto}.js .h-panel{width:auto}}
 
-/* 4 생산전환TF */
-.causes{display:grid;gap:16px;margin-top:50px}
+.causes{display:grid;gap:14px;margin-top:44px}
 .cause{border:1px solid var(--line-d);border-radius:18px;padding:22px 26px;display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:center;gap:8px;cursor:pointer;transition:border-color .3s,background .3s}
-.cause:hover,.cause.on{border-color:var(--acc);background:#171310}
+.cause:hover,.cause.on{border-color:var(--acc);background:#1D1612}
 .cause .st small{display:block;font-size:12px;letter-spacing:.12em;color:#8A877F;margin-bottom:4px}
 .cause .st b{font-size:clamp(16px,1.6vw,20px);font-weight:700}
 .cause .st.fix b{color:var(--acc)}
-.cause .ar{height:2px;background:var(--acc);position:relative;transform-origin:0 50%}
+.cause .ar{height:2px;background:var(--acc);position:relative}
 .cause .ar::after{content:"";position:absolute;right:-1px;top:-4px;border-left:8px solid var(--acc);border-top:5px solid transparent;border-bottom:5px solid transparent}
 @media(max-width:760px){.cause{grid-template-columns:1fr;gap:6px}.cause .ar{width:2px;height:18px;margin:2px 0 2px 14px}.cause .ar::after{right:auto;left:-4px;top:auto;bottom:-6px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid var(--acc);border-bottom:0}}
 .docs4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
@@ -133,8 +156,7 @@ svg.pipe{width:100%;height:auto;overflow:visible;display:block}
 .docs4 figcaption{color:#151515;font-size:13px;padding:6px 4px 2px;font-weight:600}
 @media(max-width:900px){.docs4{grid-template-columns:1fr 1fr}}
 
-/* 5 수급 시뮬레이터 */
-.sim{background:var(--paper);border-radius:24px;padding:clamp(20px,3vw,40px);margin-top:44px}
+.sim{background:var(--paper);border-radius:24px;padding:clamp(20px,3vw,40px);margin-top:40px}
 .sim-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}
 .sim-top .st{display:flex;gap:28px;flex-wrap:wrap}
 .sim-top .st div b{display:block;font-size:30px;font-weight:900;letter-spacing:-.03em;line-height:1.1}
@@ -145,65 +167,75 @@ svg.pipe{width:100%;height:auto;overflow:visible;display:block}
 .toggle.on .sw{background:var(--acc)}.toggle.on .sw::after{transform:translateX(20px)}
 .toggle:not(.on){animation:pulse 2.2s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(226,78,27,.5)}50%{box-shadow:0 0 0 10px rgba(226,78,27,0)}}
-.chart{position:relative;height:300px;display:grid;grid-template-columns:repeat(12,1fr);gap:8px;align-items:end;border-bottom:1px solid var(--hair)}
+.chart{position:relative;height:290px;display:grid;grid-template-columns:repeat(12,1fr);gap:8px;align-items:end;border-bottom:1px solid var(--hair)}
 .chart .col{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end}
 .chart .fill{background:#CFCCC5;border-radius:6px 6px 0 0;transition:height .9s cubic-bezier(.2,.8,.2,1),background .5s;height:0}
-.chart .fill.low{background:var(--acc)}
-.chart .fill.over{background:var(--ink)}
+.chart .fill.low{background:var(--acc)}.chart .fill.over{background:var(--ink)}
 .chart .m{position:absolute;bottom:-26px;left:0;right:0;text-align:center;font-size:12px;color:var(--sub)}
 .chart .v{position:absolute;left:0;right:0;text-align:center;font-size:12px;font-weight:700;transition:bottom .9s cubic-bezier(.2,.8,.2,1)}
 .hl{position:absolute;left:0;right:0;border-top:2px dashed;pointer-events:none}
 .hl span{position:absolute;right:0;top:-22px;font-size:12px;font-weight:700;background:var(--paper);padding:0 4px}
-.hl.bep{border-color:var(--acc);color:var(--acc)}
-.hl.cap{border-color:var(--ink);color:var(--ink)}
+.hl.bep{border-color:var(--acc);color:var(--acc)}.hl.cap{border-color:var(--ink);color:var(--ink)}
 .legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:40px;font-size:13px;color:var(--sub)}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.sim-note{font-size:12.5px;color:var(--soft);margin-top:8px}
-/* 장치 화면 */
-.dev-sec{display:grid;grid-template-columns:.8fr 1.4fr;gap:clamp(30px,4vw,64px);align-items:center;margin-top:clamp(80px,10vw,140px)}
-@media(max-width:900px){.dev-sec{grid-template-columns:1fr}}
-.steps li{list-style:none;padding:16px 0;border-top:1px solid var(--hair);opacity:.35;transition:opacity .4s}
+.z-wrap{margin-top:clamp(60px,8vw,110px)}
+.js .z-wrap{height:300vh;margin-top:clamp(30px,4vw,60px)}
+.z-stage{display:grid;grid-template-columns:.75fr 1.45fr;gap:clamp(30px,4vw,64px);align-items:center}
+.js .z-stage{position:sticky;top:0;height:100vh;overflow:hidden;padding-top:70px;padding-bottom:30px}
+.steps li{list-style:none;padding:15px 0;border-top:1px solid var(--hair);opacity:.35;transition:opacity .4s}
 .steps li.on{opacity:1}
-.steps li b{display:block;font-size:19px}
-.steps li span{font-size:14.5px;color:var(--sub)}
-.device{background:#1B1B1B;border-radius:18px;padding:12px 12px 16px;box-shadow:0 60px 100px -50px rgba(0,0,0,.45)}
+.steps li b{display:block;font-size:18px}
+.steps li span{font-size:14px;color:var(--sub)}
+.device{background:#1B1B1B;border-radius:18px;padding:12px 12px 16px;box-shadow:0 60px 100px -50px rgba(0,0,0,.45);transform-origin:28% 30%}
 .device .scr{position:relative;border-radius:8px;overflow:hidden;background:#fff;display:grid;gap:10px}
 .device .scr img{width:100%;cursor:zoom-in}
-.js-dev .device .scr{display:block;aspect-ratio:3/2}
-.js-dev .device .scr img{position:absolute;inset:0;height:100%;object-fit:cover;object-position:top;opacity:0}
-.js-dev .device .scr img:first-child{opacity:1}
+.js .device .scr{display:block;aspect-ratio:3/2}
+.js .device .scr img{position:absolute;inset:0;height:100%;object-fit:cover;object-position:top;opacity:0}
+.js .device .scr img:first-child{opacity:1}
+@media(max-width:900px){.z-stage{grid-template-columns:1fr}.js .z-wrap{height:auto}.js .z-stage{position:relative;height:auto;padding:0 var(--pad)}.js .device .scr{display:grid;aspect-ratio:auto}.js .device .scr img{position:relative;opacity:1;height:auto}}
 
-/* 6 숫자 */
-.num-sec{min-height:100vh;display:flex;align-items:center}
-.nums{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.js .n-wrap{height:380vh}
+.n-stage{padding-top:40px;padding-bottom:40px}
+.js .n-stage{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:70px;padding-bottom:40px}
+.nums{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:36px}
 .num{border-top:2px solid var(--line-d);padding-top:16px}
 .num b{display:block;font-size:clamp(40px,5vw,64px);font-weight:900;letter-spacing:-.04em;line-height:1}
-.num span{font-size:14px;color:#9A978F}
+.num span{font-size:14px;color:var(--dsub)}
 .num:last-child b{color:var(--acc)}
-.js-num .nums{display:block;position:relative;height:56vh;margin-top:20px}
-.js-num .num{position:absolute;inset:0;border:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0}
-.js-num .num b{font-size:clamp(90px,17vw,260px)}
-.js-num .num span{font-size:clamp(16px,1.8vw,22px);margin-top:14px;color:#BDBAB2}
-@media(max-width:900px){.nums{grid-template-columns:1fr 1fr}}
-.doclist{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;margin-top:60px}
+.js .nums{display:block;position:relative;flex:1;max-height:52vh;margin-top:10px}
+.js .num{position:absolute;inset:0;border:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0}
+.js .num b{font-size:clamp(90px,16vw,240px)}
+.js .num span{font-size:clamp(16px,1.8vw,22px);margin-top:12px;color:#BDBAB2}
+.n-dots{display:none;justify-content:center;gap:8px;margin-top:8px}
+.js .n-dots{display:flex}
+.n-dots i{width:28px;height:3px;background:var(--line-d);border-radius:2px;transition:background .3s}
+.n-dots i.on{background:var(--acc)}
+@media(max-width:900px){.nums{grid-template-columns:1fr 1fr}.js .n-wrap{height:auto}.js .n-stage{position:relative;height:auto}.js .nums{display:grid;max-height:none}.js .num{position:relative;opacity:1;align-items:flex-start;text-align:left;border-top:2px solid var(--line-d);padding-top:14px}.js .num b{font-size:48px}.js .n-dots{display:none}}
+.doclist{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;margin-top:30px}
 .doclist div{display:grid;grid-template-columns:210px 1fr;gap:14px;padding:15px 0;border-top:1px solid var(--line-d);font-size:15px}
-.doclist b{font-weight:700}.doclist span{color:#9A978F}
+.doclist b{font-weight:700}.doclist span{color:var(--dsub)}
 @media(max-width:760px){.doclist{grid-template-columns:1fr}.doclist div{grid-template-columns:1fr;gap:2px}}
 
-/* 7 마무리 */
-#finale{position:relative;overflow:hidden}
-#finale .field{opacity:.7}
-.statement{font-size:clamp(34px,5.6vw,84px);font-weight:900;line-height:1.1;letter-spacing:-.04em;text-align:center;margin:70px auto 0;max-width:1100px}
-.statement .ln{display:block;overflow:hidden}
-.statement .ln span{display:inline-block}
-.motto{text-align:center;color:#9A978F;margin-top:28px;font-size:16px}
-.contact{text-align:center;margin-top:60px}
-.contact a.mail{font-size:clamp(24px,3vw,38px);font-weight:800;text-decoration:none;border-bottom:3px solid var(--acc);padding-bottom:4px}
+#finale .f-top{position:relative;height:100vh;min-height:640px;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.js #finale .f-track{height:220vh}
+.js #finale .f-top{position:sticky;top:0}
+#finale .f-top .wrap{position:relative;text-align:center;width:100%}
+#finale .f-top h2{font-size:clamp(28px,3.6vw,50px);font-weight:850;letter-spacing:-.03em;margin:12px 0 36px;color:#F2F1EE}
+.want{color:#F2F1EE;padding-top:40px;padding-bottom:30px}
+.want .statement{font-size:clamp(34px,5.4vw,82px);font-weight:900;line-height:1.1;letter-spacing:-.04em;text-align:center;max-width:1100px;margin:0 auto}
+.want .statement .l{display:block;overflow:hidden}
+.want .statement .l span{display:inline-block}
+.paths{max-width:1000px;margin:56px auto 0;border-top:1px solid var(--line-d)}
+.paths div{display:grid;grid-template-columns:220px 200px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line-d)}
+.paths b{font-size:17px}.paths em{font-style:normal;color:var(--acc)}.paths span{color:var(--dsub)}
+@media(max-width:760px){.paths div{grid-template-columns:1fr;gap:2px}}
+.motto{text-align:center;color:var(--dsub);margin-top:50px;font-size:16px}
+.contact{text-align:center;margin-top:40px}
+.contact a.mail{font-size:clamp(24px,3vw,38px);font-weight:800;text-decoration:none;border-bottom:3px solid var(--acc);padding-bottom:4px;color:#F2F1EE}
 .contact p{color:#8A877F;font-size:13px;margin-top:16px}
-footer{padding:40px 0 50px;color:#77746D;font-size:13px;text-align:center}
-footer a{color:#9A978F}
+footer{padding:50px 0;color:#77746D;font-size:13px;text-align:center}
+footer a{color:var(--dsub)}
 
-/* 확대 보기 */
 .lb{position:fixed;inset:0;z-index:100;background:rgba(10,10,10,.92);display:none;align-items:center;justify-content:center;padding:60px 70px}
 .lb.on{display:flex}
 .lb img{max-width:100%;max-height:100%;border-radius:8px;background:#fff}
@@ -211,6 +243,9 @@ footer a{color:#9A978F}
 .lb .x{top:10px;right:14px}.lb .pv{left:10px;top:50%;transform:translateY(-50%)}.lb .nx{right:10px;top:50%;transform:translateY(-50%)}
 .lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#ccc;font-size:14px}
 </style>
+<script>
+(function(){var r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(!r)document.documentElement.classList.add('js');})();
+</script>
 </head>
 <body>
 
@@ -222,81 +257,107 @@ footer a{color:#9A978F}
   <i class="progress" id="prog"></i>
 </header>
 
-<main>
-<!-- 0 오프닝 -->
-<section id="hero" class="dark" data-ch="PORTFOLIO 2026" data-theme="dark">
-  <canvas class="field"></canvas>
-  <div class="glow"></div>
-  <div class="hero-in">
-    <div class="kicker hero-kicker">유승환 · Portfolio 2026</div>
-    <h1 class="hero-title">길목을<br>잇는 사람<i>.</i></h1>
-    <p class="hero-sub">제품 개발에서 사업 전반까지, 넓은 시야로 일합니다</p>
-  </div>
-  <p class="hero-intro">설계 15년, 창업 3년, 그리고 전략기획.<br>제품이 고객에게 가는 <b>길 전부</b>를 걸어 봤습니다</p>
-  <div class="hint">SCROLL</div>
-</section>
+<nav class="rail" id="rail" aria-label="장면 이동">
+  <div class="ln"><i id="railFill"></i></div>
+  <a href="#c1"><b></b><span>01 설계</span></a>
+  <a href="#c2"><b></b><span>02 창업</span></a>
+  <a href="#c3"><b></b><span>03 생산전환TF</span></a>
+  <a href="#c4"><b></b><span>04 업무 시스템</span></a>
+  <a href="#c5"><b></b><span>05 사업계획</span></a>
+</nav>
 
-<!-- 1 문제 -->
-<section id="problem" class="dark pipe-sec" data-ch="길목" data-theme="dark">
-  <div class="wrap" style="width:100%">
-    <div class="pipe-head">
-      <div class="kicker">The problem</div>
-      <h2 class="title">길목마다 새는 시간과 비용</h2>
-      <p class="sub lead" style="margin:0 auto">제품은 기획에서 고객까지 가는 동안 여러 손을 거칩니다. 손이 바뀌는 길목마다 정보가 끊기고, 그 자리에서 시간과 비용이 샙니다</p>
+<main class="stack" id="stack">
+
+<section class="card first" id="opening" data-ch="PORTFOLIO 2026" data-theme="dark">
+ <div class="inner"><div class="shade"></div>
+  <div class="track">
+   <div class="stage">
+    <canvas class="field"></canvas><div class="glow"></div>
+    <div class="layer o-hero">
+      <div class="kicker">유승환 · Portfolio 2026</div>
+      <h1 class="o-title" style="margin-top:26px">제품 개발에서<br>사업 전반까지<i>.</i></h1>
+      <p class="o-sub">설계 15년 · 창업 3년 · 전략기획</p>
     </div>
-    <svg class="pipe" id="pipe1" viewBox="0 0 1000 330" aria-label="기획, 설계, 양산, 판매, 운영으로 이어지는 흐름과 길목마다 새는 비용">
-      <path class="base" d="M80 120 H920"/>
-      <path class="flow" d="M80 120 H920"/>
-      <g class="node"><circle cx="80" cy="120" r="14"/><text x="80" y="76">기획</text></g>
-      <g class="node"><circle cx="290" cy="120" r="14"/><text x="290" y="76">설계</text></g>
-      <g class="node"><circle cx="500" cy="120" r="14"/><text x="500" y="76">양산</text></g>
-      <g class="node"><circle cx="710" cy="120" r="14"/><text x="710" y="76">판매</text></g>
-      <g class="node"><circle cx="920" cy="120" r="14"/><text x="920" y="76">고객</text></g>
-      <g class="leak"><circle cx="185" cy="120" r="8"/><text x="185" y="250">요구와 구조의 어긋남</text></g>
-      <g class="leak"><circle cx="395" cy="120" r="8"/><text x="395" y="250">양산 이관 불량·재작업</text></g>
-      <g class="leak"><circle cx="605" cy="120" r="8"/><text x="605" y="250">부서 간 수급 단절</text></g>
-      <g class="leak"><circle cx="815" cy="120" r="8"/><text x="815" y="250">고객 접점의 공백</text></g>
-    </svg>
+    <div class="layer"><p class="o-intro">제품이 고객에게 닿기까지,<br>그 <b>전 과정</b>을 직접 다뤄 봤습니다</p></div>
+    <div class="layer o-prob">
+      <div class="kicker">The problem</div>
+      <h2>손이 바뀔 때마다<br>새는 시간과 비용</h2>
+      <p>제품은 기획에서 고객까지 여러 부서와 회사를 거칩니다. 일이 넘어가는 자리마다 정보가 끊기고, 그 자리에서 시간과 비용이 샙니다</p>
+      <svg class="pipe" id="pipe1" viewBox="0 0 1000 300" aria-label="기획, 설계, 양산, 판매, 고객으로 이어지는 흐름과 넘어가는 자리마다 새는 비용">
+        <path class="base" d="M80 110 H920"/><path class="flow" d="M80 110 H920"/>
+        <g class="node"><circle cx="80" cy="110" r="14"/><text x="80" y="66">기획</text></g>
+        <g class="node"><circle cx="290" cy="110" r="14"/><text x="290" y="66">설계</text></g>
+        <g class="node"><circle cx="500" cy="110" r="14"/><text x="500" y="66">양산</text></g>
+        <g class="node"><circle cx="710" cy="110" r="14"/><text x="710" y="66">판매</text></g>
+        <g class="node"><circle cx="920" cy="110" r="14"/><text x="920" y="66">고객</text></g>
+        <g class="leak"><circle cx="185" cy="110" r="8"/><text x="185" y="240">요구와 구조의 어긋남</text></g>
+        <g class="leak"><circle cx="395" cy="110" r="8"/><text x="395" y="240">양산 이관 불량·재작업</text></g>
+        <g class="leak"><circle cx="605" cy="110" r="8"/><text x="605" y="240">부서 간 수급 단절</text></g>
+        <g class="leak"><circle cx="815" cy="110" r="8"/><text x="815" y="240">고객 접점의 공백</text></g>
+      </svg>
+    </div>
+    <div class="hint">SCROLL</div>
+   </div>
   </div>
+ </div>
 </section>
 
-<!-- 2 설계 15년 -->
-<section id="design" class="scene" data-ch="01 설계 15년" data-theme="light">
-  <div class="wrap">
-    <div class="split" id="ecPin">
-      <div>
+<section class="card light" id="c1" data-ch="01 설계 15년" data-theme="light" data-rail="0">
+ <div class="inner"><div class="shade"></div>
+  <div class="wrap sect">
+   <div class="d-grid">
+    <div>
+      <div class="d-blk" data-slot="0">
         <div class="kicker">01 · 설계 15년 · 2010 ~ 2022</div>
         <h2 class="title">하이테크를<br>양산 가능한 구조로</h2>
-        <p class="lead">배터리를 넣은 전기변색 글래스를 34g으로 설계했습니다. 도면이 금형과 공정을 지나며 어디서 어긋나는지, 그 어긋남을 어떻게 미리 막는지를 이 시기에 배웠습니다.</p>
+        <p class="lead" style="color:var(--sub)">배터리를 넣은 전기변색 글래스를 34g으로 설계했습니다. 도면이 금형과 공정을 지나며 어디서 어긋나는지, 그 어긋남을 어떻게 미리 막는지를 이 시기에 배웠습니다.</p>
         <div class="kpis">
           <div class="kpi"><b><span class="cnt" data-to="34">34</span><small>g</small></b><span>배터리 포함 무게</span></div>
           <div class="kpi"><b>46~10<small>%</small></b><span>투과율 가변</span></div>
           <div class="kpi"><b>IPX4</b><span>방수 설계</span></div>
           <div class="kpi"><b><span class="cnt" data-to="5900" data-comma="1">5,900</span><small>만원</small></b><span>와디즈 펀딩</span></div>
         </div>
+        <div class="mimg"><img src="assets/ec_explode.jpg" alt="전기변색 글래스 분해도" data-zoom data-cap="전기변색 글래스 기구 설계" loading="lazy"></div>
       </div>
-      <div class="ec-stage"><div class="ec-card" id="ecCard"><img src="assets/ec_explode.jpg" alt="전기변색 글래스 분해도" data-zoom data-cap="전기변색 글래스 기구 설계"></div></div>
+      <div class="d-blk" data-slot="1">
+        <div class="kicker">스마트글래스 · 2018 ~ 2019</div>
+        <h3>센서와 회로를<br>안경테 안으로</h3>
+        <p>UV 노출과 졸음운전을 감지하는 안경입니다. FPCB 인서트 사출, FPCB가 끊어지지 않는 힌지 구조를 설계했고 KC 인증을 받아 CES에 출품했습니다. 협력사와의 기술 소통 창구도 맡았습니다.</p>
+        <div class="mimg"><img src="assets/sg_render.jpg" alt="스마트글래스" data-zoom data-cap="스마트글래스" loading="lazy"></div>
+      </div>
+      <div class="d-blk" data-slot="2">
+        <div class="kicker">저온 내충격 소재 · 2013 ~ 2015</div>
+        <h3>규격 제정부터<br>상품화까지</h3>
+        <p>정부 기술혁신개발사업 2개년 실무를 맡아 영하 20℃에서도 경도 70C 이하를 유지하는 폼을 개발했습니다. 사내 규격을 제정하고 Red dot을 수상했습니다.</p>
+        <div class="mimg"><img src="assets/im_proto.jpg" alt="내충격 소재 시제품" data-zoom data-cap="저온 내충격 소재 시제품" loading="lazy"></div>
+      </div>
+      <div class="d-blk" data-slot="3">
+        <div class="kicker">중국 주재 · 2010 ~ 2013</div>
+        <div class="big">1,500<small style="font-size:.35em">벌</small></div>
+        <p style="margin-top:14px">중국 근무를 지원해 현지에서 중국어를 익히며 부임 1년 만에 개발팀장을 맡았습니다. 금형 약 1,500벌과 바이어 약 50곳의 OEM 개발을 현지 협력업체와 함께 진행했습니다.</p>
+      </div>
     </div>
-
-    <div class="more">
-      <div class="card rv"><div class="ph"><img src="assets/sg_render.jpg" alt="스마트글래스" data-zoom data-cap="스마트글래스 기구 설계" loading="lazy"></div>
-        <div class="tx"><h3>스마트글래스</h3><p>UV 노출·졸음운전 감지. FPCB 인서트 사출과 FPCB가 끊어지지 않는 힌지 구조, KC 인증, CES 출품</p></div></div>
-      <div class="card rv"><div class="ph"><img src="assets/im_proto.jpg" alt="저온 내충격 소재 시제품" data-zoom data-cap="저온 내충격 소재 시제품" loading="lazy"></div>
-        <div class="tx"><h3>저온 내충격 소재</h3><p>정부 기술혁신개발사업 2개년. 영하 20℃에서 경도 70C 이하 폼 개발, 사내 규격 제정, Red dot 수상</p></div></div>
-      <div class="card textonly rv"><b>1,500<small style="font-size:.4em">벌</small></b><p style="margin-top:12px">중국 주재 3년, 부임 1년 만에 현지 개발팀장. 금형 약 1,500벌과 바이어 약 50곳의 OEM 개발을 맡았습니다</p></div>
+    <div class="d-media" id="dMedia">
+      <div class="slot on"><div class="frame" id="ecFrame"><img src="assets/ec_explode.jpg" alt="전기변색 글래스 분해도" data-zoom data-cap="전기변색 글래스 기구 설계"></div></div>
+      <div class="slot"><div class="frame"><img src="assets/sg_render.jpg" alt="스마트글래스" data-zoom data-cap="스마트글래스" loading="lazy"></div></div>
+      <div class="slot"><div class="frame"><img src="assets/im_proto.jpg" alt="내충격 소재 시제품" data-zoom data-cap="저온 내충격 소재 시제품" loading="lazy"></div></div>
+      <div class="slot china"><div class="frame"><b>50<small style="font-size:.35em">곳</small></b><span>바이어 OEM 개발, 현지 개발팀장</span></div></div>
     </div>
+   </div>
   </div>
+ </div>
 </section>
 
-<!-- 3 HEEK -->
-<section id="heek" class="scene" data-ch="02 창업" data-theme="light" style="padding-top:0">
-  <div class="wrap">
-    <div class="heek-top">
+<section class="card paper" id="c2" data-ch="02 창업" data-theme="light" data-rail="1">
+ <div class="inner"><div class="shade"></div>
+  <div class="wrap sect" style="padding-bottom:0">
+    <div class="h-top">
       <div class="tilt" id="tilt1"><div class="tilt-in"><img src="assets/heek_package.jpg" alt="HEEK 렌즈가이드 패키지" data-zoom data-cap="HEEK 패키지"></div></div>
       <div>
         <div class="kicker">02 · 창업 3년 · 2022 ~ 2025</div>
-        <h2 class="title">기획에서 고객까지,<br>혼자 끝까지</h2>
-        <p class="lead">VR 헤드셋에 끼우는 조립식 도수 렌즈 프레임 HEEK를 만들었습니다. 안경 없이 VR을 선명하게 볼 수 있고, 기기를 바꿔도 렌즈는 옮겨 씁니다.</p>
+        <h2 class="title">직접 끝까지,<br>파트너와 함께</h2>
+        <p class="lead" style="color:var(--sub)">VR 헤드셋에 끼우는 조립식 도수 렌즈 프레임 HEEK를 만들었습니다. 금형 업체, 안경점, 물류 대행사, 판매 채널과 손발을 맞추며 기획부터 고객 응대까지 직접 이끌었습니다.</p>
+        <div class="partners"><span>금형 업체</span><span>안경점</span><span>3PL 물류 대행</span><span>스마트스토어·쿠팡</span><span>창업지원기관</span></div>
         <div class="kpis">
           <div class="kpi"><b>특허·디자인</b><span>VR 시력 보조용 글라스 등록</span></div>
           <div class="kpi"><b>2024</b><span>네이버 강한 소상공인</span></div>
@@ -304,29 +365,34 @@ footer a{color:#9A978F}
         </div>
       </div>
     </div>
-
-    <div class="hwrap" id="hwrap">
-      <div class="hhead"><h3>브랜드 하나를 처음부터 끝까지</h3><span class="sub" style="font-size:14px">사업 모델 → 판매</span></div>
-      <div class="hbar"><i id="hbarFill"></i></div>
-      <div class="htrack" id="htrack">
-        <div class="hpanel"><div class="ph"><img src="assets/heek_bm.jpg" alt="사업 모델" data-zoom data-cap="사업 모델" loading="lazy"></div><div class="tx"><div class="no">01</div><h4>사업 모델</h4><p>소비자·안경점·제조사가 함께 이익을 얻는 구조, 안경점 도수렌즈와 연계</p></div></div>
-        <div class="hpanel"><div class="ph"><img src="assets/heek_brand.jpg" alt="브랜드 기획" data-zoom data-cap="브랜드 정체성과 제품 기획" loading="lazy"></div><div class="tx"><div class="no">02</div><h4>브랜드</h4><p>정체성과 소구점 정립, 제품 기획</p></div></div>
-        <div class="hpanel"><div class="ph"><img src="assets/heek_mold.jpg" alt="기구 설계와 금형" data-zoom data-cap="기구 설계와 금형 제작" loading="lazy"></div><div class="tx"><div class="no">03</div><h4>설계·금형</h4><p>기구 설계, 목업, 필드테스트, 회전 조립식 구조 금형 제작</p></div></div>
-        <div class="hpanel"><div class="ph"><img src="assets/heek_frame.jpg" alt="렌즈 프레임" data-zoom data-cap="조립식 도수 렌즈 프레임" loading="lazy"></div><div class="tx"><div class="no">04</div><h4>제품</h4><p>Quest 3·2, PS VR2, Pico 4 호환 렌즈 프레임</p></div></div>
-        <div class="hpanel"><div class="ph"><img src="assets/heek_package.jpg" alt="패키지" data-zoom data-cap="게임 콘셉트 패키지" loading="lazy"></div><div class="tx"><div class="no">05</div><h4>패키지</h4><p>게임 콘셉트 패키지 기획·디자인</p></div></div>
-        <div class="hpanel"><div class="ph"><img src="assets/heek_landing.jpg" alt="랜딩페이지와 영상" data-zoom data-cap="랜딩페이지·영상 기획" loading="lazy"></div><div class="tx"><div class="no">06</div><h4>판매·고객</h4><p>랜딩페이지·숏폼, 스마트스토어·쿠팡 로켓그로스, 3PL 물류, 고객 응대</p></div></div>
-      </div>
-    </div>
   </div>
+  <div class="h-wrap" id="hWrap">
+   <div class="h-stage">
+     <div class="wrap" style="width:100%">
+      <div class="h-head"><h3>브랜드 하나가 고객에게 닿기까지</h3><span class="sub" style="font-size:14px">사업 모델 → 고객 응대</span></div>
+      <div class="h-bar"><i id="hBar"></i></div>
+     </div>
+     <div class="h-track" id="hTrack">
+      <div class="h-panel"><div class="ph"><img src="assets/heek_bm.jpg" alt="사업 모델" data-zoom data-cap="사업 모델" loading="lazy"></div><div class="tx"><div class="no">01</div><h4>사업 모델</h4><p>소비자·<em>안경점</em>·제조사가 함께 이익을 얻는 구조, 안경점 도수렌즈와 연계</p></div></div>
+      <div class="h-panel"><div class="ph"><img src="assets/heek_brand.jpg" alt="브랜드" data-zoom data-cap="브랜드 정체성과 제품 기획" loading="lazy"></div><div class="tx"><div class="no">02</div><h4>브랜드</h4><p>정체성과 소구점 정립, 제품 기획</p></div></div>
+      <div class="h-panel"><div class="ph"><img src="assets/heek_mold.jpg" alt="설계와 금형" data-zoom data-cap="기구 설계와 금형 제작" loading="lazy"></div><div class="tx"><div class="no">03</div><h4>설계·금형</h4><p>기구 설계와 필드테스트, <em>금형 업체</em>와 회전 조립식 구조 금형 제작</p></div></div>
+      <div class="h-panel"><div class="ph"><img src="assets/heek_frame.jpg" alt="제품" data-zoom data-cap="조립식 도수 렌즈 프레임" loading="lazy"></div><div class="tx"><div class="no">04</div><h4>제품</h4><p>Quest 3·2, PS VR2, Pico 4 호환 렌즈 프레임</p></div></div>
+      <div class="h-panel"><div class="ph"><img src="assets/heek_package.jpg" alt="패키지" data-zoom data-cap="게임 콘셉트 패키지" loading="lazy"></div><div class="tx"><div class="no">05</div><h4>패키지</h4><p>게임 콘셉트 패키지 기획·디자인</p></div></div>
+      <div class="h-panel"><div class="ph"><img src="assets/heek_landing.jpg" alt="판매와 고객 응대" data-zoom data-cap="랜딩페이지·영상 기획" loading="lazy"></div><div class="tx"><div class="no">06</div><h4>판매·고객</h4><p>랜딩페이지·숏폼, 스마트스토어·쿠팡 로켓그로스, <em>3PL 물류 대행</em>, 고객 응대</p></div></div>
+     </div>
+   </div>
+  </div>
+  <div style="height:clamp(40px,6vw,80px)"></div>
+ </div>
 </section>
 
-<!-- 4 생산전환TF -->
-<section id="tf" class="dark scene" data-ch="03 생산전환TF" data-theme="dark">
-  <div class="wrap">
+<section class="card dark" id="c3" data-ch="03 생산전환TF" data-theme="dark" data-rail="2">
+ <div class="inner"><div class="shade"></div>
+  <div class="wrap sect">
     <div class="kicker">03 · 생산전환TF · 2025 ~ 2026 · TF 팀장</div>
     <h2 class="title">드러난 곳이 아니라<br>시작된 곳</h2>
-    <p class="lead sub">개발에서 양산으로 넘어가는 길목의 리스크를 미리 없애려고 TF를 기획해 발족했습니다. 매주 개발·생산·품질 담당과 FMEA를 돌리며, 불량이 드러난 공정이 아니라 원인이 시작된 공정을 찾았습니다.</p>
-    <div class="causes" id="causes">
+    <p class="lead sub">개발에서 양산으로 넘어갈 때 생기는 리스크를 미리 없애려고 TF를 기획해 발족했습니다. 매주 개발·생산·품질 담당과 FMEA를 돌리며, 불량이 드러난 공정이 아니라 원인이 시작된 공정을 함께 찾았습니다.</p>
+    <div class="causes">
       <div class="cause"><div class="st"><small>드러난 곳</small><b>손연마 작업 시간 과다</b></div><i class="ar"></i><div class="st"><small>시작된 곳</small><b>사출 게이트 위치</b></div><i class="ar"></i><div class="st fix"><small>조치</small><b>게이트 커팅 지그로 작업 제거</b></div></div>
       <div class="cause"><div class="st"><small>드러난 곳</small><b>조립 나사 헛돎·폐기</b></div><i class="ar"></i><div class="st"><small>시작된 곳</small><b>태핑홀 지름 기준 없음</b></div><i class="ar"></i><div class="st fix"><small>조치</small><b>태핑홀 내부 기준 제정</b></div></div>
       <div class="cause"><div class="st"><small>드러난 곳</small><b>렌즈 교체 시 탈막</b></div><i class="ar"></i><div class="st"><small>시작된 곳</small><b>편광층 부착력 부족</b></div><i class="ar"></i><div class="st fix"><small>조치</small><b>단차 가공으로 편광층 회피</b></div></div>
@@ -344,15 +410,15 @@ footer a{color:#9A978F}
       <figure class="rv"><img src="assets/tf_dash.jpg" alt="전사 리스크 대시보드" data-zoom data-cap="전사 리스크 대시보드" loading="lazy"><figcaption>전사 리스크 대시보드</figcaption></figure>
     </div>
   </div>
+ </div>
 </section>
 
-<!-- 5 업무 시스템 -->
-<section id="system" class="scene" data-ch="04 업무 시스템" data-theme="light">
-  <div class="wrap">
+<section class="card light" id="c4" data-ch="04 업무 시스템" data-theme="light" data-rail="3">
+ <div class="inner"><div class="shade"></div>
+  <div class="wrap sect" style="padding-bottom:0">
     <div class="kicker">04 · 사내 업무 시스템 · 2026 ~</div>
     <h2 class="title">9개월 앞을 보는 수급</h2>
-    <p class="lead">성수기와 비수기의 물량 차이가 커서 고정비를 채우지 못하는 달이 자주 생겼습니다. 비수기에 앞당겨 만들 물량을 미리 알기 위해, 영업·생산·구매가 9개월 앞 수급을 한 화면에서 보는 시스템을 만들기 시작했습니다.</p>
-
+    <p class="lead" style="color:var(--sub)">성수기와 비수기의 물량 차이가 커서 고정비를 채우지 못하는 달이 자주 생겼습니다. 비수기에 앞당겨 만들 물량을 미리 알기 위해, 영업·생산·구매가 9개월 앞 수급을 한 화면에서 함께 보고 조율하는 시스템을 만들기 시작했습니다.</p>
     <div class="sim" id="sim">
       <div class="sim-top">
         <div class="st">
@@ -367,42 +433,45 @@ footer a{color:#9A978F}
         <div class="hl bep" style="bottom:60%"><span>손익분기 물량</span></div>
       </div>
       <div class="legend"><span><i style="background:#CFCCC5"></i>정상</span><span><i style="background:var(--acc)"></i>손익분기 미달</span><span><i style="background:var(--ink)"></i>생산 능력 초과</span></div>
-      <p class="sim-note">예시 수치입니다. 실제 물량과 손익분기 값은 싣지 않았습니다</p>
+      <p class="note">예시 수치입니다. 실제 물량과 손익분기 값은 싣지 않았습니다</p>
     </div>
-
-    <div class="dev-sec" id="devSec">
-      <div>
-        <h3 style="font-size:clamp(24px,2.6vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:10px">수급에서 시작해 회사 전체로</h3>
-        <p class="sub" style="margin-bottom:22px">업무 흐름과 화면 기획, 데이터 검증, 운영은 직접 맡고, 코드는 AI 코딩 도구로 작성했습니다</p>
-        <ul class="steps" id="steps">
-          <li class="on"><b>허브</b><span>계획·관리와 실적·현황을 카드로 한눈에</span></li>
-          <li><b>월별 수급계획</b><span>수요·생산 투입·구매를 한 표에, 균형은 그래프로</span></li>
-          <li><b>개발 일정</b><span>과제별 샘플·Pilot·양산 단계를 간트로</span></li>
-          <li><b>생산실적</b><span>공정별 생산량과 전년 대비, 계획 달성률</span></li>
-        </ul>
-        <div class="kpis" style="margin-top:26px">
-          <div class="kpi"><b>07.28</b><span>2026 전 임직원 오픈</span></div>
-          <div class="kpi"><b><span class="cnt" data-to="93">93</span><small>개</small></b><span>계정</span></div>
-          <div class="kpi"><b>0<small>원</small></b><span>외부 개발비</span></div>
-        </div>
-      </div>
-      <div class="device" id="device"><div class="scr">
-        <img src="assets/sys_hub.jpg" alt="업무 시스템 허브" data-zoom data-cap="허브">
-        <img src="assets/sys_plan.jpg" alt="월별 수급계획" data-zoom data-cap="월별 수급계획" loading="lazy">
-        <img src="assets/sys_dev.jpg" alt="개발 일정" data-zoom data-cap="개발 일정" loading="lazy">
-        <img src="assets/sys_prod.jpg" alt="생산실적" data-zoom data-cap="생산실적" loading="lazy">
-      </div></div>
-    </div>
-    <p class="sim-note" style="margin-top:14px">고객사명, 담당자 이름, 금액은 흐리게 처리했습니다</p>
   </div>
+  <div class="z-wrap" id="zWrap">
+   <div class="z-stage wrap" id="zStage">
+    <div id="zSide">
+      <h3 style="font-size:clamp(24px,2.6vw,34px);font-weight:850;letter-spacing:-.02em;margin-bottom:10px;line-height:1.2">수급에서 시작해<br>회사 전체로</h3>
+      <p style="color:var(--sub);margin-bottom:18px">업무 흐름과 화면 기획, 데이터 검증, 운영은 직접 맡고 코드는 AI 코딩 도구로 작성했습니다. 영업·생산·구매·개발이 같은 화면에 입력합니다</p>
+      <ul class="steps" id="steps">
+        <li class="on"><b>허브</b><span>계획·관리와 실적·현황을 한눈에</span></li>
+        <li><b>월별 수급계획</b><span>수요·생산 투입·구매를 한 표에</span></li>
+        <li><b>개발 일정</b><span>샘플·Pilot·양산 단계를 간트로</span></li>
+        <li><b>생산실적</b><span>공정별 생산량과 계획 달성률</span></li>
+      </ul>
+      <div class="kpis" style="margin-top:20px">
+        <div class="kpi"><b>07.28</b><span>2026 전 임직원 오픈</span></div>
+        <div class="kpi"><b><span class="cnt" data-to="93">93</span><small>개</small></b><span>계정</span></div>
+        <div class="kpi"><b>$200<small>/월</small></b><span>AI 도구 구독료</span></div>
+      </div>
+    </div>
+    <div class="device" id="device"><div class="scr">
+      <img src="assets/sys_hub.jpg" alt="업무 시스템 허브" data-zoom data-cap="허브">
+      <img src="assets/sys_plan.jpg" alt="월별 수급계획" data-zoom data-cap="월별 수급계획" loading="lazy">
+      <img src="assets/sys_dev.jpg" alt="개발 일정" data-zoom data-cap="개발 일정" loading="lazy">
+      <img src="assets/sys_prod.jpg" alt="생산실적" data-zoom data-cap="생산실적" loading="lazy">
+    </div></div>
+   </div>
+  </div>
+  <div class="wrap"><p class="note" style="margin:0;padding-bottom:80px">고객사명, 담당자 이름, 금액은 흐리게 처리했습니다</p></div>
+ </div>
 </section>
 
-<!-- 6 숫자 -->
-<section id="numbers" class="dark num-sec" data-ch="05 사업계획과 손익" data-theme="dark">
-  <div class="wrap" style="width:100%;padding-top:110px;padding-bottom:110px">
+<section class="card dark" id="c5" data-ch="05 사업계획과 손익" data-theme="dark" data-rail="4">
+ <div class="inner"><div class="shade"></div>
+  <div class="n-wrap" id="nWrap">
+   <div class="n-stage wrap" id="nStage">
     <div class="kicker">05 · 사업계획과 손익 · 2026 ~</div>
-    <h2 class="title">사업을 숫자로 나누는 기준</h2>
-    <p class="lead sub">전략기획팀장 겸 FP&amp;A 기획파트장으로 4개 사업부문의 손익을 같은 기준으로 보는 틀을 만들고 있습니다. 판관비 배부 기준 정립은 이렇게 진행했습니다.</p>
+    <h2 class="title" style="margin-bottom:14px">사업을 숫자로 나누는 기준</h2>
+    <p class="sub" style="max-width:720px">전략기획팀장 겸 FP&amp;A 기획파트장으로 4개 사업부문의 손익을 같은 기준으로 보는 틀을 만들고 있습니다. 판관비 배부 기준은 재무팀과 협의하며 이렇게 정립했습니다.</p>
     <div class="nums" id="nums">
       <div class="num"><b>6,557</b><span>1~7월 판관비 전표를 전부 열어</span></div>
       <div class="num"><b>52</b><span>성격이 같은 배부 항목으로 묶고</span></div>
@@ -410,6 +479,10 @@ footer a{color:#9A978F}
       <div class="num"><b>4</b><span>사업부문별 영업이익을 다시 계산하고</span></div>
       <div class="num"><b>5년</b><span>기준이 바뀌면 5개년 계획이 함께 바뀌도록</span></div>
     </div>
+    <div class="n-dots" id="nDots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+   </div>
+  </div>
+  <div class="wrap" style="padding-bottom:110px">
     <div class="doclist">
       <div class="rv"><b>중장기 손익 통합모델</b><span>4개 사업부문 × 5개년(2027~2031)</span></div>
       <div class="rv"><b>비용계획 통합본</b><span>15개 파트 회신 통합, 행별 산정 기준 명시</span></div>
@@ -418,34 +491,46 @@ footer a{color:#9A978F}
       <div class="rv"><b>GP 변동 요인 분해</b><span>수량·판매가·단위원가로 나눠 적자 원인 규명</span></div>
       <div class="rv"><b>연도별 부문 분리 손익</b><span>회계 원장을 부문 기준으로 재구성</span></div>
     </div>
-    <p class="sim-note" style="color:#77746D;margin-top:18px">금액은 대외비라 싣지 않았습니다</p>
+    <p class="note" style="color:#77746D">금액은 대외비라 싣지 않았습니다</p>
   </div>
+ </div>
 </section>
 
-<!-- 7 마무리 -->
-<section id="finale" class="dark pipe-sec" data-ch="길목을 잇는 사람" data-theme="dark" style="display:block;padding-top:120px">
-  <canvas class="field"></canvas>
-  <div class="glow"></div>
-  <div class="wrap" style="position:relative">
-    <div id="finTop"><div class="pipe-head"><div class="kicker">Connecting the gaps</div><h2 class="title" style="font-size:clamp(28px,3.6vw,48px)">지나온 길이 길목을 하나씩 막았습니다</h2></div>
-    <svg class="pipe" id="pipe2" viewBox="0 0 1000 330" aria-label="지나온 경력이 길목을 하나씩 막은 흐름">
-      <path class="base" d="M80 120 H920"/>
-      <path class="flow" d="M80 120 H920" style="stroke:var(--acc)"/>
-      <g class="node"><circle cx="80" cy="120" r="14"/><text x="80" y="76">기획</text></g>
-      <g class="node"><circle cx="290" cy="120" r="14"/><text x="290" y="76">설계</text></g>
-      <g class="node"><circle cx="500" cy="120" r="14"/><text x="500" y="76">양산</text></g>
-      <g class="node"><circle cx="710" cy="120" r="14"/><text x="710" y="76">판매</text></g>
-      <g class="node"><circle cx="920" cy="120" r="14"/><text x="920" y="76">고객</text></g>
-      <g class="plug"><rect x="120" y="170" width="130" height="38" rx="19"/><text x="185" y="195">설계 15년</text></g>
-      <g class="plug"><rect x="330" y="170" width="130" height="38" rx="19"/><text x="395" y="195">생산전환TF</text></g>
-      <g class="plug"><rect x="540" y="170" width="130" height="38" rx="19"/><text x="605" y="195">수급 시스템</text></g>
-      <g class="plug"><rect x="750" y="170" width="130" height="38" rx="19"/><text x="815" y="195">HEEK 창업</text></g>
-    </svg></div>
-    <h2 class="statement" id="statement">
-      <span class="ln"><span>기획에서 양산, 판매로</span></span>
-      <span class="ln"><span>넘어가는 길목의</span></span>
-      <span class="ln"><span>비효율을 줄이는 사람<b style="color:var(--acc)">.</b></span></span>
+<section class="card first" id="finale" data-ch="제품 개발에서 사업 전반까지" data-theme="dark" style="border-radius:34px 34px 0 0">
+ <div class="inner">
+  <div class="f-track">
+   <div class="f-top">
+    <canvas class="field"></canvas><div class="glow"></div>
+    <div class="wrap">
+      <div class="kicker">Connecting</div>
+      <h2>끊긴 자리마다 이어 온 일</h2>
+      <svg class="pipe" id="pipe2" viewBox="0 0 1000 260" style="width:min(1000px,100%)" aria-label="지나온 경력이 끊긴 자리를 하나씩 이은 흐름">
+        <path class="base" d="M80 110 H920"/><path class="flow" d="M80 110 H920" style="stroke:var(--acc)"/>
+        <g class="node"><circle cx="80" cy="110" r="14"/><text x="80" y="66">기획</text></g>
+        <g class="node"><circle cx="290" cy="110" r="14"/><text x="290" y="66">설계</text></g>
+        <g class="node"><circle cx="500" cy="110" r="14"/><text x="500" y="66">양산</text></g>
+        <g class="node"><circle cx="710" cy="110" r="14"/><text x="710" y="66">판매</text></g>
+        <g class="node"><circle cx="920" cy="110" r="14"/><text x="920" y="66">고객</text></g>
+        <g class="plug"><rect x="120" y="160" width="130" height="38" rx="19"/><text x="185" y="185">설계 15년</text></g>
+        <g class="plug"><rect x="330" y="160" width="130" height="38" rx="19"/><text x="395" y="185">생산전환TF</text></g>
+        <g class="plug"><rect x="540" y="160" width="130" height="38" rx="19"/><text x="605" y="185">수급 시스템</text></g>
+        <g class="plug"><rect x="750" y="160" width="130" height="38" rx="19"/><text x="815" y="185">HEEK 창업</text></g>
+      </svg>
+    </div>
+   </div>
+  </div>
+  <div class="want wrap">
+    <div class="kicker" style="text-align:center">What I want to do</div>
+    <h2 class="statement" id="statement" style="margin-top:18px">
+      <span class="l"><span>기획에서 양산, 판매로</span></span>
+      <span class="l"><span>넘어가는 사이의</span></span>
+      <span class="l"><span>비효율을 줄이는 일<b style="color:var(--acc)">.</b></span></span>
     </h2>
+    <div class="paths">
+      <div><b>개발과 생산 사이</b><em>생산전환TF</em><span>개발·생산·품질이 함께 양산 이관 리스크를 미리 제거</span></div>
+      <div><b>부서와 부서 사이</b><em>사내 업무 시스템</em><span>따로 관리하던 수급 정보를 하나의 화면과 데이터로</span></div>
+      <div><b>기획과 판매 사이</b><em>HEEK 창업</em><span>파트너들과 기획부터 고객 응대까지 직접 운영</span></div>
+    </div>
     <p class="motto">누군가 할 일이라면 내가 하고, 언젠가 할 일이라면 오늘 하고, 어차피 할 일이라면 확실히 한다</p>
     <div class="contact">
       <a class="mail" href="mailto:simonism@naver.com">simonism@naver.com</a>
@@ -453,6 +538,7 @@ footer a{color:#9A978F}
     </div>
   </div>
   <footer>© 2026 유승환 · <a href="classic.html">한 페이지 요약 보기</a></footer>
+ </div>
 </section>
 </main>
 
@@ -466,201 +552,155 @@ footer a{color:#9A978F}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const fine = window.matchMedia('(pointer:fine)').matches;
+const motion=document.documentElement.classList.contains('js');
+const fine=window.matchMedia('(pointer:fine)').matches;
 
-/* ---------- 점 격자 배경(마우스 반응) ---------- */
-function dotField(sec){
-  const cv = sec.querySelector('canvas.field'); if(!cv) return;
-  const ctx = cv.getContext('2d'); const glow = sec.querySelector('.glow');
-  let w,h,dpr,mx=-999,my=-999,tx=-999,ty=-999,run=false;
-  function size(){ dpr=Math.min(2,window.devicePixelRatio||1); w=sec.clientWidth; h=sec.clientHeight; cv.width=w*dpr; cv.height=h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
-  size(); window.addEventListener('resize', size);
-  sec.addEventListener('pointermove', e=>{ const r=sec.getBoundingClientRect(); tx=e.clientX-r.left; ty=e.clientY-r.top;
-    if(glow){ glow.style.setProperty('--mx', tx+'px'); glow.style.setProperty('--my', ty+'px'); } });
-  sec.addEventListener('pointerleave', ()=>{ tx=-999; ty=-999; });
+function dotField(host){
+  const cv=host.querySelector('canvas.field'); if(!cv) return;
+  const ctx=cv.getContext('2d'), glow=host.querySelector('.glow');
+  let w,h,mx=-999,my=-999,tx=-999,ty=-999,run=false;
+  function size(){ const d=Math.min(2,devicePixelRatio||1); w=host.clientWidth; h=host.clientHeight; cv.width=w*d; cv.height=h*d; ctx.setTransform(d,0,0,d,0,0); }
+  size(); addEventListener('resize',size);
+  host.addEventListener('pointermove',e=>{ const r=host.getBoundingClientRect(); tx=e.clientX-r.left; ty=e.clientY-r.top;
+    if(glow){ glow.style.setProperty('--mx',tx+'px'); glow.style.setProperty('--my',ty+'px'); } });
+  host.addEventListener('pointerleave',()=>{ tx=-999; ty=-999; });
   const S=30;
-  function draw(){
-    if(!run) return;
-    mx += (tx-mx)*.12; my += (ty-my)*.12;
-    ctx.clearRect(0,0,w,h);
-    for(let y=S/2;y<h;y+=S){ for(let x=S/2;x<w;x+=S){
-      const d=Math.hypot(x-mx,y-my); const k=Math.max(0,1-d/190);
-      const r=1+k*2.6;
-      ctx.fillStyle = k>0 ? `rgba(${Math.round(120+106*k)},${Math.round(120-42*k)},${Math.round(120-93*k)},${.35+.6*k})` : 'rgba(120,120,120,.28)';
-      ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.fill();
-    }}
-    requestAnimationFrame(draw);
-  }
-  new IntersectionObserver(es=>{ es.forEach(en=>{ const was=run; run=en.isIntersecting; if(run&&!was) requestAnimationFrame(draw); }); }).observe(sec);
-  if(reduce){ run=false; }
+  function paint(){ ctx.clearRect(0,0,w,h);
+    for(let y=S/2;y<h;y+=S) for(let x=S/2;x<w;x+=S){ const k=Math.max(0,1-Math.hypot(x-mx,y-my)/190);
+      ctx.fillStyle=k>0?`rgba(${120+106*k|0},${120-42*k|0},${120-93*k|0},${.32+.6*k})`:'rgba(120,120,120,.26)';
+      ctx.beginPath(); ctx.arc(x,y,1+k*2.6,0,6.283); ctx.fill(); } }
+  function draw(){ if(!run) return; mx+=(tx-mx)*.12; my+=(ty-my)*.12; paint(); requestAnimationFrame(draw); }
+  if(!motion){ paint(); return; }
+  new IntersectionObserver(es=>es.forEach(en=>{ const was=run; run=en.isIntersecting; if(run&&!was) requestAnimationFrame(draw); })).observe(host);
 }
-document.querySelectorAll('#hero,#finale').forEach(dotField);
+document.querySelectorAll('#opening .stage,#finale .f-top').forEach(dotField);
 
-/* ---------- 수급 시뮬레이터(예시 수치) ---------- */
 const MONTHS=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
-const DEMAND=[9,8,11,15,18,17,12,8,7,9,13,16];
-const LEVEL =[12,12,12,14,15,15,12,12,12,12,13,12];
-const BEP=12, CAP=16, MAX=20;
-const chart=document.getElementById('chart');
-const cols=MONTHS.map((m,i)=>{ const c=document.createElement('div'); c.className='col';
-  c.innerHTML=`<div class="v"></div><div class="fill"></div><div class="m">${m}</div>`; chart.appendChild(c); return c; });
+const DEMAND=[9,8,11,15,18,17,12,8,7,9,13,16], LEVEL=[12,12,12,14,15,15,12,12,12,12,13,12];
+const BEP=12, CAP=16, MAX=20, chart=document.getElementById('chart');
+const cols=MONTHS.map(m=>{ const c=document.createElement('div'); c.className='col'; c.innerHTML=`<div class="v"></div><div class="fill"></div><div class="m">${m}</div>`; chart.appendChild(c); return c; });
 let simOn=false;
-function renderSim(){
-  const arr = simOn ? LEVEL : DEMAND;
-  let low=0, over=0;
+function renderSim(){ const arr=simOn?LEVEL:DEMAND; let low=0,over=0;
   arr.forEach((v,i)=>{ const f=cols[i].querySelector('.fill'), t=cols[i].querySelector('.v');
     f.style.height=(v/MAX*100)+'%'; t.style.bottom=(v/MAX*100)+'%'; t.textContent=v;
-    f.classList.toggle('low', v<BEP); f.classList.toggle('over', v>CAP);
-    if(v<BEP) low++; if(v>CAP) over++; });
-  const inv = LEVEL.reduce((a,b)=>a+b,0)-DEMAND.reduce((a,b)=>a+b,0);
-  document.getElementById('sLow').textContent=low+'개월';
-  document.getElementById('sOver').textContent=over+'개월';
-  document.getElementById('sInv').textContent= simOn ? inv : 0;
+    f.classList.toggle('low',v<BEP); f.classList.toggle('over',v>CAP); if(v<BEP)low++; if(v>CAP)over++; });
+  document.getElementById('sLow').textContent=low+'개월'; document.getElementById('sOver').textContent=over+'개월';
+  document.getElementById('sInv').textContent=simOn?(LEVEL.reduce((a,b)=>a+b)-DEMAND.reduce((a,b)=>a+b)):0;
   const b=document.getElementById('simBtn'); b.classList.toggle('on',simOn); b.setAttribute('aria-pressed',simOn);
-  document.getElementById('simLbl').textContent = simOn ? '선행 생산 끄기' : '선행 생산 켜기';
-}
+  document.getElementById('simLbl').textContent=simOn?'선행 생산 끄기':'선행 생산 켜기'; }
 document.getElementById('simBtn').addEventListener('click',()=>{ simOn=!simOn; renderSim(); });
-requestAnimationFrame(()=>renderSim());
+requestAnimationFrame(renderSim);
 
-/* ---------- 원인 카드 클릭 ---------- */
-document.querySelectorAll('.cause').forEach(c=>c.addEventListener('click',()=>{
-  const on=!c.classList.contains('on'); document.querySelectorAll('.cause').forEach(x=>x.classList.remove('on')); if(on) c.classList.add('on'); }));
-
-/* ---------- 마우스 기울기 ---------- */
-function tilt(el, inner, max){
-  if(!fine || reduce) return;
-  el.addEventListener('pointermove', e=>{ const r=el.getBoundingClientRect();
-    const px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
-    inner.style.transform=`rotateY(${px*max}deg) rotateX(${-py*max}deg)`; });
-  el.addEventListener('pointerleave', ()=>{ inner.style.transform=''; });
-}
-tilt(document.getElementById('tilt1'), document.querySelector('#tilt1 .tilt-in'), 14);
-
-/* ---------- 확대 보기 ---------- */
-const zs=[...document.querySelectorAll('img[data-zoom]')]; const lb=document.getElementById('lb'); const lbi=lb.querySelector('img'); const lbc=lb.querySelector('.cap'); let zi=0;
+document.querySelectorAll('.cause').forEach(c=>c.addEventListener('click',()=>{ const on=!c.classList.contains('on'); document.querySelectorAll('.cause').forEach(x=>x.classList.remove('on')); if(on)c.classList.add('on'); }));
+function tilt(el,inner,max){ if(!fine||!motion) return;
+  el.addEventListener('pointermove',e=>{ const r=el.getBoundingClientRect(), px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5; inner.style.transform=`rotateY(${px*max}deg) rotateX(${-py*max}deg)`; });
+  el.addEventListener('pointerleave',()=>inner.style.transform=''); }
+tilt(document.getElementById('tilt1'),document.querySelector('#tilt1 .tilt-in'),14);
+const zs=[...document.querySelectorAll('img[data-zoom]')], lb=document.getElementById('lb'), lbi=lb.querySelector('img'), lbc=lb.querySelector('.cap'); let zi=0;
 function openZ(i){ zi=(i+zs.length)%zs.length; lbi.src=zs[zi].currentSrc||zs[zi].src; lbi.alt=zs[zi].alt; lbc.textContent=zs[zi].dataset.cap||zs[zi].alt; lb.classList.add('on'); }
 zs.forEach((im,i)=>im.addEventListener('click',e=>{ e.stopPropagation(); openZ(i); }));
 lb.querySelector('.x').onclick=()=>lb.classList.remove('on');
 lb.querySelector('.pv').onclick=e=>{ e.stopPropagation(); openZ(zi-1); };
 lb.querySelector('.nx').onclick=e=>{ e.stopPropagation(); openZ(zi+1); };
 lb.addEventListener('click',e=>{ if(e.target===lb) lb.classList.remove('on'); });
-document.addEventListener('keydown',e=>{ if(!lb.classList.contains('on')) return;
-  if(e.key==='Escape') lb.classList.remove('on'); if(e.key==='ArrowLeft') openZ(zi-1); if(e.key==='ArrowRight') openZ(zi+1); });
+addEventListener('keydown',e=>{ if(!lb.classList.contains('on')) return; if(e.key==='Escape')lb.classList.remove('on'); if(e.key==='ArrowLeft')openZ(zi-1); if(e.key==='ArrowRight')openZ(zi+1); });
 
-/* ---------- 상단 바: 장면 이름·밝기 ---------- */
-const bar=document.getElementById('bar'), chap=document.getElementById('chap');
-const secs=[...document.querySelectorAll('section[data-ch]')];
-function setBar(s){ chap.textContent=s.dataset.ch; bar.classList.toggle('light', s.dataset.theme==='light'); }
-const barIO=new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting) setBar(en.target); }); },{rootMargin:'-49% 0px -49% 0px'});
-secs.forEach(s=>barIO.observe(s));
-window.addEventListener('scroll',()=>{ const p=window.scrollY/(document.documentElement.scrollHeight-innerHeight); document.getElementById('prog').style.transform=`scaleX(${Math.min(1,Math.max(0,p))})`; },{passive:true});
+const bar=document.getElementById('bar'), chap=document.getElementById('chap'), rail=document.getElementById('rail'), rl=[...rail.querySelectorAll('a')];
+const cards=[...document.querySelectorAll('.card')];
+function current(){ const mid=innerHeight*0.5; let cur=cards[0];
+  cards.forEach(c=>{ const r=c.getBoundingClientRect(); if(r.top<=mid) cur=c; }); return cur; }
+function onScroll(){ const max=document.documentElement.scrollHeight-innerHeight, y=scrollY;
+  document.getElementById('prog').style.transform=`scaleX(${Math.min(1,Math.max(0,y/max))})`;
+  const s=current(); chap.textContent=s.dataset.ch; bar.classList.toggle('light',s.dataset.theme==='light');
+  const ri=s.dataset.rail; rail.classList.toggle('on',ri!==undefined); rl.forEach((a,i)=>a.classList.toggle('on',String(i)===ri));
+  const a=cards[1].offsetTop, b=document.getElementById('finale').offsetTop;
+  document.getElementById('railFill').style.transform=`scaleY(${Math.min(1,Math.max(0,(y-a)/(b-a)))})`; }
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
-/* ---------- 스크롤 연출 ---------- */
-if(!window.gsap || !window.ScrollTrigger || reduce) return;
+const slots=[...document.querySelectorAll('#dMedia .slot')];
+const sio=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ const k=+en.target.dataset.slot; slots.forEach((s,i)=>s.classList.toggle('on',i===k)); } }),{rootMargin:'-48% 0px -48% 0px'});
+document.querySelectorAll('.d-blk').forEach(b=>sio.observe(b));
+
+if(!motion||!window.gsap||!window.ScrollTrigger){ document.documentElement.classList.remove('js'); return; }
 gsap.registerPlugin(ScrollTrigger);
 
-function counters(scope){
-  scope.querySelectorAll('.cnt').forEach(el=>{
-    const to=+el.dataset.to, comma=el.dataset.comma; const o={v:0};
-    gsap.to(o,{v:to,duration:1.6,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',once:true},
-      onUpdate:()=>{ const n=Math.round(o.v); el.textContent= comma? n.toLocaleString('ko-KR') : n; }});
-  });
+let lenis=null;
+if(window.Lenis&&fine){
+  lenis=new Lenis({lerp:.1,smoothWheel:true});
+  lenis.on('scroll',()=>{ ScrollTrigger.update(); onScroll(); });
+  gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
 }
-counters(document);
+rl.forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); const y=t.offsetTop+ (parseFloat(t.style.top)<0?0:0);
+  if(lenis) lenis.scrollTo(y); else scrollTo({top:y,behavior:'smooth'}); }));
 
-function pipeDraw(svg, tl, opt){
-  const flow=svg.querySelector('.flow'); const L=flow.getTotalLength();
+function stickTops(){ cards.forEach(c=>{ c.style.top=Math.min(0,innerHeight-c.offsetHeight)+'px'; }); }
+stickTops(); addEventListener('resize',stickTops); ScrollTrigger.addEventListener('refresh',stickTops);
+cards.forEach((c,i)=>{ const next=cards[i+1]; if(!next) return;
+  gsap.timeline({scrollTrigger:{trigger:next,start:'top bottom',end:'top top',scrub:true}})
+    .to(c.querySelector('.inner'),{scale:.94,ease:'none'},0)
+    .to(c.querySelector('.shade'),{opacity:.55,ease:'none'},0); });
+
+document.querySelectorAll('.cnt').forEach(el=>{ const to=+el.dataset.to, comma=el.dataset.comma, o={v:0};
+  gsap.to(o,{v:to,duration:1.6,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',once:true},onUpdate:()=>{ const n=Math.round(o.v); el.textContent=comma?n.toLocaleString('ko-KR'):n; }}); });
+gsap.utils.toArray('.rv').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}}));
+
+function pipeDraw(svg,tl,t0){ const flow=svg.querySelector('.flow'), L=flow.getTotalLength();
   gsap.set(flow,{strokeDasharray:L,strokeDashoffset:L});
-  const nodes=svg.querySelectorAll('.node');
-  gsap.set(nodes,{opacity:0,scale:.4,transformOrigin:'center',transformBox:'fill-box'});
-  tl.to(flow,{strokeDashoffset:0,ease:'none',duration:4},0);
-  nodes.forEach((n,i)=>tl.to(n,{opacity:1,scale:1,duration:.5},i*0.95));
-}
+  const nodes=svg.querySelectorAll('.node'); gsap.set(nodes,{opacity:0,scale:.4,transformOrigin:'center',transformBox:'fill-box'});
+  tl.to(flow,{strokeDashoffset:0,ease:'none',duration:4},t0); nodes.forEach((n,i)=>tl.to(n,{opacity:1,scale:1,duration:.5},t0+i*.95)); }
+
+const p1=document.getElementById('pipe1');
+const t0=gsap.timeline({scrollTrigger:{trigger:'#opening .track',start:'top top',end:()=>'+='+(document.querySelector('#opening .track').offsetHeight-innerHeight*1.6),scrub:.6}});
+t0.to('.o-hero .o-title',{scale:.62,yPercent:-30,opacity:0,ease:'power1.in',duration:3},0)
+  .to('.o-hero .kicker,.o-hero .o-sub,.hint',{opacity:0,y:-30,duration:2},0)
+  .fromTo('.o-intro',{opacity:0,scale:.86,y:40},{opacity:1,scale:1,y:0,duration:2.4},2)
+  .to('.o-intro',{opacity:0,scale:1.08,y:-70,filter:'blur(6px)',duration:2.2},6)
+  .fromTo('.o-prob',{opacity:0,y:60},{opacity:1,y:0,duration:2},7);
+pipeDraw(p1,t0,8.4);
+p1.querySelectorAll('.leak').forEach((g,i)=>{ const c=g.querySelector('circle'), tx=g.querySelector('text');
+  gsap.set(c,{opacity:0}); gsap.set(tx,{opacity:0,y:18}); const at=9.6+i*.95;
+  t0.to(c,{opacity:1,duration:.2},at).to(c,{attr:{cy:195},duration:.7,ease:'power1.in'},at+.15).to(tx,{opacity:1,y:0,duration:.5},at+.5); });
+t0.to({},{duration:1.5});
 
 const mm=gsap.matchMedia();
-
-/* 공통: 등장 */
-gsap.utils.toArray('.rv').forEach(el=>gsap.from(el,{y:60,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
-
-mm.add('(min-width: 901px)', ()=>{
-  /* 0 오프닝: 글자가 작아지며 물러남 */
-  gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'+=130%',scrub:.6,pin:true}})
-    .to('.hero-title',{scale:.38,yPercent:-60,opacity:.15,ease:'none'},0)
-    .to('.hero-kicker,.hero-sub,.hint',{opacity:0,y:-40,ease:'none'},0)
-    .fromTo('.hero-intro',{opacity:0,y:80},{opacity:1,y:0,ease:'none'},.35);
-
-  /* 1 문제: 선이 그려지고 길목마다 샘 */
-  const p1=document.getElementById('pipe1');
-  const t1=gsap.timeline({scrollTrigger:{trigger:'#problem',start:'top top',end:'+=170%',scrub:.6,pin:true}});
-  pipeDraw(p1,t1);
-  p1.querySelectorAll('.leak').forEach((g,i)=>{
-    const c=g.querySelector('circle'), tx=g.querySelector('text');
-    gsap.set(c,{opacity:0}); gsap.set(tx,{opacity:0,y:20});
-    const at=1.2+i*0.95;
-    t1.to(c,{opacity:1,duration:.2},at).to(c,{attr:{cy:205},duration:.7,ease:'power1.in'},at+.15).to(tx,{opacity:1,y:0,duration:.5},at+.5);
-  });
-
-  /* 2 설계: 분해도가 돌며 정면으로 */
-  gsap.timeline({scrollTrigger:{trigger:'#ecPin',start:'center center',end:'+=110%',scrub:.6,pin:true}})
-    .fromTo('#ecCard',{rotateY:-38,rotateX:16,scale:.62,opacity:.35},{rotateY:0,rotateX:0,scale:1,opacity:1,ease:'none'});
-
-  /* 3 HEEK: 가로 스크롤 */
-  const hw=document.getElementById('hwrap'), tr=document.getElementById('htrack');
-  hw.classList.add('js-h');
-  const dist=()=>Math.max(0,tr.scrollWidth-hw.clientWidth);
-  gsap.timeline({scrollTrigger:{trigger:hw,start:'top 14%',end:()=>'+='+dist(),scrub:.6,pin:true,invalidateOnRefresh:true}})
-    .to(tr,{x:()=>-dist(),ease:'none'},0)
-    .to('#hbarFill',{scaleX:1,ease:'none'},0);
-
-  /* 5 장치 화면: 스크롤에 따라 화면 전환 */
-  const ds=document.getElementById('devSec'); ds.classList.add('js-dev');
-  const imgs=ds.querySelectorAll('.scr img'), lis=ds.querySelectorAll('.steps li');
-  const td=gsap.timeline({scrollTrigger:{trigger:ds,start:'center center',end:'+=180%',scrub:.5,pin:true,
-    onUpdate:s=>{ const k=Math.min(3,Math.floor(s.progress*4)); lis.forEach((l,i)=>l.classList.toggle('on',i===k)); }}});
-  for(let i=1;i<imgs.length;i++){ td.to(imgs[i],{opacity:1,duration:1},i).to(imgs[i-1],{opacity:0,duration:1},i); }
-  tilt(document.getElementById('device'), document.querySelector('#device .scr'), 0);
-
-  /* 6 숫자: 한가운데서 하나씩 */
-  const ns=document.getElementById('numbers'); ns.classList.add('js-num');
-  const nums=ns.querySelectorAll('.num');
-  const tn=gsap.timeline({scrollTrigger:{trigger:'#numbers',start:'top top',end:'+=220%',scrub:.5,pin:true}});
-  nums.forEach((n,i)=>{ tn.fromTo(n,{opacity:0,scale:1.35},{opacity:1,scale:1,duration:1},i*2);
-    if(i<nums.length-1) tn.to(n,{opacity:0,scale:.7,duration:.5},i*2+1.3); });
-
-  return ()=>{ hw.classList.remove('js-h'); ds.classList.remove('js-dev'); ns.classList.remove('js-num'); };
+mm.add('(min-width: 901px)',()=>{
+  gsap.fromTo('#ecFrame',{rotateY:-36,rotateX:16,scale:.7},{rotateY:0,rotateX:0,scale:1,ease:'none',scrollTrigger:{trigger:'#c1',start:'top 85%',end:'top top',scrub:.6}});
+  const tr=document.getElementById('hTrack'), lead=()=>Math.max(16,(innerWidth-1240)/2+56);
+  const dist=()=>Math.max(0,tr.scrollWidth-innerWidth+lead()*2);
+  gsap.set(tr,{x:()=>lead()});
+  gsap.timeline({scrollTrigger:{trigger:'#hWrap',start:'top top',end:'bottom bottom',scrub:.6,invalidateOnRefresh:true}})
+    .fromTo(tr,{x:()=>lead()},{x:()=>lead()-dist(),ease:'none'},0).to('#hBar',{scaleX:1,ease:'none'},0);
+  const imgs=document.querySelectorAll('#device .scr img'), lis=document.querySelectorAll('#steps li');
+  const tz=gsap.timeline({scrollTrigger:{trigger:'#zWrap',start:'top top',end:'bottom bottom',scrub:.5,
+    onUpdate:s=>{ const p=s.progress, k=p<.4?0:Math.min(3,1+Math.floor((p-.4)/.18)); lis.forEach((l,i)=>l.classList.toggle('on',i===k)); }}});
+  tz.fromTo('#device',{scale:2.5,x:'-22%',y:'10%'},{scale:1,x:0,y:0,ease:'power2.inOut',duration:3},0)
+    .fromTo('#zSide',{opacity:0,x:-40},{opacity:1,x:0,duration:1.4},1.8);
+  for(let i=1;i<imgs.length;i++){ tz.to(imgs[i],{opacity:1,duration:.9},3+i*1.5).to(imgs[i-1],{opacity:0,duration:.9},3+i*1.5); }
+  tz.to({},{duration:1});
+  const nums=document.querySelectorAll('#nums .num'), dots=document.querySelectorAll('#nDots i');
+  const tn=gsap.timeline({scrollTrigger:{trigger:'#nWrap',start:'top top',end:'bottom bottom',scrub:.5,
+    onUpdate:s=>{ const k=Math.min(4,Math.floor(s.progress*5.2)); dots.forEach((d,i)=>d.classList.toggle('on',i<=k)); }}});
+  nums.forEach((n,i)=>{ tn.fromTo(n,{opacity:0,scale:1.3,filter:'blur(8px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:1},i*2);
+    if(i<nums.length-1) tn.to(n,{opacity:0,scale:.75,duration:.6},i*2+1.4); });
+  tn.to({},{duration:.8});
+});
+mm.add('(max-width: 900px)',()=>{
+  gsap.utils.toArray('.h-panel,.num,.d-blk').forEach(el=>gsap.from(el,{y:40,opacity:0,duration:.8,scrollTrigger:{trigger:el,start:'top 90%'}}));
 });
 
-mm.add('(max-width: 900px)', ()=>{
-  const p1=document.getElementById('pipe1');
-  const t1=gsap.timeline({scrollTrigger:{trigger:p1,start:'top 80%',end:'bottom 40%',scrub:.6}});
-  pipeDraw(p1,t1);
-  gsap.from('#ecCard',{rotateY:-25,scale:.8,opacity:.4,scrollTrigger:{trigger:'#ecCard',start:'top 85%',end:'center center',scrub:.6}});
-  gsap.utils.toArray('.hpanel,.num').forEach(el=>gsap.from(el,{y:40,opacity:0,duration:.8,scrollTrigger:{trigger:el,start:'top 90%'}}));
-});
+document.querySelectorAll('.cause').forEach(c=>{ const st=c.querySelectorAll('.st'), ar=c.querySelectorAll('.ar');
+  gsap.timeline({scrollTrigger:{trigger:c,start:'top 85%'}}).from(st[0],{x:-30,opacity:0,duration:.5}).from(ar[0],{opacity:0,duration:.3})
+    .from(st[1],{x:-30,opacity:0,duration:.5}).from(ar[1],{opacity:0,duration:.3}).from(st[2],{x:-30,opacity:0,duration:.5}); });
 
-/* 4 원인 카드: 화살표가 이어짐 */
-document.querySelectorAll('.cause').forEach(c=>{
-  const st=c.querySelectorAll('.st'), ar=c.querySelectorAll('.ar');
-  gsap.timeline({scrollTrigger:{trigger:c,start:'top 82%'}})
-    .from(st[0],{x:-30,opacity:0,duration:.5})
-    .from(ar[0],{opacity:0,duration:.4})
-    .from(st[1],{x:-30,opacity:0,duration:.5})
-    .from(ar[1],{opacity:0,duration:.4})
-    .from(st[2],{x:-30,opacity:0,duration:.5});
-});
-
-/* 7 마무리: 길목이 막히고 문장이 올라옴 */
 const p2=document.getElementById('pipe2');
-const desk=window.matchMedia('(min-width: 901px)').matches;
-const t7=gsap.timeline({scrollTrigger: desk ? {trigger:'#finTop',start:'top 12%',end:'+=120%',scrub:.6,pin:true} : {trigger:p2,start:'top 80%',end:'bottom 40%',scrub:.6}});
-pipeDraw(p2,t7);
-p2.querySelectorAll('.plug').forEach((g,i)=>{ gsap.set(g,{opacity:0,y:30}); t7.to(g,{opacity:1,y:0,duration:.6},1+i*0.9); });
-gsap.from('#statement .ln span',{yPercent:110,duration:1.1,ease:'power4.out',stagger:.14,scrollTrigger:{trigger:'#statement',start:'top 80%'}});
+const t7=gsap.timeline({scrollTrigger:{trigger:'#finale .f-track',start:'top 30%',end:'bottom bottom',scrub:.6}});
+pipeDraw(p2,t7,0); p2.querySelectorAll('.plug').forEach((g,i)=>{ gsap.set(g,{opacity:0,y:24}); t7.to(g,{opacity:1,y:0,duration:.6},1+i*.9); });
+gsap.from('#statement .l span',{yPercent:110,duration:1.1,ease:'power4.out',stagger:.14,scrollTrigger:{trigger:'#statement',start:'top 82%'}});
 
-window.addEventListener('load',()=>ScrollTrigger.refresh());
+addEventListener('load',()=>{ stickTops(); ScrollTrigger.refresh(); onScroll(); });
 })();
 </script>
 </body>
